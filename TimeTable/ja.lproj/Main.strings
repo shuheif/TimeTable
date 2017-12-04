@@ -1,0 +1,210 @@
+
+/* Class = "UITableViewSection"; headerTitle = "TimeTable PRO"; ObjectID = "13G-CR-b2s"; */
+"13G-CR-b2s.headerTitle" = "TimeTable PRO";
+
+/* Class = "UILabel"; text = "OFF"; ObjectID = "2Vo-fp-iHy"; */
+"2Vo-fp-iHy.text" = "OFF";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "31C-9S-adm"; */
+"31C-9S-adm.text" = "Label";
+
+/* Class = "UILabel"; text = "iOS標準カレンダーに登録"; ObjectID = "49u-FD-C17"; */
+"49u-FD-C17.text" = "iOS標準カレンダーに登録";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "4Tf-AF-JJs"; */
+"4Tf-AF-JJs.text" = "Detail";
+
+/* Class = "UILabel"; text = "広告を削除"; ObjectID = "4Vm-6X-ge1"; */
+"4Vm-6X-ge1.text" = "広告を削除";
+
+/* Class = "UILabel"; text = "2015年9月28日"; ObjectID = "540-QE-NRN"; */
+"540-QE-NRN.text" = "2015年9月28日";
+
+/* Class = "UINavigationItem"; title = "個別授業時間設定"; ObjectID = "5fU-5P-vEe"; */
+"5fU-5P-vEe.title" = "個別授業時間設定";
+
+/* Class = "UILabel"; text = "バージョン"; ObjectID = "6aV-b0-dJP"; */
+"6aV-b0-dJP.text" = "バージョン";
+
+/* Class = "UITableViewSection"; headerTitle = "サポート"; ObjectID = "6jw-YK-QWM"; */
+"6jw-YK-QWM.headerTitle" = "サポート";
+
+/* Class = "UINavigationItem"; title = "時間割情報"; ObjectID = "8Eg-Ze-Mpj"; */
+"8Eg-Ze-Mpj.title" = "時間割情報";
+
+/* Class = "UINavigationItem"; title = "TimeTable Pro"; ObjectID = "9pK-vj-Err"; */
+"9pK-vj-Err.title" = "TimeTable Pro";
+
+/* Class = "UILabel"; text = "購入情報復元"; ObjectID = "Abi-ff-TVg"; */
+"Abi-ff-TVg.text" = "購入情報復元";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Awu-87-fIG"; */
+"Awu-87-fIG.text" = "Detail";
+
+/* Class = "UILabel"; text = "学期終了日"; ObjectID = "C6U-6o-SnN"; */
+"C6U-6o-SnN.text" = "学期終了日";
+
+/* Class = "UILabel"; text = "✓"; ObjectID = "DNS-Wc-GjP"; */
+"DNS-Wc-GjP.text" = "✓";
+
+/* Class = "UITableViewSection"; headerTitle = "講義名"; ObjectID = "DiZ-jn-IIk"; */
+"DiZ-jn-IIk.headerTitle" = "講義名";
+
+/* Class = "UILabel"; text = "曜日/時限"; ObjectID = "Fsa-wM-YZQ"; */
+"Fsa-wM-YZQ.text" = "曜日/時限";
+
+/* Class = "UILabel"; text = "学期開始日"; ObjectID = "GUe-yW-A6P"; */
+"GUe-yW-A6P.text" = "学期開始日";
+
+/* Class = "UITableViewSection"; headerTitle = "表示設定"; ObjectID = "IiG-R1-kwT"; */
+"IiG-R1-kwT.headerTitle" = "表示設定";
+
+/* Class = "UILabel"; text = "保存した時間割は、お使いの全てのiOS端末から確認できます"; ObjectID = "JQA-rh-iZy"; */
+"JQA-rh-iZy.text" = "保存した時間割は、お使いの全てのiOS端末から確認できます";
+
+/* Class = "UITextField"; placeholder = "時間割名"; ObjectID = "Joe-TL-18f"; */
+"Joe-TL-18f.placeholder" = "時間割名";
+
+/* Class = "UILabel"; text = "TimeTable Proにアップグレードすることで、以下のような機能が使えるようになります"; ObjectID = "LFh-6E-eNb"; */
+"LFh-6E-eNb.text" = "TimeTable Proにアップグレードすることで、以下のような機能が使えるようになります";
+
+/* Class = "UILabel"; text = "8:45"; ObjectID = "M4s-E0-KFn"; */
+"M4s-E0-KFn.text" = "8:45";
+
+/* Class = "UINavigationItem"; title = "講義情報"; ObjectID = "MbL-W3-Med"; */
+"MbL-W3-Med.title" = "講義情報";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "NGH-0h-sIZ"; */
+"NGH-0h-sIZ.text" = "Label";
+
+/* Class = "UITableViewSection"; headerTitle = "プレミアム機能"; ObjectID = "Ohe-tk-P1u"; */
+"Ohe-tk-P1u.headerTitle" = "プレミアム機能";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Pfu-cc-A8e"; */
+"Pfu-cc-A8e.text" = "Title";
+
+/* Class = "UILabel"; text = "10:15"; ObjectID = "Q7I-WX-43n"; */
+"Q7I-WX-43n.text" = "10:15";
+
+/* Class = "UILabel"; text = "著作権"; ObjectID = "S1V-z1-bIb"; */
+"S1V-z1-bIb.text" = "著作権";
+
+/* Class = "UILabel"; text = "授業時間設定"; ObjectID = "Tfp-nR-bvk"; */
+"Tfp-nR-bvk.text" = "授業時間設定";
+
+/* Class = "UILabel"; text = "アプリのFacebook"; ObjectID = "UJU-G1-bM2"; */
+"UJU-G1-bM2.text" = "アプリのFacebook";
+
+/* Class = "UINavigationItem"; title = "カレンダー同期"; ObjectID = "UKx-kj-Qxj"; */
+"UKx-kj-Qxj.title" = "カレンダー同期";
+
+/* Class = "UILabel"; text = "カレンダー同期"; ObjectID = "W4k-xi-Ctq"; */
+"W4k-xi-Ctq.text" = "カレンダー同期";
+
+/* Class = "UILabel"; text = "時間割を無制限に保存"; ObjectID = "WJ7-sE-O5h"; */
+"WJ7-sE-O5h.text" = "時間割を無制限に保存";
+
+/* Class = "UILabel"; text = "開始時間"; ObjectID = "XFs-JU-dRE"; */
+"XFs-JU-dRE.text" = "開始時間";
+
+/* Class = "UILabel"; text = "講義情報を標準カレンダーに追加します"; ObjectID = "XR1-FV-Ygs"; */
+"XR1-FV-Ygs.text" = "講義情報を標準カレンダーに追加します";
+
+/* Class = "UILabel"; text = "プレミアム機能について"; ObjectID = "Yip-gP-mbO"; */
+"Yip-gP-mbO.text" = "プレミアム機能について";
+
+/* Class = "UINavigationItem"; title = "Theme Color"; ObjectID = "bv0-o5-7Vv"; */
+"bv0-o5-7Vv.title" = "テーマカラー";
+
+/* Class = "UILabel"; text = "表示色"; ObjectID = "cwK-M8-FCG"; */
+"cwK-M8-FCG.text" = "表示色";
+
+/* Class = "UITableViewSection"; headerTitle = "メモ"; ObjectID = "dSw-nQ-pNP"; */
+"dSw-nQ-pNP.headerTitle" = "メモ";
+
+/* Class = "UILabel"; text = "8:45 ~ 10:15"; ObjectID = "dbK-Vm-BwA"; */
+"dbK-Vm-BwA.text" = "8:45 ~ 10:15";
+
+/* Class = "UINavigationItem"; title = "色選択"; ObjectID = "fqH-g1-zSg"; */
+"fqH-g1-zSg.title" = "色選択";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "gIa-l8-629"; */
+"gIa-l8-629.title" = "Item";
+
+/* Class = "UILabel"; text = "終了時間"; ObjectID = "gOu-bd-iNc"; */
+"gOu-bd-iNc.text" = "終了時間";
+
+/* Class = "UITableViewSection"; headerTitle = "アプリ設定"; ObjectID = "h7R-4T-Mss"; */
+"h7R-4T-Mss.headerTitle" = "アプリ設定";
+
+/* Class = "UILabel"; text = "1限"; ObjectID = "hKU-WL-Al9"; */
+"hKU-WL-Al9.text" = "1限";
+
+/* Class = "UINavigationItem"; title = "授業時間設定"; ObjectID = "heD-PX-o3I"; */
+"heD-PX-o3I.title" = "授業時間設定";
+
+/* Class = "UINavigationItem"; title = "設定"; ObjectID = "hq1-j4-QCg"; */
+"hq1-j4-QCg.title" = "設定";
+
+/* Class = "UILabel"; text = "アプリのホームページ"; ObjectID = "iGw-In-en4"; */
+"iGw-In-en4.text" = "アプリのホームページ";
+
+/* Class = "UILabel"; text = "TimeTable Pro"; ObjectID = "ir3-1p-d4S"; */
+"ir3-1p-d4S.text" = "TimeTable Pro";
+
+/* Class = "UITextField"; placeholder = "教室"; ObjectID = "j0Z-wn-Jzh"; */
+"j0Z-wn-Jzh.placeholder" = "教室";
+
+/* Class = "UILabel"; text = "AppStoreのページ"; ObjectID = "jbS-ec-hzd"; */
+"jbS-ec-hzd.text" = "AppStoreのページ";
+
+/* Class = "UILabel"; text = "2016年2月5日"; ObjectID = "kSs-zb-E1W"; */
+"kSs-zb-E1W.text" = "2016年2月5日";
+
+/* Class = "UILabel"; text = "✓"; ObjectID = "l7r-ao-cMd"; */
+"l7r-ao-cMd.text" = "✓";
+
+/* Class = "UILabel"; text = "240円"; ObjectID = "lS4-sq-3JW"; */
+"lS4-sq-3JW.text" = "240円";
+
+/* Class = "UINavigationItem"; title = "引用元選択"; ObjectID = "lg4-QR-yhD"; */
+"lg4-QR-yhD.title" = "引用元選択";
+
+/* Class = "UITextField"; placeholder = "講義名"; ObjectID = "oXO-a0-B3n"; */
+"oXO-a0-B3n.placeholder" = "講義名";
+
+/* Class = "UILabel"; text = "テーマカラー"; ObjectID = "pBP-Ga-m7K"; */
+"pBP-Ga-m7K.text" = "テーマカラー";
+
+/* Class = "UILabel"; text = "時間割表に時間を表示"; ObjectID = "pYx-Qf-acc"; */
+"pYx-Qf-acc.text" = "時間割表に時間を表示";
+
+/* Class = "UILabel"; text = "開発者にコーヒーをおごる"; ObjectID = "q4c-6y-ggB"; */
+"q4c-6y-ggB.text" = "開発者にコーヒーをおごる";
+
+/* Class = "UITextField"; placeholder = "担当教員"; ObjectID = "qHz-nK-a9c"; */
+"qHz-nK-a9c.placeholder" = "担当教員";
+
+/* Class = "UILabel"; text = "Shuhei Fujita"; ObjectID = "qXl-9H-hGE"; */
+"qXl-9H-hGE.text" = "Shuhei Fujita";
+
+/* Class = "UINavigationItem"; title = "新規時間割作成"; ObjectID = "t8s-zw-32A"; */
+"t8s-zw-32A.title" = "新規時間割作成";
+
+/* Class = "UINavigationItem"; title = "Menu"; ObjectID = "tcb-F7-cdS"; */
+"tcb-F7-cdS.title" = "Menu";
+
+/* Class = "UITableViewSection"; headerTitle = "講義情報"; ObjectID = "vLx-Uz-Ads"; */
+"vLx-Uz-Ads.headerTitle" = "講義情報";
+
+/* Class = "UITableViewSection"; headerTitle = "アプリの情報"; ObjectID = "vnV-c5-9PO"; */
+"vnV-c5-9PO.headerTitle" = "アプリの情報";
+
+/* Class = "UILabel"; text = "アップグレード"; ObjectID = "wdC-Nk-QzP"; */
+"wdC-Nk-QzP.text" = "アップグレード";
+
+/* Class = "UILabel"; text = "レビューをする"; ObjectID = "xH4-Um-tUX"; */
+"xH4-Um-tUX.text" = "レビューをする";
+
+/* Class = "UIBarButtonItem"; title = "Copy"; ObjectID = "xmn-cF-xqt"; */
+"xmn-cF-xqt.title" = "Copy";

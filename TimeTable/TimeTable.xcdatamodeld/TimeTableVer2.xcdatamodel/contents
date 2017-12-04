@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Classes" representedClassName="TimeTable.Classes" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="indexPath" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lessonName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roomName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="timetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Timetables" inverseName="classes" inverseEntity="Timetables" syncable="YES"/>
+    </entity>
+    <entity name="CourseTimes" representedClassName="TimeTable.CourseTimes" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="timetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Timetables" inverseName="courseTimes" inverseEntity="Timetables" syncable="YES"/>
+    </entity>
+    <entity name="Timetables" representedClassName="TimeTable.Timetables" syncable="YES">
+        <attribute name="numberOfClasses" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="showTime" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="syncDone" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="timeIsSet" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="timetableName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Classes" inverseName="timetables" inverseEntity="Classes" syncable="YES"/>
+        <relationship name="courseTimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CourseTimes" inverseName="timetables" inverseEntity="CourseTimes" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Classes" positionX="162" positionY="-4" width="128" height="150"/>
+        <element name="CourseTimes" positionX="-99" positionY="189" width="128" height="90"/>
+        <element name="Timetables" positionX="-63" positionY="-18" width="128" height="163"/>
+    </elements>
+</model>

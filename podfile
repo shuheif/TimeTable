@@ -1,0 +1,23 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '9.3'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+target 'TimeTable' do
+pod 'SVProgressHUD'
+pod 'SCLAlertView'
+pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch =>     'feature/Xcode9-Swift3_2'
+pod 'Firebase/Core'
+pod 'Firebase/AdMob'
+pod 'Ensembles', '~> 1.0'
+pod 'DZNEmptyDataSet'
+end
+
+target 'TimeTableTests' do
+
+end
+
+post_install do | installer |
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-acknowledgements.plist', 'TimeTable/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+end

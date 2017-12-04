@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Classes" representedClassName="TimeTable.Classes" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="indexPath" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lessonName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roomName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Events" inverseName="classes" inverseEntity="Events" syncable="YES"/>
+        <relationship name="timetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Timetables" inverseName="classes" inverseEntity="Timetables" syncable="YES"/>
+    </entity>
+    <entity name="CourseTimes" representedClassName="TimeTable.CourseTimes" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="timetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Timetables" inverseName="courseTimes" inverseEntity="Timetables" syncable="YES"/>
+    </entity>
+    <entity name="Events" representedClassName=".Events" syncable="YES">
+        <attribute name="eventIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="classes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classes" inverseName="events" inverseEntity="Classes" syncable="YES"/>
+    </entity>
+    <entity name="Timetables" representedClassName="TimeTable.Timetables" syncable="YES">
+        <attribute name="archiveOrder" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numberOfClasses" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numberOfDays" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="showTime" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="syncOn" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timeIsSet" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timetableName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Classes" inverseName="timetables" inverseEntity="Classes" syncable="YES"/>
+        <relationship name="courseTimes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CourseTimes" inverseName="timetables" inverseEntity="CourseTimes" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Classes" positionX="162" positionY="-4" width="128" height="165"/>
+        <element name="CourseTimes" positionX="-81" positionY="270" width="128" height="90"/>
+        <element name="Events" positionX="142" positionY="222" width="128" height="75"/>
+        <element name="Timetables" positionX="-63" positionY="-18" width="128" height="210"/>
+    </elements>
+</model>

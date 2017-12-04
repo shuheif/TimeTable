@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Classes" representedClassName="TimeTable.Classes" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="indexPath" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lessonName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roomName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="timetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Timetables" inverseName="classes" inverseEntity="Timetables" syncable="YES"/>
+    </entity>
+    <entity name="Timetables" representedClassName="TimeTable.Timetables" syncable="YES">
+        <attribute name="numberOfClasses" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timetableName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="classes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Classes" inverseName="timetables" inverseEntity="Classes" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Classes" positionX="162" positionY="-4" width="128" height="150"/>
+        <element name="Timetables" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>

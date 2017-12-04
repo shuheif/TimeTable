@@ -1,0 +1,82 @@
+//AppDelegate
+"MF" = "月-金";
+"MSat" = "月-土";
+"MSun" = "月-日";
+//MenuView
+"MenuLabel" = "右上の+ボタンを押して\n時間割を作成してください";
+"DeleteTableAlertTitle" = "時間割削除";
+"DeleteTableAlertMessage" = "一度削除すると戻せません";
+"CopyOf" = "%@のコピー";
+"TimeTablePro" = "プレミアム機能";
+"PremiumAd" = "TimeTable Proにアップグレードして、時間割を無制限に保存しましょう！";
+
+//AddView
+"ScheduleHeader" = "時間割情報";
+"TitleEmpty" = "時間割名を入力してください";
+"ScheduleTitle" = "時間割名";
+"EnterTitle" = "時間割名を入力";
+
+//TimeTableView
+"Mon" = "月";
+"Tue" = "火";
+"Wed" = "水";
+"Thu" = "木";
+"Fri" = "金";
+"Sat" = "土";
+"Sun" = "日";
+"TimeTableEmpty" = "新しい時間割を作成してください。";
+
+//Detail View
+"DMon" = "月曜日";
+"DTue" = "火曜日";
+"DWed" = "水曜日";
+"DThu" = "木曜日";
+"DFri" = "金曜日";
+"DSat" = "土曜日";
+"DSun" = "日曜日";
+"CellColor" = "表示色";
+
+
+//TableEdit
+"EditScheduleTitle" = "時間割名編集";
+"SetClassHours" = "授業時間";
+"FirstPleaseSetClassHours" = "授業時間が設定されていません";
+"period" = "限";
+
+//TimeSetting
+"NoLunchbreak" = "なし";
+"min" = "分";
+"ClassHours" = "授業時間設定";
+"ClassLength" = "1コマの長さ";
+"StartTime" ="開始時間";
+"FirstPeriod" = "1限開始時刻";
+"Interval" = "授業間の休憩時間";
+"Lunchbreak" = "昼休み";
+"Between" = "昼休み";
+"Length" = "昼休みの長さ";
+
+//Sync View
+"EndDateMustBeAfterStartDate" = "学期終了日は開始日より後に設定してください";
+"SaveToCalendar" = "カレンダーに保存";
+"AreYouSure?" = "時間割情報・講義情報・授業時間を元にイベントを登録します";
+"NeedPermission" = "この機能にはカレンダーへのアクセス許可が必要です";
+"SettingPrivacy" = "設定アプリ>プライバシー>カレンダー から変更してください";
+"TheEndOfTheTimeMustBeBefore24o'clock" = "24時を超える授業時間が設定されているときは、同期できません";
+
+
+// Premium
+"Already" = "アップグレード済みです";
+"PerchaseCheck" = "アプリ内購入エラー";
+"PurchaseDeclined" = "アプリ内購入が許可されていません";
+"ItemCheck" = "アイテムエラー";
+"InvalidItem" = "アイテムが見つかりませんでした";
+"Done" = "完了";
+"Successfully" = "プロ版にアップグレードされました！";
+"Failed" = "アップグレード失敗";
+"CouldntFinish" = "購入手続きを完了できませんでした";
+
+
+// Setting
+"deletingAll" = "全データを削除";
+"deletingAllMessage" = "一度削除したデータを戻すことはできません";
+"takingTimeMessage" = "iCloudから全データを削除するのに時間がかかることがあります。";

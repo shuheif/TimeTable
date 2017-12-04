@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="TitleCell" id="b0m-uq-xNM" customClass="TitleCell" customModule="TimeTable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="236" height="218"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="236" height="218"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmn-0B-KBN">
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="6gu-2T-Gfh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lc-pw-7jP">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="h8i-hr-Fzt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V67-ze-oOf">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="T9Q-6M-fNw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="V67-ze-oOf" firstAttribute="bottom" secondItem="b0m-uq-xNM" secondAttribute="bottomMargin" constant="8" id="2Md-4p-1zs"/>
+                <constraint firstItem="V67-ze-oOf" firstAttribute="leading" secondItem="b0m-uq-xNM" secondAttribute="leadingMargin" constant="-8" id="KEN-91-y3e"/>
+                <constraint firstItem="0Lc-pw-7jP" firstAttribute="leading" secondItem="b0m-uq-xNM" secondAttribute="leadingMargin" constant="-8" id="Syk-6i-ooJ"/>
+                <constraint firstItem="0Lc-pw-7jP" firstAttribute="top" secondItem="b0m-uq-xNM" secondAttribute="topMargin" constant="-8" id="WwR-ex-SkY"/>
+                <constraint firstAttribute="trailingMargin" secondItem="0Lc-pw-7jP" secondAttribute="trailing" constant="-8" id="YYO-s3-n9U"/>
+                <constraint firstAttribute="centerY" secondItem="fmn-0B-KBN" secondAttribute="centerY" id="kTQ-Qi-8Ss"/>
+                <constraint firstAttribute="trailingMargin" secondItem="V67-ze-oOf" secondAttribute="trailing" constant="-8" id="lhH-it-pUx"/>
+                <constraint firstAttribute="centerX" secondItem="fmn-0B-KBN" secondAttribute="centerX" id="yXM-jY-yAS"/>
+            </constraints>
+            <size key="customSize" width="236" height="218"/>
+            <connections>
+                <outlet property="endLabel" destination="V67-ze-oOf" id="sGe-fr-V7I"/>
+                <outlet property="startLabel" destination="0Lc-pw-7jP" id="njE-nr-l35"/>
+                <outlet property="titleLabel" destination="fmn-0B-KBN" id="oNz-RA-Jdl"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

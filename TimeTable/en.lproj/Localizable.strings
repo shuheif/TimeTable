@@ -1,0 +1,79 @@
+//AppDelegate
+"MF" = "Mon-Fri";
+"MSat" = "Mon-Sat";
+"MSun" = "Mon-Sun";
+
+//MenuView
+"MenuLabel" = "Push + button above \n to create new schedule.";
+"DeleteTableAlertTitle" = "Delete semester";
+"DeleteTableAlertMessage" = "The chedule will not be restored.";
+"CopyOf" = "%@ alias";
+"TimeTablePro" = "Premium Feature";
+"PremiumAd" = "Upgrade to TimeTable Pro and unlock more schedules!";
+
+//AddView
+"ScheduleHeader" = "Schedule Information";
+"TitleEmpty" = "Please enter schedule title";
+"ScheduleTitle" = "Schedule Title";
+"EnterTitle" = "Enter Title";
+
+//TimeTableView
+"Mon" = "M";
+"Tue" = "T";
+"Wed" = "W";
+"Thu" = "Th";
+"Fri" = "F";
+"Sat" = "St";
+"Sun" = "Sn";
+"TimeTableEmpty" = "Create a new schedule.";
+
+//DetailView
+"DMon" = "Mon";
+"DTue" = "Tue";
+"DWed" = "Wed";
+"DThu" = "Thu";
+"DFri" = "Fri";
+"DSat" = "Sat";
+"DSun" = "Sun";
+"CellColor" = "Color";
+
+//TableEdit
+"EditScheduleTitle" = "Semester Title";
+"SetClassHours" = "Class Hours";
+"FirstPleaseSetClassHours" = "Class hours are empty.";
+"period" = "";//also used in Detail View
+
+//EasyTimeSetting
+"NoLunchbreak" = "No Break";
+"min" = " minutes";
+"ClassHours" = "Class Hours";
+"ClassLength" = "Class Length";
+"StartTime" ="Start Time";
+"FirstPeriod" = "First Period";
+"Interval" = "Interval";
+"Lunchbreak" = "Lunchbreak";
+"Between" = "Between";
+"Length" = "Length";
+
+//Sync View
+"EndDateMustBeAfterStartDate" = "End date must be after start date.";
+"SaveToCalendar" = "Sync with Calendar";
+"NeedPermission" = "This function needs permission to access your calendar data.";
+"SettingPrivacy" = "Please change status in Setting app > Privacy > Calendar";
+"TheEndOfTheTimeMustBeBefore24o'clock" = "The end of the schedule must be before 12am";
+
+// Premium
+"Already" = "You are already using TimeTable Pro";
+"PerchaseCheck" = "Purchase Setting Error";
+"PurchaseDeclined" = "Turn on In-App purchase";
+"ItemCheck" = "Item error";
+"InvalidItem" = "Item is invalid";
+"Done" = "Done";
+"Successfully" = "Your TimeTable is now upgraded!";
+"Failed" = "Failed upgrading";
+"CouldntFinish" = "Issued with purchasing";
+
+// Setting
+"deletingAll" = "Delete All data";
+"deletingAllMessage" = "It cannot be restored.";
+"takingTimeMessage" = "Deleting all data from iCloud will take time.";
