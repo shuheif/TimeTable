@@ -62,7 +62,7 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
     }
 
     
-    func cloudDataDidDownload(notification: Notification) {
+    @objc @objc func cloudDataDidDownload(notification: Notification) {
     
         print("MenuVC cloudDataDidDownload")
         defaultStack.sync(completion: nil)

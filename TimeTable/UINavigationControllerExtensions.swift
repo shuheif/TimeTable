@@ -33,7 +33,7 @@ extension UINavigationController {
         navigationBar.barTintColor = color
         toolbar.barTintColor = color
         navigationBar.tintColor = UIColor.white
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         toolbar.tintColor = UIColor.white
     }
 }

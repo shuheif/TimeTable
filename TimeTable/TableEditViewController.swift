@@ -93,7 +93,7 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
     }
     
     
-    func cloudDataDidDownload(notification: Notification) {
+    @objc func cloudDataDidDownload(notification: Notification) {
         
         defaultStack.sync(completion: nil)
         tableView.reloadData()
@@ -212,7 +212,7 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
     }
     
     
-    func timeSwitchChanged(_ sender: UISwitch) {
+    @objc func timeSwitchChanged(_ sender: UISwitch) {
         
         if(sender.isOn) {
             showTime = true

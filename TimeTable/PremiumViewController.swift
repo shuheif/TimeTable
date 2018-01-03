@@ -180,7 +180,7 @@ class PremiumViewController: UITableViewController, SKProductsRequestDelegate {
     }
     
     
-    func upgradeCompleted(notification: Notification?) {
+    @objc func upgradeCompleted(notification: Notification?) {
         
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()
@@ -195,7 +195,7 @@ class PremiumViewController: UITableViewController, SKProductsRequestDelegate {
     }
     
     
-    func purchaseFailedAlert(notification: Notification?) {
+    @objc func purchaseFailedAlert(notification: Notification?) {
         
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()

@@ -104,7 +104,7 @@ class StoreKitAccessor: NSObject, SKPaymentTransactionObserver {
         let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "purchased")
         
-        let icloudKeyValueStore = NSUbiquitousKeyValueStore.default()
+        let icloudKeyValueStore = NSUbiquitousKeyValueStore.default
         icloudKeyValueStore.set(true, forKey: "purchased")
         icloudKeyValueStore.synchronize()
     }

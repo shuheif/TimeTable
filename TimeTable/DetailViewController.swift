@@ -159,7 +159,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
     
     // MARK: - Keyboard
     
-    func keyboardWillShow(_ notification: Notification!) {
+    @objc func keyboardWillShow(_ notification: Notification!) {
         
         //storyboardのtableview>scrollview>keyboard>'dismiss on drag'
         var textIndexPath: IndexPath?

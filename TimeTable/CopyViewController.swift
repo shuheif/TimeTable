@@ -65,7 +65,7 @@ class CopyViewController: WeekViewController {
         let afterCell = collectionView.cellForItem(at: indexPath) as! UsualCell
         let afterClasses: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
         if(afterClasses != nil) {
-            afterCell.cellSelected(color: Int(afterClasses!.color))
+            afterCell.cellSelected(color: Int(truncating: afterClasses!.color))
         }
         doneButton.isEnabled = true
     }

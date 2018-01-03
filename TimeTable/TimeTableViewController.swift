@@ -93,7 +93,7 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
     }
 
     
-    func cloudDataDidDownload(notification: Notification) {
+    @objc func cloudDataDidDownload(notification: Notification) {
         
         print("[TimeTableView] cloudDataDidDownload")
         defaultStack.sync(completion: nil)

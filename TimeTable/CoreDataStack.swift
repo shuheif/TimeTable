@@ -126,7 +126,7 @@ class CoreDataStack: NSObject, CDEPersistentStoreEnsembleDelegate {
     }
     
     
-    func sync(completion: ((Void) -> Void)?) {
+    func sync(completion: (() -> Void)?) {
         
         if !ensemble.isLeeched {
             ensemble.leechPersistentStore {

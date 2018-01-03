@@ -128,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
  
     
-    func localSaveOccured(notification: Notification) {
+    @objc func localSaveOccured(notification: Notification) {
         print("AppDelegate: Local save occured")
         defaultStack.sync(completion: nil)
     }
@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - In App Purchase
     
     var alreadyPurchased: Bool = {
-        let icloudKeyValueStore = NSUbiquitousKeyValueStore.default()
+        let icloudKeyValueStore = NSUbiquitousKeyValueStore.default
         let icloud = icloudKeyValueStore.bool(forKey: "purchased")
         print("icloud: \(icloud)")
         let local = UserDefaults.standard.bool(forKey: "purchased")
