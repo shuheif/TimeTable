@@ -27,28 +27,21 @@ class EachTimeViewController: UITableViewController {
     
     
     @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
-        
         model.saveTimesAt(period: selectedPeriod!, startTime: startTime!, endTime: endTime!, courseTimes: courseTimes!)
         performSegue(withIdentifier: "saveToTableEdit", sender: self)
     }
     
-    
     @IBAction func startPickerChanged (_ sender: UIDatePicker) {
-        
         startTime = sender.date
         configureStartTimeCellDetail()
     }
     
-    
     @IBAction func endPickerChanged (_ sender: UIDatePicker) {
-        
         endTime = sender.date
         configureEndTimeCellDetail()
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.title =  selectedPeriod!.ordinal + NSLocalizedString("period", comment: "限")
         dateFormatter.calendar = appDelegate.gregorianCalendar as Calendar!
@@ -63,27 +56,15 @@ class EachTimeViewController: UITableViewController {
         configureEndTimeCellDetail()
     }
 
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     func configureStartTimeCellDetail() {
-        
         startTimeCell.detailTextLabel?.text = dateFormatter.string(from: self.startTime!)
     }
     
-    
     func configureEndTimeCellDetail() {
-        
         endTimeCell.detailTextLabel?.text = dateFormatter.string(from: self.endTime!)
     }
     
-    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "saveToTableEdit" {
             let controller = segue.destination as! TableEditViewController
             controller.courseTimes = courseTimes!

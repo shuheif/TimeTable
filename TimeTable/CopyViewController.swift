@@ -20,7 +20,6 @@ class CopyViewController: WeekViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.navigationController?.isToolbarHidden = true
         doneButton.isEnabled = false
@@ -32,7 +31,6 @@ class CopyViewController: WeekViewController {
     }
     
     override func collectionView (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if(indexPath == destinationIndexPath) {
             //引用先のセル
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsualCell", for: indexPath) as! UsualCell
@@ -50,9 +48,7 @@ class CopyViewController: WeekViewController {
         }
     }
     
-    
     override func collectionView (_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         //選択できるのはClasses != nilのセルのみ
         if (copyIndexPath != nil) {
             let beforeCell = collectionView.cellForItem(at: copyIndexPath!) as! UsualCell
@@ -70,9 +66,7 @@ class CopyViewController: WeekViewController {
         doneButton.isEnabled = true
     }
     
-    
     override func configureUsualCell (indexPath: IndexPath, usualCell: UsualCell) {
-        
         let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
         if(aClass != nil) {
             usualCell.makeCell(classes: aClass!)
@@ -83,11 +77,8 @@ class CopyViewController: WeekViewController {
         }
     }
     
-    
     // MARK: - Navigation
-
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if (segue.identifier == "doneToDetailFromCopy") {
             let controller = segue.destination as! DetailViewController
             let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: copyIndexPath!)

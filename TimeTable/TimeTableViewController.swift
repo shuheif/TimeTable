@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import DZNEmptyDataSet
 
-class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
+class TimeTableViewController: WeekViewController {
     
     let model = TimeTableViewModel.shared
     let defaultStack = CoreDataStack.shared
@@ -29,33 +29,25 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
         }
     }
     
-    
     @IBAction func saveToTimeTable (_ segue: UIStoryboardSegue) {
-        
         //From DetailVC
         classes = model.fetchClasses(timetable: timetable)
         collectionView?.reloadData()
     }
     
-    
     @IBAction func saveToTableFromEdit (_ segue: UIStoryboardSegue) {
-        
         //From TableEditVC
         print("doneToTimeTableFromEdit")
         configureTimeTableView()
         collectionView?.reloadData()
     }
     
-    
     @IBAction func cancelToTimeTable (_ segue: UIStoryboardSegue) {
-        
         //From DetailVC
         print("cancelToTimeTable")
     }
     
-    
     override func viewDidLoad() {
-        
         print("TimeTableVC ViewDidLoad")
         
         super.viewDidLoad()
@@ -77,30 +69,24 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
             editButton.isEnabled = true
         }
     }
-    
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear/TimeTableView")
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
     }
-
     
     @objc func cloudDataDidDownload(notification: Notification) {
-        
         print("[TimeTableView] cloudDataDidDownload")
         defaultStack.sync(completion: nil)
         configureTimeTableView()
         collectionView?.reloadData()
     }
-    
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
@@ -109,15 +95,12 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
     // MARK: UICollectionView
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         selectedIndexPath = indexPath
         collectionView.deselectItem(at: indexPath, animated: true)
         performSegue(withIdentifier: "goDetail", sender: self)
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        
         let cell = collectionView.cellForItem(at: indexPath) as! UsualCell
         let aClass: Classes? = super.classesAtIndexPath(classes: classes!, indexPath: indexPath)
         if aClass != nil {
@@ -125,9 +108,7 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
         }
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        
         let cell = collectionView.cellForItem(at: indexPath) as! UsualCell
         let aClass: Classes? = super.classesAtIndexPath(classes: classes!, indexPath: indexPath)
         if(aClass != nil) {
@@ -135,15 +116,11 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
         }
     }
     
-    
     override func configureHeaderCell (titleCell: TitleCell, rowPath: Int) {
-        
         titleCell.configureHeaderCell(rowIndex: rowPath)
     }
     
-    
     override func configureSideCell (titleCell: TitleCell, period: Int) {
-        
         if (showTime && courseTimes.count != 0) {
             let startTime = model.startTime(period: period, courseTimes: courseTimes)
             let endTime = model.endTime(period: period, courseTimes: courseTimes)
@@ -154,26 +131,9 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
         }
     }
     
-    
-    // MARK: - DZNEmptyData
-    
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        
-        let text = NSLocalizedString("TimeTableEmpty", comment: "")
-        return NSAttributedString(string: text)
-    }
-    
-    
-    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        
-        return UIColor.white
-    }
-    
-    
     // MARK: - Navigation
     
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goDetail" {
             //To DetailViewController
             let detailView = (segue.destination as! UINavigationController).topViewController as! DetailViewController
@@ -181,7 +141,6 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
             detailView.selectedIndexPath = selectedIndexPath!
             detailView.classes = classes
             detailView.courseTimes = courseTimes
-            
         } else if segue.identifier == "goEdit" {
             //To TableEditVC
             let editView = (segue.destination as! UINavigationController).topViewController as!  TableEditViewController
@@ -189,11 +148,9 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
         }
     }
     
-    
     // MARK: - Utility
     
     func configureTimeTableView() {
-    
         if timetable != nil {
             self.title = timetable!.timetableName
             showTime = timetable!.showTime
@@ -206,5 +163,17 @@ class TimeTableViewController: WeekViewController, DZNEmptyDataSetSource {
             }
         }
     }
+}
+
+
+extension TimeTableViewController: DZNEmptyDataSetSource {
     
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = NSLocalizedString("TimeTableEmpty", comment: "")
+        return NSAttributedString(string: text)
+    }
+    
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.white
+    }
 }

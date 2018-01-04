@@ -13,7 +13,7 @@ import GoogleMobileAds
 
 private let timeCellID = "timeCell"
 
-class TableEditViewController: UITableViewController, UITextFieldDelegate, GADInterstitialDelegate {
+class TableEditViewController: UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let defaultStack = CoreDataStack.shared
@@ -110,30 +110,16 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         NotificationCenter.default.removeObserver(self)
     }
     
-    
-    // MARK: - TextField
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
     // MARK: - TableView
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 3//一時的にCalendar 同期を使えなくする
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         return titleForHeader[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if(section == 1 && timeIsSet && courseTimes!.count != 0) {
             return numberOfClasses! + 2
         } else if(section == 1 && !timeIsSet) {
@@ -144,7 +130,6 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell: UITableViewCell?
         switch indexPath.section {
             case 0: cell = tableView.dequeueReusableCell(withIdentifier: "tableNameCell", for: indexPath)
@@ -178,7 +163,6 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         return cell!
     }
     
-    
     override func tableView (_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (indexPath.section == 1) {
@@ -201,9 +185,7 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
     func configureTimeCell (indexPath: IndexPath, cell: UITableViewCell) {
-        
         let period: Int = indexPath.row - 1
         cell.textLabel?.text = period.ordinal + NSLocalizedString("period", comment: "限")
         let startTime = model.startTime(period: period, courseTimes: courseTimes!)
@@ -211,9 +193,7 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         cell.detailTextLabel?.text = dateFormatter.string(from: startTime) + " ~ " + dateFormatter.string(from: endTime)
     }
     
-    
     @objc func timeSwitchChanged(_ sender: UISwitch) {
-        
         if(sender.isOn) {
             showTime = true
         } else {
@@ -221,11 +201,9 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         }
     }
     
-    
     // MARK: - Navigation
 
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if(segue.identifier == nil) {
             return
         }
@@ -254,11 +232,8 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         }
     }
     
-    
     //Utilities
-    
     func showTimeSettingAlert() {
-        
         let title = "Notice"
         let message = NSLocalizedString("FirstPleaseSetClassHours", comment: "先に授業時間を設定してください")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -267,11 +242,9 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     // MARK: - AdMob
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7686010266932149/3513620919")
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b"]
@@ -279,14 +252,20 @@ class TableEditViewController: UITableViewController, UITextFieldDelegate, GADIn
         interstitial.load(request)
         return interstitial
     }
-    
-    
-    // MARK: - GADInterstitialDelegate
-    
+}
+
+
+extension TableEditViewController: GADInterstitialDelegate {
     //広告がロードされたタイミングで表示
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        
         interstitial.present(fromRootViewController: self)
     }
-    
+}
+
+
+extension TableEditViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

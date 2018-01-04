@@ -30,9 +30,7 @@ class SettingViewController: UITableViewController {
         }
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         if appDelegate.alreadyPurchased {
             upgradeCell.selectionStyle = .none
@@ -41,17 +39,13 @@ class SettingViewController: UITableViewController {
         }
         versionNameCell.detailTextLabel!.text = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
     }
-
     
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if indexPath.section == 2 {
             //サポートセクション
             if indexPath.row == 0 {
@@ -78,7 +72,6 @@ class SettingViewController: UITableViewController {
             }
         } else if indexPath.section == 4 {
             print("reset")
-            
             //Alert
             let title = NSLocalizedString("deletingAll", comment: "")
             let message = NSLocalizedString("deletingAllMessage", comment: "")
@@ -119,9 +112,7 @@ class SettingViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
     func openAppStore() {
-        
         let url: URL = URL(string: "https://itunes.apple.com/jp/app/timetable-shinpurude-shiiyasui/id981480777?mt=8")!
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -130,5 +121,4 @@ class SettingViewController: UITableViewController {
             UIApplication.shared.openURL(url)
         }
     }
-    
 }

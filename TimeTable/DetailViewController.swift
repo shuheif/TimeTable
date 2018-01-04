@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
+class DetailViewController: UITableViewController, UITextViewDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let model = DetailViewModel.shared
@@ -36,23 +36,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
     
     
     @IBAction func backToDetail(_ segue: UIStoryboardSegue) {
-    
         colorSelectCell.makeCell(color: selectedColor)
     }
-    
     
     @IBAction func cancelToDetail(_ segue: UIStoryboardSegue) {
     }
     
-    
     @IBAction func doneToDetailFromCopy (_ segue: UIStoryboardSegue) {
-        
         colorSelectCell.makeCell(color: selectedColor)
     }
     
-    
     @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
-        
         var isNewClasses = false
         if aClass == nil {
             isNewClasses = true
@@ -75,22 +69,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
         performSegue(withIdentifier: "saveToTimeTable", sender: self)
     }
     
-    
     @IBAction func trashButtonPushed (_ sender: UIBarButtonItem) {
-        
         //カレンダーに変更を反映
         model.deleteAssociatedEvents(aClass: aClass)
         model.deleteClasses(aClass: aClass)
         self.performSegue(withIdentifier: "saveToTimeTable", sender: self)
     }
     
-    
     @IBAction func copyButtonPushed(_ sender: UIBarButtonItem) {
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         aClass = model.classAt(indexPath: selectedIndexPath!, classes: classes!, timetable: timetable!)
         
@@ -121,9 +110,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
         //navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         self.navigationController?.isToolbarHidden = false
         if(aClass == nil) {
@@ -135,32 +122,25 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
         }
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         self.view.endEditing(true)//Keyboardが出ている途中、DetailColorへ行き戻るとkeyboardwillshow textIndexPathがnilのエラー
     }
     
-    
     override func viewDidDisappear(_ animated: Bool) {
-        
         super.viewDidDisappear(animated)
         let center = NotificationCenter.default
         center.removeObserver(self, name: NSNotification.Name(rawValue: "keyboardWillShow:"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     // MARK: - Keyboard
     
     @objc func keyboardWillShow(_ notification: Notification!) {
-        
         //storyboardのtableview>scrollview>keyboard>'dismiss on drag'
         var textIndexPath: IndexPath?
         if(lessonNameField.isFirstResponder) {
@@ -177,34 +157,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
         tableView.scrollToRow(at: textIndexPath!, at: UITableViewScrollPosition.top, animated: true)
     }
     
-    
     // MARK: - TableView
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-    
-    // MARK: - TextField
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
-        return true
-    }
-    
     
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goDetailColor" {
-            
             let controller = segue.destination as! DetailColorViewController
             controller.selectedIndexPath = selectedColor
         } else if segue.identifier == "goCopy" {
-            
             //To CopyView
             let controller = (segue.destination as! UINavigationController).topViewController as! CopyViewController
             controller.timetable = timetable
@@ -212,5 +175,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, UITextVi
             controller.destinationIndexPath = selectedIndexPath!
         }
     }
-    
+}
+
+
+extension DetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

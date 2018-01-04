@@ -17,7 +17,6 @@ class CalendarSettingViewController: UITableViewController {
     let defaultStack = CoreDataStack.shared
     let model = CalendarSettingViewModel.shared
     
-    
     var startDate = Date()
     var endDate = Date(timeIntervalSinceNow: 60*60*24*120)//現在から120日後
     
@@ -37,21 +36,16 @@ class CalendarSettingViewController: UITableViewController {
     
     
     @IBAction func startDatePickerChanged (_ sender: UIDatePicker) {
-        
         startDate = sender.date
         startDateCellDetail(startDate)
     }
     
-    
     @IBAction func endDatePickerChanged (_ sender: UIDatePicker) {
-        
         endDate = sender.date
         endDateCellDetail(endDate)
     }
     
-    
     @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
-        
         //カレンダーへのアクセス権再確認
         if (!model.calendarAuthorized()) {
             showSettingAlert()
@@ -133,9 +127,7 @@ class CalendarSettingViewController: UITableViewController {
         }
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         startDatePicker.calendar = appDelegate.gregorianCalendar as Calendar!
         endDatePicker.calendar = appDelegate.gregorianCalendar as Calendar!
@@ -157,39 +149,22 @@ class CalendarSettingViewController: UITableViewController {
         //syncSwitch初期化
         syncSwitch.isOn = timetable!.syncOn
     }
-
-
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     // MARK: - Table view
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-    
     // MARK: - TableViewCellDetail
-    
     func startDateCellDetail(_ startDate: Date) {
-    
         startDateCell.detailTextLabel?.text = dateFormatter.string(from: startDate)
     }
     
-    
     func endDateCellDetail(_ endDate: Date) {
-        
         endDateCell.detailTextLabel?.text = dateFormatter.string(from: endDate)
     }
-
     
     // MARK: - Navigation
-
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
        
         if(segue.identifier == "doneToTableEdit") {
@@ -198,30 +173,22 @@ class CalendarSettingViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Alert
-    
-    
     func showTimeAlert () {
-        
         let timeAlert = UIAlertController(title: "Error", message: NSLocalizedString("TheEndOfTheTimeMustBeBefore24o'clock", comment: "24時を超える授業時間が設定されているときは、同期できません"), preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         timeAlert.addAction(okAction)
         present(timeAlert, animated: true, completion: nil)
     }
     
-    
     func showDateAlert () {
-        
         let dateAlert = UIAlertController(title: "Error", message: NSLocalizedString("EndDateMustBeAfterStartDate", comment: "学期終了日は開始日より後に設定してください"), preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         dateAlert.addAction(okAction)
         present(dateAlert, animated: true, completion: nil)
     }
     
-    
     func showSettingAlert () {
-        
         let alert = UIAlertController(title: NSLocalizedString("NeedPermission", comment: "This function needs permission to access your calendar data in order to work."),
             message: NSLocalizedString("SettingPrivacy", comment: "Please change status in Setting>Privacy>Calendar"),
             preferredStyle: UIAlertControllerStyle.alert)

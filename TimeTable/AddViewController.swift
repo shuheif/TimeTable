@@ -20,9 +20,7 @@ class AddViewController: FormViewController {
     var scheduleTitle: String = ""
     let numClasses: [Int] = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     
-    
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
-        
         if scheduleTitle.isEmpty {
             showAlert()
         } else {
@@ -30,12 +28,9 @@ class AddViewController: FormViewController {
             performSegue(withIdentifier: "addCompleted", sender: self)
         }
     }
-    
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         form +++ Section(NSLocalizedString("ScheduleHeader", comment: ""))
             <<< TextRow() { row in
                 row.title = NSLocalizedString("ScheduleTitle", comment: "")
@@ -66,17 +61,13 @@ class AddViewController: FormViewController {
         
         animateScroll = true
     }
-
     
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     func showAlert() {
-        
         let title = "Notice"
         let message = NSLocalizedString("TitleEmpty", comment: "")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -84,5 +75,4 @@ class AddViewController: FormViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
 }

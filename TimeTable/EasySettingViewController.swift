@@ -39,7 +39,6 @@ class EasySettingViewController: FormViewController {
     
     
     @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
-        
         model.saveCourseTimes(numberOfClasses: numberOfClasses!, startTime: startTime!, breakIndex: breakIndex, classLength: classLength, breakLength: breakLength, intervalLength: intervalLength, courseTimes: courseTimes!, timetable: timetable!)
         model.setTimeIsSet(timetable: timetable!)
         performSegue(withIdentifier: "saveToTableEdit", sender: self)
@@ -47,7 +46,6 @@ class EasySettingViewController: FormViewController {
     
     
     override func viewDidLoad() {
-      
         super.viewDidLoad()
         
         numberOfClasses = timetable!.numberOfClasses.intValue
@@ -107,16 +105,8 @@ class EasySettingViewController: FormViewController {
                     self.breakLength = Int(self.breakLengthByDate!.timeIntervalSince(self.baseDate!)) / 60
                 }
     }
-
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
-
     
     // MARK: - Navigation
-
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "saveToTableEdit") {

@@ -10,7 +10,6 @@ import Foundation
 extension UIView {
     
     func shake() {
-        
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = 0.6

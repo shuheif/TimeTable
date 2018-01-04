@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailColorViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class DetailColorViewController: UICollectionViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -22,15 +22,11 @@ class DetailColorViewController: UICollectionViewController, UICollectionViewDel
     
     var selectedIndexPath: Int?
     
-    
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
-        
         performSegue(withIdentifier: "backToDetail", sender: self)
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         /*let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.height
         framewidth = collectionView!.frame.width
@@ -39,24 +35,17 @@ class DetailColorViewController: UICollectionViewController, UICollectionViewDel
         cellheight = ((frameheight! - (defaultFloatClasses * gridSpace)) / defaultFloatClasses)*/
     }
     
-    
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
     //MARK: - UICollectionView
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return appDelegate.detailColors.count
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as! ColorCell
         colorCell.makeCell(color: indexPath.row)
         colorCell.colorLabel.text = appDelegate.detailColors[indexPath.row]
@@ -66,40 +55,31 @@ class DetailColorViewController: UICollectionViewController, UICollectionViewDel
         return colorCell
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         selectedIndexPath = indexPath.row
         collectionView.reloadData()
     }
     
-    
-    // MARK: - UICollectionViewDelegateFlowLayout
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: cellwidth, height: cellheight)
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return gridSpace
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return gridSpace
-    }
-    
-    
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "backToDetail" {
             (segue.destination as! DetailViewController).selectedColor = selectedIndexPath!
         }
+    }
+}
+
+
+extension DetailColorViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: cellwidth, height: cellheight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return gridSpace
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return gridSpace
     }
 }

@@ -10,9 +10,7 @@ import UIKit
 
 extension UIColor {
     
-    
     class func hex (hexStr : NSString) -> UIColor {
-        
         var hexStr = hexStr
         let alpha: CGFloat = 1.00
         hexStr = hexStr.replacingOccurrences(of: "#", with: "") as NSString

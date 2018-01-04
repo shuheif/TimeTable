@@ -10,16 +10,12 @@ import UIKit
 
 extension UINavigationController {
 
-    
     override open func viewDidLoad() {
-        
         super.viewDidLoad()
         setColor()
     }
-
     
     override open func viewWillAppear(_ animated: Bool) {
-      
         // Do any additional setup after loading the view.
         super.viewWillAppear(true)
         setColor()

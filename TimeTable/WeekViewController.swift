@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WeekViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class WeekViewController: UICollectionViewController {
 
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -51,14 +51,6 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
         dateFormatter.calendar = appDelegate.gregorianCalendar as Calendar!
     }
     
-    
-    override func didReceiveMemoryWarning() {
-    
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         print("viewWillTransition")
@@ -68,23 +60,17 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
         flowLayout.invalidateLayout()
     }
- 
     
     // MARK: UICollectionView
-    
     override func collectionView (_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if timetable != nil {
             return (intDays! + 1) * (intClasses! + 1)
         } else {
             return 0
         }
-        
     }
     
-    
     override func collectionView (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
         if ((indexPath as NSIndexPath).row <= intDays!) || ((indexPath as NSIndexPath).row % (intDays! + 1) == 0){
             let titleCell: TitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as! TitleCell
             if((indexPath as NSIndexPath).row == 0) {
@@ -104,21 +90,15 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
     }
     
-    
     func configureHeaderCell (titleCell: TitleCell, rowPath: Int) {
-    
         titleCell.configureHeaderCell(rowIndex: rowPath)
     }
     
-    
     func configureSideCell (titleCell: TitleCell, period: Int) {
-    
         titleCell.configureSideCell(period: period)
     }
     
-    
     func configureUsualCell (indexPath: IndexPath, usualCell: UsualCell) {
-        
         let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
         if(aClass != nil) {
             usualCell.makeCell(classes: aClass!)
@@ -131,7 +111,6 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
     *   classesObjects配列から、classesObjext.indexPathが当てはまるものを取得
     */
     func classesAtIndexPath (classes: [Classes], indexPath: IndexPath) -> Classes? {
-   
         for aClass in classes {
             if aClass.indexPath == NSNumber(value: Int32(indexPath.row)) {
                 return aClass
@@ -139,12 +118,11 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
         }
         return nil
     }
-    
-    
-    //　MARK: UICollectionViewDelegateFlowLayout
-    
+}
+
+
+extension WeekViewController: UICollectionViewDelegateFlowLayout {
     func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-     
         //Calculates cell sizes
         let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.height
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
@@ -164,15 +142,11 @@ class WeekViewController: UICollectionViewController, UICollectionViewDelegateFl
         return CGSize(width: width, height: height)
     }
     
-    
     func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    
         return 0
     }
     
-    
     func collectionView (_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    
         return 0
     }
 }

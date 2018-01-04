@@ -12,23 +12,20 @@ import SVProgressHUD
 import SCLAlertView//Premium Versionの宣伝のみに使用
 import DZNEmptyDataSet
 
-class MenuViewController: UITableViewController, NSFetchedResultsControllerDelegate, DZNEmptyDataSetSource {
+class MenuViewController: UITableViewController {
 
     let defaultStack = CoreDataStack.shared
     let model = MenuViewModel.shared
     
     @IBAction func plusButtonPushed(_ sender: UIBarButtonItem) {
-        
         if premiumValidated() {
             performSegue(withIdentifier: "goAdd", sender: self)
         }
     }
     
-    
     @IBAction func addCompleted (_ segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
-    
     
     @IBAction func cancelToMenu (_ segue: UIStoryboardSegue) {
     }
@@ -43,69 +40,51 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
         navigationController?.toolbar.isHidden = false
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         self.navigationController?.isToolbarHidden = false
         tableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
-        //presentOnboard()
-        
     }
-    
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    
     @objc func cloudDataDidDownload(notification: Notification) {
-    
         print("MenuVC cloudDataDidDownload")
         defaultStack.sync(completion: nil)
         tableView.reloadData()
     }
     
-    
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
     }
     
-
     // MARK: - Table View
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
         configureCell(cell: cell, atIndexPath: indexPath)
         return cell
     }
     
-    
     // fetchedResultsController内でも使用
     func configureCell (cell: UITableViewCell, atIndexPath indexPath: IndexPath) {
-        
         let object = fetchedResultsController.object(at: indexPath)
         model.tagUUID(timetable: object)
         cell.textLabel!.text = object.timetableName
     }
     
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
         return true
     }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -182,7 +161,6 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
     // MARK: - Navigation
 
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goTimeTable" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = self.fetchedResultsController.object(at: indexPath)
@@ -209,7 +187,6 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
     // MARK: - Fetched results controller
     
     lazy var fetchedResultsController: NSFetchedResultsController<Timetables> = {
-        
         let fetchRequest: NSFetchRequest<Timetables> = Timetables.fetchRequest()
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
@@ -217,7 +194,7 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
         // Edit the sort key as appropriate.
         let orderDescriptor = NSSortDescriptor(key: "archiveOrder", ascending: true)
         let nameDesctiptor = NSSortDescriptor(key: "timetableName", ascending: false)
-            
+        
         fetchRequest.sortDescriptors = [orderDescriptor, nameDesctiptor]
         //archiveOrder default is 0. すべて0の時は昔通りtimetableNameの降順
         
@@ -234,21 +211,37 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
             let nserror = error as NSError
             print("Unresolved error \(nserror), \(nserror.userInfo)")
         }
-        
         return aFetchedResultsController
     }()
     
+    // MARK: - Alert View
     
+    func showPremiumAlert() {
+        let title = NSLocalizedString("TimeTablePro", comment: "プレミアム版")
+        let message = NSLocalizedString("PremiumAd", comment: "")
+        SCLAlertView().showInfo(title, subTitle: message, closeButtonTitle: "OK")
+    }
     
+    func premiumValidated() -> Bool {
+        let sectionInfo = fetchedResultsController.sections![0]
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if sectionInfo.numberOfObjects >= 1 && !appDelegate.alreadyPurchased {
+            showPremiumAlert()
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+
+extension MenuViewController: NSFetchedResultsControllerDelegate {
     
     private func controllerWillChangeContent(controller: NSFetchedResultsController<Timetables>) {
-    
         self.tableView.beginUpdates()
     }
     
-
     private func controller(controller: NSFetchedResultsController<Timetables>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-
         switch type {
         case .insert:
             self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
@@ -259,9 +252,7 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
         }
     }
     
-
     private func controller(controller: NSFetchedResultsController<Timetables>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
@@ -276,57 +267,16 @@ class MenuViewController: UITableViewController, NSFetchedResultsControllerDeleg
         }
     }
     
-
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-
         self.tableView.endUpdates()
     }
-    
-    
-    // MARK: - Alert View
-    
-    func showPremiumAlert() {
-        
-        let title = NSLocalizedString("TimeTablePro", comment: "プレミアム版")
-        let message = NSLocalizedString("PremiumAd", comment: "")
-        SCLAlertView().showInfo(title, subTitle: message, closeButtonTitle: "OK")
-    }
-    
-    
-    func premiumValidated() -> Bool {
-        
-        let sectionInfo = fetchedResultsController.sections![0]
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if sectionInfo.numberOfObjects >= 1 && !appDelegate.alreadyPurchased {
-            showPremiumAlert()
-            return false
-        } else {
-            return true
-        }
-    }
-    
-    
-    // MARK: - DZNEmptyDataSet
-    
-    /*func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "logoWhite.png")
-    }
-    
-    
-    func imageTintColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return UIColor.gray
-    }
-    
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let title = "TimeTable"
-        return NSAttributedString(string: title)
-    }*/
-    
+}
+
+
+extension MenuViewController: DZNEmptyDataSetSource {
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = NSLocalizedString("MenuLabel", comment: "右上の+ボタンを押して\n時間割を作成してください")
         return NSAttributedString(string: text)
     }
-    
 }
