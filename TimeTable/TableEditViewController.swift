@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Eureka
 import GoogleMobileAds
+import NotificationBannerSwift
 
 private let timeCellID = "timeCell"
 
@@ -234,16 +235,12 @@ class TableEditViewController: UITableViewController {
     
     //Utilities
     func showTimeSettingAlert() {
-        let title = "Notice"
         let message = NSLocalizedString("FirstPleaseSetClassHours", comment: "先に授業時間を設定してください")
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        let banner = NotificationBanner(title: message, style: .warning)
+        banner.show()
     }
     
     // MARK: - AdMob
-    
     func createAndLoadInterstitial() -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7686010266932149/3513620919")
         let request = GADRequest()
