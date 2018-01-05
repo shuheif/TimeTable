@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import SVProgressHUD
 import SCLAlertView//Premium Versionの宣伝のみに使用
 import DZNEmptyDataSet
 
@@ -47,11 +46,6 @@ class MenuViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @objc func cloudDataDidDownload(notification: Notification) {
         print("MenuVC cloudDataDidDownload")
         defaultStack.sync(completion: nil)
@@ -87,37 +81,26 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         model.saveSelectedRow(indexPath: indexPath, frc: fetchedResultsController)
         performSegue(withIdentifier: "goTimeTable", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        print("moveRowAtIndexPath")
         model.setArchiveOrder(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath, frc: fetchedResultsController)
     }
     
-    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         let deleteClosure = { (action: UITableViewRowAction, indexPath: IndexPath) -> Void in
-            
             //アラートビューを表示
             let title = NSLocalizedString("DeleteTableAlertTitle", comment: "時間割削除")
             let message = NSLocalizedString("DeleteTableAlertMessage", comment: "この時間割を削除してもよろしいですか？")
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let deleteAction = UIAlertAction(title: "Delete", style: .default, handler: { void in
-                SVProgressHUD.setDefaultMaskType(.black)
-                SVProgressHUD.setMinimumDismissTimeInterval(1)
-                SVProgressHUD.show(withStatus: "Deleting")
                 DispatchQueue.global().async {
                     self.model.deleteTimetables(targetIndexPath: indexPath, frc: self.fetchedResultsController)
                     DispatchQueue.main.async {
-                        SVProgressHUD.showSuccess(withStatus: "Deleted")
                         let detailNavigationController = self.splitViewController!.viewControllers.last as! UINavigationController
                         guard let timeTableViewController: TimeTableViewController = detailNavigationController.topViewController as? TimeTableViewController else {
                             //iPhone用
@@ -136,9 +119,7 @@ class MenuViewController: UITableViewController {
             alert.addAction(deleteAction)
             self.present(alert, animated: true, completion: nil)
         }
-        
         let deleteButton = UITableViewRowAction(style: .default, title: "Delete", handler: deleteClosure)
-        
         let copyClosure = { (action: UITableViewRowAction, indexPath: IndexPath) -> Void in
             
             if !self.premiumValidated() {
@@ -159,7 +140,6 @@ class MenuViewController: UITableViewController {
     
     
     // MARK: - Navigation
-
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goTimeTable" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
