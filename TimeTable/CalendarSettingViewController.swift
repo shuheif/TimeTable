@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import EventKit
-import SVProgressHUD
+import NotificationBannerSwift
 
 class CalendarSettingViewController: UITableViewController {
     
@@ -62,59 +62,53 @@ class CalendarSettingViewController: UITableViewController {
             showTimeAlert()
             return
         }
-        
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.setMinimumDismissTimeInterval(1)
-        
         //すでにsaveされているか
         if timetable!.syncOn {
             if syncSwitch.isOn {
-                SVProgressHUD.show(withStatus: "Updating")
-                
                 DispatchQueue.global().async {
                     //期間変更を反映
                     print("期間変更を反映")
                     self.model.updateCalendarSync(timetable: self.timetable!, startDate: self.startDate, endDate: self.endDate, courseTimes: self.courseTimes!)
                     //startDate,endDate保存
                     self.model.saveDates(startDate: self.startDate, endDate: self.endDate, timetable: self.timetable!)
+                    self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
+                    self.defaultStack.saveContext()
                     DispatchQueue.main.async {
-                        SVProgressHUD.showSuccess(withStatus: "Succeeded!")
-                        self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
-                        self.defaultStack.saveContext()
-                        
                         self.performSegue(withIdentifier: "saveToTEFromCS", sender: self)
+                        let banner = NotificationBanner(title: "The new period is saved on Calendar.", style: .success)
+                        banner.show(bannerPosition: .bottom)
                     }
                 }
             } else {
-                SVProgressHUD.show(withStatus: "Deleting")
                 DispatchQueue.global().async {
                     //イベントを全削除
                     print("イベントを全削除")
                     self.model.deleteAllEvents(timetable: self.timetable!)
                     //startDate,endDate削除
                     self.model.deleteDates(timetable: self.timetable!)
+                    self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
+                    self.defaultStack.saveContext()
                     DispatchQueue.main.async {
-                        SVProgressHUD.showSuccess(withStatus: "Succeeded!")
-                        self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
-                        self.defaultStack.saveContext()
                         self.performSegue(withIdentifier: "saveToTEFromCS", sender: self)
+                        let banner = NotificationBanner(title: "The schedule is deleted from Calendar")
+                        banner.show(bannerPosition: .bottom)
                     }
                 }
             }
         } else {
             if syncSwitch.isOn {
-                SVProgressHUD.show(withStatus: "Saving")
                 DispatchQueue.global().async {
                     //全保存
                     print("全保存")
                     self.model.saveEventsDuringTerm(startDate: self.startDate, endDate: self.endDate, timetable: self.timetable!, courseTimes: self.courseTimes!)
                     //startDate, endDate保存
                     self.model.saveDates(startDate: self.startDate, endDate: self.endDate, timetable: self.timetable!)
+                    self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
+                    self.defaultStack.saveContext()
                     DispatchQueue.main.async {
-                        SVProgressHUD.showSuccess(withStatus: "Succeeded!")
-                        self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
-                        self.defaultStack.saveContext()
                         self.performSegue(withIdentifier: "saveToTEFromCS", sender: self)
+                        let banner = NotificationBanner(title: "The schedule is saved to Calendar", style: .success)
+                        banner.show(bannerPosition: .bottom)
                     }
                 }
             } else {
@@ -123,6 +117,8 @@ class CalendarSettingViewController: UITableViewController {
                 timetable!.setValue(syncSwitch.isOn, forKey: "syncOn")
                 defaultStack.saveContext()
                 performSegue(withIdentifier: "saveToTEFromCS", sender: self)
+                let banner = NotificationBanner(title: "Nothing has changed.")
+                banner.show(bannerPosition: .bottom)
             }
         }
     }
@@ -166,7 +162,6 @@ class CalendarSettingViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-       
         if(segue.identifier == "doneToTableEdit") {
             let controller: TableEditViewController = segue.destination as! TableEditViewController
             controller.timetable = timetable!

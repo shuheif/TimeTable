@@ -4,13 +4,14 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'TimeTable' do
-pod 'SVProgressHUD'
 pod 'SCLAlertView'
+pod 'SVProgressHUD'
 pod 'Eureka'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 pod 'Ensembles', '~> 1.0'
 pod 'DZNEmptyDataSet'
+pod 'NotificationBannerSwift'
 end
 
 target 'TimeTableTests' do

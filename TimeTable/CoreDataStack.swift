@@ -89,7 +89,6 @@ class CoreDataStack: NSObject, CDEPersistentStoreEnsembleDelegate {
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()

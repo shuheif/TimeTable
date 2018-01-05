@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SCLAlertView//Premium Versionの宣伝のみに使用
 import DZNEmptyDataSet
+import NotificationBannerSwift
 
 class MenuViewController: UITableViewController {
 
@@ -105,6 +106,8 @@ class MenuViewController: UITableViewController {
                         guard let timeTableViewController: TimeTableViewController = detailNavigationController.topViewController as? TimeTableViewController else {
                             //iPhone用
                             tableView.reloadData()
+                            let banner = NotificationBanner(title: "The schedule is deleted.", style: .success)
+                            banner.show(bannerPosition: .bottom)
                             return
                         }
                         //iPad用
@@ -112,6 +115,8 @@ class MenuViewController: UITableViewController {
                         timeTableViewController.title = nil
                         timeTableViewController.collectionView?.reloadData()
                         tableView.reloadData()
+                        let banner = NotificationBanner(title: "The schedule is deleted.", style: .success)
+                        banner.show()
                     }
                 }
             })
