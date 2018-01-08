@@ -63,7 +63,7 @@ class CalendarSettingViewController: UITableViewController {
             return
         }
         
-        var isSyncOn = timetable!.syncOn
+        let isSyncOn = timetable!.syncOn
         self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
         self.defaultStack.saveContext()
         self.performSegue(withIdentifier: "saveToTEFromCS", sender: self)
