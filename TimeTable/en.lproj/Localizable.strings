@@ -62,6 +62,9 @@
 "NeedPermission" = "This function needs permission to access your calendar data.";
 "SettingPrivacy" = "Please change status in Setting app > Privacy > Calendar";
 "TheEndOfTheTimeMustBeBefore24o'clock" = "The end of the schedule must be before 12am";
+"schedule_has_been_modified" = "The schedule has been modified.";
+"Schedule_has_been_deleted" = "The schedule has been deleted from Calendar.";
+"Schedule_has_been_saved" = "The schedule has been saved to Calendar.";
 
 // Premium
 "Already" = "You are already using TimeTable Pro";

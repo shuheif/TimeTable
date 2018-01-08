@@ -63,7 +63,9 @@
 "NeedPermission" = "この機能にはカレンダーへのアクセス許可が必要です";
 "SettingPrivacy" = "設定アプリ>プライバシー>カレンダー から変更してください";
 "TheEndOfTheTimeMustBeBefore24o'clock" = "24時を超える授業時間が設定されているときは、同期できません";
-
+"schedule_has_been_modified" = "期間の変更が保存されました";
+"Schedule_has_been_deleted" = "時間割をカレンダーから削除しました";
+"Schedule_has_been_saved" = "時間割がカレンダーと同期されました";
 
 // Premium
 "Already" = "アップグレード済みです";

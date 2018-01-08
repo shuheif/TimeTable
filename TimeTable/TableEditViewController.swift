@@ -237,7 +237,7 @@ class TableEditViewController: UITableViewController {
     func showTimeSettingAlert() {
         let message = NSLocalizedString("FirstPleaseSetClassHours", comment: "先に授業時間を設定してください")
         let banner = NotificationBanner(title: message, style: .warning)
-        banner.show()
+        banner.show(bannerPosition: .bottom)
     }
     
     // MARK: - AdMob

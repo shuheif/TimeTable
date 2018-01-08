@@ -46,6 +46,7 @@ class CalendarSettingViewController: UITableViewController {
     }
     
     @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
+        
         //カレンダーへのアクセス権再確認
         if (!model.calendarAuthorized()) {
             showSettingAlert()
@@ -77,7 +78,9 @@ class CalendarSettingViewController: UITableViewController {
                     //startDate,endDate保存
                     self.model.saveDates(startDate: self.startDate, endDate: self.endDate, timetable: self.timetable!)
                     DispatchQueue.main.async {
-                        let banner = NotificationBanner(title: "The new period is saved to Calendar.", style: .success)
+                        let title = NSLocalizedString("schedule_has_been_modified", comment: "The schedule has been modified.")
+                        let banner = NotificationBanner(title: title)
+                        banner.backgroundColor = UIColor.jadeColor()
                         banner.show(bannerPosition: .bottom)
                     }
                 }
@@ -89,7 +92,9 @@ class CalendarSettingViewController: UITableViewController {
                     //startDate,endDate削除
                     self.model.deleteDates(timetable: self.timetable!)
                     DispatchQueue.main.async {
-                        let banner = NotificationBanner(title: "The schedule is deleted from Calendar")
+                        let title = NSLocalizedString("Schedule_has_been_deleted", comment: "The schedule has been deleted from Calendar.")
+                        let banner = NotificationBanner(title: title)
+                        banner.backgroundColor = UIColor.jadeColor()
                         banner.show(bannerPosition: .bottom)
                     }
                 }
@@ -105,15 +110,15 @@ class CalendarSettingViewController: UITableViewController {
                     //startDate, endDate保存
                     self.model.saveDates(startDate: self.startDate, endDate: self.endDate, timetable: self.timetable!)
                     DispatchQueue.main.async {
-                        let banner = NotificationBanner(title: "The schedule is saved to Calendar", style: .success)
+                        let title = NSLocalizedString("Schedule_has_been_saved", comment: "The schedule has been saved to Calendar.")
+                        let banner = NotificationBanner(title: title)
+                        banner.backgroundColor = UIColor.jadeColor()
                         banner.show(bannerPosition: .bottom)
                     }
                 }
             } else {
                 //何もせず
                 print("何もせず")
-                let banner = NotificationBanner(title: "Nothing has changed.")
-                banner.show(bannerPosition: .bottom)
             }
         }
     }
