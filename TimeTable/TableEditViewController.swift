@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Eureka
-import GoogleMobileAds
 import NotificationBannerSwift
 
 private let timeCellID = "timeCell"
@@ -32,9 +31,6 @@ class TableEditViewController: UITableViewController {
     var showTime = false
     var syncOn = false
     var selectedPeriod: Int?
-    
-    var interstitial: GADInterstitial!
-    
     
     @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
         
@@ -78,10 +74,6 @@ class TableEditViewController: UITableViewController {
         showTime = timetable!.showTime
         timeIsSet = timetable!.timeIsSet
         courseTimes = model.fetchCourseTimes(timetable: timetable!)
-        
-        if !appDelegate.alreadyPurchased {
-            interstitial = createAndLoadInterstitial()
-        }
     }
     
     
@@ -91,6 +83,7 @@ class TableEditViewController: UITableViewController {
         syncOn = timetable!.syncOn
         tableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
+        GADMasterViewController.shared.setupAd(rootViewController: self)
     }
     
     
@@ -238,24 +231,6 @@ class TableEditViewController: UITableViewController {
         let message = NSLocalizedString("FirstPleaseSetClassHours", comment: "先に授業時間を設定してください")
         let banner = NotificationBanner(title: message, style: .warning)
         banner.show(bannerPosition: .bottom)
-    }
-    
-    // MARK: - AdMob
-    func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7686010266932149/3513620919")
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b"]
-        interstitial.delegate = self
-        interstitial.load(request)
-        return interstitial
-    }
-}
-
-
-extension TableEditViewController: GADInterstitialDelegate {
-    //広告がロードされたタイミングで表示
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        interstitial.present(fromRootViewController: self)
     }
 }
 

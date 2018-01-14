@@ -109,6 +109,11 @@ class EasySettingViewController: FormViewController {
                 }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GADMasterViewController.shared.setupAd(rootViewController: self)
+    }
+    
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         

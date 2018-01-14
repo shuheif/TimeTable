@@ -55,6 +55,11 @@ class EachTimeViewController: UITableViewController {
         configureStartTimeCellDetail()
         configureEndTimeCellDetail()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GADMasterViewController.shared.setupAd(rootViewController: self)
+    }
 
     func configureStartTimeCellDetail() {
         startTimeCell.detailTextLabel?.text = dateFormatter.string(from: self.startTime!)

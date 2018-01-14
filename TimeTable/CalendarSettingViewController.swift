@@ -146,6 +146,11 @@ class CalendarSettingViewController: UITableViewController {
         syncSwitch.isOn = timetable!.syncOn
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GADMasterViewController.shared.setupAd(rootViewController: self)
+    }
+    
     // MARK: - Table view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
