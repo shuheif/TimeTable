@@ -29,7 +29,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NotificationBannerSwift (1.5.3):
+  - NotificationBannerSwift (1.5.4):
     - MarqueeLabel/Swift
     - SnapKit (~> 4.0)
   - SCLAlertView (0.7.0)
@@ -58,7 +58,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NotificationBannerSwift: 0a6f482ddbafb9555668e592245af0da7871178e
+  NotificationBannerSwift: 4f6666c8421dcf11be0812dd1093d932c15921af
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
