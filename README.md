@@ -6,7 +6,6 @@ It is published on [AppStore](https://itunes.apple.com/US/app/id981480777?mt=8) 
 
 * [**Shuhei Fujita**](https://github.com/shuheif)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
