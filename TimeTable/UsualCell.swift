@@ -22,7 +22,7 @@ class UsualCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 0.5
         
-        let color = Int(classes.color)
+        let color = Int(truncating: classes.color)
         self.backgroundColor = UIColor.cellBackColor(color: color)
         leftLine.backgroundColor = UIColor.cellLineColor(color: color)
         lessonNameLabel.textColor = UIColor.cellLabelColor(color: color)
