@@ -28,6 +28,7 @@ class TimeTableViewController: WeekViewController {
     }
     
     @IBAction func saveToTimeTable (_ segue: UIStoryboardSegue) {
+        updateUI()
     }
     
     @IBAction func saveToTableFromEdit (_ segue: UIStoryboardSegue) {
@@ -63,6 +64,7 @@ class TimeTableViewController: WeekViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController!.isToolbarHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
     }
     

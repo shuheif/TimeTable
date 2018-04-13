@@ -60,7 +60,7 @@
                         <segue destination="R8C-wN-jnd" kind="popoverPresentation" identifier="goEdit" popoverAnchorBarButtonItem="GM6-iH-pyW" id="eUS-ob-MpI">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
-                        <segue destination="Pjc-Fm-tSu" kind="push" identifier="goDetail" id="k6m-66-id2"/>
+                        <segue destination="Pjc-Fm-tSu" kind="show" identifier="goDetail" id="k6m-66-id2"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2kM-gh-cqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -685,9 +685,15 @@
                             <outlet property="delegate" destination="8Pa-ti-Vhu" id="Ky7-BV-wDC"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="色選択" id="fqH-g1-zSg"/>
+                    <navigationItem key="navigationItem" title="色選択" id="fqH-g1-zSg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="dez-p3-dGf">
+                            <connections>
+                                <action selector="doneButtonPushed:" destination="8Pa-ti-Vhu" id="JBb-ZT-Td7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="C4a-a9-RNr" kind="unwind" identifier="backToDetail" unwindAction="backToDetail:" id="7hq-FV-1d3"/>
+                        <segue destination="C4a-a9-RNr" kind="unwind" identifier="UnwindDetailColorToDetail" unwindAction="unwindDetailColorToDetail:" id="UAX-hK-fUp"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pib-0f-qZh" userLabel="First Responder" sceneMemberID="firstResponder"/>

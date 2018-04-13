@@ -21,6 +21,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     var selectedIndexPath: IndexPath?
     var day: String?
     var time: Int?
+    var selectedColor = 0
     @IBOutlet weak var lessonNameField: UITextField!
     @IBOutlet weak var numberCell: UITableViewCell!
     @IBOutlet weak var teacherNameField: UITextField!
@@ -34,12 +35,16 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     @IBAction func doneToDetailFromCopy (_ segue: UIStoryboardSegue) {
     }
     
+    @IBAction func unwindDetailColorToDetail (_ segue: UIStoryboardSegue) {
+        colorSelectCell.makeCell(color: selectedColor)
+    }
+    
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
         var isNewClasses = false
         if aClass == nil {
             isNewClasses = true
         }
-        aClass = model.saveAClass(aClass: aClass, timetable: timetable!, lessonName: lessonNameField.text, teacherName: teacherNameField.text, roomName: roomNameField.text, memo: memoView.text, indexPath: selectedIndexPath!)
+        aClass = model.saveAClass(aClass: aClass, timetable: timetable!, lessonName: lessonNameField.text, teacherName: teacherNameField.text, roomName: roomNameField.text, color: selectedColor, memo: memoView.text, indexPath: selectedIndexPath!)
         if timetable!.syncOn {
             //カレンダーに変更を反映
             if isNewClasses {
@@ -54,11 +59,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
                 model.editEvents(aClass: aClass!)
             }
         }
-        guard let timeTableVC: TimeTableViewController = self.presentingViewController as? TimeTableViewController else {
-            print("failed to get presentingViewController")
-            return
-        }
-        timeTableVC.updateUI()
         performSegue(withIdentifier: "saveToTimeTable", sender: self)
     }
     
@@ -79,6 +79,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         if (aClass == nil) {
             makeDefaultColorCell()
         } else {
+            selectedColor = aClass!.color.intValue
             updateUI(classEntity: aClass!)
         }
         //キーボード表示の通知
@@ -117,7 +118,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         teacherNameField.text = aClass!.teacherName
         roomNameField.text = aClass!.roomName
         memoView.text = aClass!.memo
-        colorSelectCell.makeCell(color: aClass!.color.intValue)
+        colorSelectCell.makeCell(color: selectedColor)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -161,11 +162,15 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         case "goDetailColor":
             let controller = segue.destination as! DetailColorViewController
             controller.classEntity = aClass!
+            controller.selectedColor = selectedColor
         case "goCopy":
             let controller = (segue.destination as! UINavigationController).topViewController as! CopyViewController
             controller.timetable = timetable
             controller.classes = classes
             controller.destinationIndexPath = selectedIndexPath!
+        case "saveToTimeTable":
+            let controller = segue.destination as! TimeTableViewController
+            controller.updateUI()
         default:
             break
         }

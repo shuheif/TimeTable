@@ -16,16 +16,16 @@ class DetailColorViewController: UICollectionViewController {
     let defaultFloatDays: CGFloat = 5
     let defaultFloatClasses: CGFloat = 5
     var classEntity: Classes?
+    var selectedColor: Int = 0
     var cellwidth: CGFloat = 62.99//通常セルの幅
     var cellheight: CGFloat = 103.8//通常セルの高さ
-    var selectedIndexPath: Int?
+    
+    @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "UnwindDetailColorToDetail", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (classEntity == nil) {
-            //error
-        }
-        selectedIndexPath = classEntity!.color.intValue
     }
     
     //MARK: - UICollectionView
@@ -37,16 +37,25 @@ class DetailColorViewController: UICollectionViewController {
         let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as! ColorCell
         colorCell.makeCell(color: indexPath.row)
         colorCell.colorLabel.text = appDelegate.detailColors[indexPath.row]
-        if (indexPath.row == selectedIndexPath!) {
+        if (indexPath.row == selectedColor) {
             colorCell.checkView.isHidden = false
         }
         return colorCell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath.row
-        model.updateColor(color: selectedIndexPath!, classEntity: classEntity!)
+        selectedColor = indexPath.row
         collectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "UnwindDetailColorToDetail":
+            let controller = segue.destination as! DetailViewController
+            controller.selectedColor = selectedColor
+        default:
+            break
+        }
     }
 }
 
