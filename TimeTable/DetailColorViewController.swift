@@ -11,9 +11,11 @@ import UIKit
 class DetailColorViewController: UICollectionViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let model = DetailColorViewModel.shared
     let gridSpace: CGFloat = 1//隙間の幅
     let defaultFloatDays: CGFloat = 5
     let defaultFloatClasses: CGFloat = 5
+    var classEntity: Classes?
     var cellwidth: CGFloat = 62.99//通常セルの幅
     var cellheight: CGFloat = 103.8//通常セルの高さ
     var selectedIndexPath: Int?
@@ -24,6 +26,10 @@ class DetailColorViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (classEntity == nil) {
+            //error
+        }
+        selectedIndexPath = (classEntity!.color as! Int)
     }
     
     //MARK: - UICollectionView
@@ -43,6 +49,7 @@ class DetailColorViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath.row
+        model.updateColor(color: selectedIndexPath!, classEntity: classEntity!)
         collectionView.reloadData()
     }
     

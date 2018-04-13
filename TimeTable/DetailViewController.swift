@@ -154,7 +154,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         switch segue.identifier {
         case "goDetailColor":
             let controller = segue.destination as! DetailColorViewController
-            controller.selectedIndexPath = selectedColor
+            controller.classEntity = aClass!
         case "goCopy":
             let controller = (segue.destination as! UINavigationController).topViewController as! CopyViewController
             controller.timetable = timetable
