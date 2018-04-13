@@ -28,21 +28,11 @@ class TimeTableViewController: WeekViewController {
     }
     
     @IBAction func saveToTimeTable (_ segue: UIStoryboardSegue) {
-        //From DetailVC
-        classes = model.fetchClasses(timetable: timetable)
-        collectionView?.reloadData()
     }
     
     @IBAction func saveToTableFromEdit (_ segue: UIStoryboardSegue) {
-        //From TableEditVC
-        print("doneToTimeTableFromEdit")
         configureTimeTableView()
-        collectionView?.reloadData()
-    }
-    
-    @IBAction func cancelToTimeTable (_ segue: UIStoryboardSegue) {
-        //From DetailVC
-        print("cancelToTimeTable")
+        collectionView!.reloadData()
     }
     
     override func viewDidLoad() {
@@ -65,8 +55,13 @@ class TimeTableViewController: WeekViewController {
         }
     }
     
+    func updateUI() {
+        classes = model.fetchClasses(timetable: timetable)
+        configureTimeTableView()
+        collectionView!.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear/TimeTableView")
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(self.cloudDataDidDownload(notification:)), name: .CDEICloudFileSystemDidDownloadFiles, object: nil)
     }
@@ -124,7 +119,7 @@ class TimeTableViewController: WeekViewController {
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goDetail":
-            let detailView = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            let detailView = segue.destination as! DetailViewController
             detailView.timetable = timetable
             detailView.selectedIndexPath = selectedIndexPath!
             detailView.classes = classes

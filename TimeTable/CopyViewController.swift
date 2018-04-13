@@ -86,7 +86,6 @@ class CopyViewController: WeekViewController {
                 controller.teacherNameField.text = aClass!.teacherName
                 controller.roomNameField.text = aClass!.roomName
                 controller.memoView.text = aClass!.memo
-                controller.selectedColor = aClass!.color.intValue
             }
         default:
             return

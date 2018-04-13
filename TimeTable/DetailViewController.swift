@@ -21,7 +21,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     var selectedIndexPath: IndexPath?
     var day: String?
     var time: Int?
-    var selectedColor: Int = 0
     @IBOutlet weak var lessonNameField: UITextField!
     @IBOutlet weak var numberCell: UITableViewCell!
     @IBOutlet weak var teacherNameField: UITextField!
@@ -31,23 +30,16 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var trashButton: UIBarButtonItem!
     @IBOutlet weak var copyButton: UIBarButtonItem!
     
-    @IBAction func backToDetail(_ segue: UIStoryboardSegue) {
-        colorSelectCell.makeCell(color: selectedColor)
-    }
-    
-    @IBAction func cancelToDetail(_ segue: UIStoryboardSegue) {
-    }
     
     @IBAction func doneToDetailFromCopy (_ segue: UIStoryboardSegue) {
-        colorSelectCell.makeCell(color: selectedColor)
     }
     
-    @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
+    @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
         var isNewClasses = false
         if aClass == nil {
             isNewClasses = true
         }
-        aClass = model.saveAClass(aClass: aClass, timetable: timetable!, lessonName: lessonNameField.text, teacherName: teacherNameField.text, roomName: roomNameField.text, memo: memoView.text, color: selectedColor, indexPath: selectedIndexPath!)
+        aClass = model.saveAClass(aClass: aClass, timetable: timetable!, lessonName: lessonNameField.text, teacherName: teacherNameField.text, roomName: roomNameField.text, memo: memoView.text, indexPath: selectedIndexPath!)
         if timetable!.syncOn {
             //カレンダーに変更を反映
             if isNewClasses {
@@ -62,6 +54,11 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
                 model.editEvents(aClass: aClass!)
             }
         }
+        guard let timeTableVC: TimeTableViewController = self.presentingViewController as? TimeTableViewController else {
+            print("failed to get presentingViewController")
+            return
+        }
+        timeTableVC.updateUI()
         performSegue(withIdentifier: "saveToTimeTable", sender: self)
     }
     
@@ -77,26 +74,13 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDateLabels()
         aClass = model.classAt(indexPath: selectedIndexPath!, classes: classes!, timetable: timetable!)
-        //曜日/時限数セル
-        let numberOfDays = timetable!.numberOfDays.intValue + 5
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .ordinal
-        let period = selectedIndexPath!.row / (numberOfDays + 1)
-        day = days[selectedIndexPath!.row % (numberOfDays + 1) - 1]
-        numberCell.detailTextLabel?.text = day! + " " +  period.ordinal + NSLocalizedString("period", comment: "限")
-        
-        //その他セル
-        if(aClass != nil) {
-            lessonNameField.text = aClass!.lessonName
-            teacherNameField.text = aClass!.teacherName
-            roomNameField.text = aClass!.roomName
-            memoView.text = aClass!.memo
-            selectedColor = aClass!.color.intValue
+        if (aClass == nil) {
+            makeDefaultColorCell()
+        } else {
+            updateUI(classEntity: aClass!)
         }
-        //色選択セル
-        colorSelectCell.makeCell(color: selectedColor)
-      
         //キーボード表示の通知
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -109,9 +93,31 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
             trashButton.isEnabled = false
             copyButton.isEnabled = true
         } else {
+            updateUI(classEntity: aClass!)
             trashButton.isEnabled = true
             copyButton.isEnabled = false
         }
+    }
+    
+    private func createDateLabels() {
+        let numberOfDays = timetable!.numberOfDays.intValue + 5
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .ordinal
+        let period = selectedIndexPath!.row / (numberOfDays + 1)
+        day = days[selectedIndexPath!.row % (numberOfDays + 1) - 1]
+        numberCell.detailTextLabel?.text = day! + " " +  period.ordinal + NSLocalizedString("period", comment: "限")
+    }
+    
+    private func makeDefaultColorCell() {
+        colorSelectCell.makeCell(color: 0)
+    }
+    
+    private func updateUI(classEntity: Classes) {
+        lessonNameField.text = aClass!.lessonName
+        teacherNameField.text = aClass!.teacherName
+        roomNameField.text = aClass!.roomName
+        memoView.text = aClass!.memo
+        colorSelectCell.makeCell(color: aClass!.color.intValue)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -161,7 +167,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
             controller.classes = classes
             controller.destinationIndexPath = selectedIndexPath!
         default:
-            return
+            break
         }
     }
 }

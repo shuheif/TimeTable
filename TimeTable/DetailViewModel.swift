@@ -20,7 +20,7 @@ class DetailViewModel {
         return instance
     }()
     
-    func saveAClass(aClass: Classes?, timetable: Timetables, lessonName: String?, teacherName: String?, roomName: String?, memo: String?, color: Int, indexPath: IndexPath) -> Classes {
+    func saveAClass(aClass: Classes?, timetable: Timetables, lessonName: String?, teacherName: String?, roomName: String?, memo: String?, indexPath: IndexPath) -> Classes {
         var aClassEntitiy: NSManagedObject? = aClass
         if aClassEntitiy == nil {
             //Create new Classes Entity
@@ -31,7 +31,6 @@ class DetailViewModel {
         aClassEntitiy!.setValue(teacherName, forKey: "teacherName")
         aClassEntitiy!.setValue(roomName, forKey: "roomName")
         aClassEntitiy!.setValue(memo, forKey: "memo")
-        aClassEntitiy!.setValue(color, forKey: "color")
         aClassEntitiy!.setValue(indexPath.row, forKey: "indexPath")
         print("saveAClass")
         defaultStack.saveContext()

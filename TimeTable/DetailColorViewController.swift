@@ -20,16 +20,12 @@ class DetailColorViewController: UICollectionViewController {
     var cellheight: CGFloat = 103.8//通常セルの高さ
     var selectedIndexPath: Int?
     
-    @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "backToDetail", sender: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (classEntity == nil) {
             //error
         }
-        selectedIndexPath = (classEntity!.color as! Int)
+        selectedIndexPath = classEntity!.color.intValue
     }
     
     //MARK: - UICollectionView
@@ -51,15 +47,6 @@ class DetailColorViewController: UICollectionViewController {
         selectedIndexPath = indexPath.row
         model.updateColor(color: selectedIndexPath!, classEntity: classEntity!)
         collectionView.reloadData()
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "backToDetail":
-            (segue.destination as! DetailViewController).selectedColor = selectedIndexPath!
-        default: return
-        }
     }
 }
 
