@@ -111,9 +111,12 @@ class EasySettingViewController: FormViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "saveToTableEdit") {
+        switch segue.identifier {
+        case "saveToTableEdit":
             let controller: TableEditViewController = segue.destination as! TableEditViewController
             controller.courseTimes = model.fetchCourseTimes(timetable: timetable!)
+        default:
+            return
         }
     }
 }

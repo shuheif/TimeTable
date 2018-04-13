@@ -46,9 +46,7 @@ class TimeTableViewController: WeekViewController {
     }
     
     override func viewDidLoad() {
-        print("TimeTableVC ViewDidLoad")
         super.viewDidLoad()
-        
         classes = model.fetchClasses(timetable: timetable)
         courseTimes = model.fetchCourseTimes(timetable: timetable)
         configureTimeTableView()
@@ -124,17 +122,18 @@ class TimeTableViewController: WeekViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goDetail" {
-            //To DetailViewController
+        switch segue.identifier {
+        case "goDetail":
             let detailView = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             detailView.timetable = timetable
             detailView.selectedIndexPath = selectedIndexPath!
             detailView.classes = classes
             detailView.courseTimes = courseTimes
-        } else if segue.identifier == "goEdit" {
-            //To TableEditVC
+        case "goEdit":
             let editView = (segue.destination as! UINavigationController).topViewController as!  TableEditViewController
             editView.timetable = timetable
+        default:
+            break
         }
     }
     

@@ -67,9 +67,12 @@ class EachTimeViewController: UITableViewController {
     }
     
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveToTableEdit" {
+        switch segue.identifier {
+        case "saveToTableEdit:
             let controller = segue.destination as! TableEditViewController
             controller.courseTimes = courseTimes!
+        default:
+            return
         }
     }
 }

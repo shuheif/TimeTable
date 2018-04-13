@@ -77,7 +77,8 @@ class CopyViewController: WeekViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "doneToDetailFromCopy") {
+        switch segue.identifier {
+        case "doneToDetailFromCopy":
             let controller = segue.destination as! DetailViewController
             let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: copyIndexPath!)
             if(aClass != nil) {
@@ -87,6 +88,8 @@ class CopyViewController: WeekViewController {
                 controller.memoView.text = aClass!.memo
                 controller.selectedColor = aClass!.color.intValue
             }
+        default:
+            return
         }
     }
 }

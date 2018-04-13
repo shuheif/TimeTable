@@ -156,9 +156,12 @@ class CalendarSettingViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "doneToTableEdit") {
+        switch segue.identifier {
+        case "doneToTableEdit":
             let controller: TableEditViewController = segue.destination as! TableEditViewController
             controller.timetable = timetable!
+        default:
+            return
         }
     }
     

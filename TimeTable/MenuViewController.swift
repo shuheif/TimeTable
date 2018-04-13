@@ -57,7 +57,6 @@ class MenuViewController: UITableViewController {
     }
     
     // MARK: - Table View
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
@@ -144,7 +143,8 @@ class MenuViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goTimeTable" {
+        switch segue.identifier {
+        case "goTimeTable":
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = self.fetchedResultsController.object(at: indexPath)
                 let controller = (segue.destination as! UINavigationController).topViewController as! TimeTableViewController
@@ -160,9 +160,11 @@ class MenuViewController: UITableViewController {
                     self.splitViewController?.preferredDisplayMode = .primaryHidden
                 })
             }
-        } else if segue.identifier == "goAdd" {
+        case "goAdd":
             let controller = (segue.destination as! UINavigationController).topViewController as! AddViewController
             controller.fetchedResultsController = fetchedResultsController
+        default:
+            break
         }
     }
     

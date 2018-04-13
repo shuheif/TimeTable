@@ -48,9 +48,10 @@ class DetailColorViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "backToDetail" {
+        switch segue.identifier {
+        case "backToDetail":
             (segue.destination as! DetailViewController).selectedColor = selectedIndexPath!
+        default: return
         }
     }
 }

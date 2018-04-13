@@ -151,15 +151,17 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goDetailColor" {
+        switch segue.identifier {
+        case "goDetailColor":
             let controller = segue.destination as! DetailColorViewController
             controller.selectedIndexPath = selectedColor
-        } else if segue.identifier == "goCopy" {
-            //To CopyView
+        case "goCopy":
             let controller = (segue.destination as! UINavigationController).topViewController as! CopyViewController
             controller.timetable = timetable
             controller.classes = classes
             controller.destinationIndexPath = selectedIndexPath!
+        default:
+            return
         }
     }
 }

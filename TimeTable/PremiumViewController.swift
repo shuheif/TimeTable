@@ -37,12 +37,10 @@ class PremiumViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         if appDelegate.alreadyPurchased {
             showPurchasedAlert()
             return
         }
-        
         if indexPath.section == 0 {
             if indexPath.row == 1 {
                 print("upgrade cell selected")
@@ -60,8 +58,6 @@ class PremiumViewController: UITableViewController {
                     self.startRestoring()
                 }
             }
-            
-        
         }
     }
     
