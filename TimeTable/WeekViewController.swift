@@ -48,7 +48,7 @@ class WeekViewController: UICollectionViewController {
         }
         
         self.navigationItem.leftItemsSupplementBackButton = true
-        dateFormatter.calendar = appDelegate.gregorianCalendar as Calendar!
+        dateFormatter.calendar = appDelegate.gregorianCalendar
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

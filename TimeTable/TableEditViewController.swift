@@ -67,7 +67,7 @@ class TableEditViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        dateFormatter.calendar = appDelegate.gregorianCalendar as Calendar!
+        dateFormatter.calendar = appDelegate.gregorianCalendar
         dateFormatter.timeStyle = DateFormatter.Style.short
         tableName = timetable!.timetableName
         numberOfClasses = timetable!.numberOfClasses.intValue

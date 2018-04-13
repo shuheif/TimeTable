@@ -129,7 +129,7 @@ class EventStore: EKEventStore {
         print("deleteAllEvents")
         for event in eventsArray {
             if event != nil {
-                deleteEvent(event: event as EKEvent!)
+                deleteEvent(event: event!)
             }
         }
     }
