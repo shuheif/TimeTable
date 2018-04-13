@@ -11,16 +11,13 @@ import CoreData
 
 class EachTimeViewModel {
     
-    
     static let shared: EachTimeViewModel = {
         let instance = EachTimeViewModel()
         return instance
     }()
-    
     let defaultStack = CoreDataStack.shared
     
     func saveTimesAt(period: Int, startTime: Date, endTime: Date, courseTimes: [CourseTimes]) {
-        
         print("saveCourseTimesAtPeriod")
         for courseTime in courseTimes {
             if courseTime.index.intValue == (period - 1) * 2 {
@@ -32,15 +29,11 @@ class EachTimeViewModel {
         defaultStack.saveContext()
     }
     
-    
     func startTimeAt(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         return courseTimes[(period - 1) * 2].time
     }
     
-    
     func endTimeAt(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         return courseTimes[(period - 1) * 2 + 1].time
     }
 }

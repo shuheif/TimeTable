@@ -11,17 +11,14 @@ import CoreData
 import Eureka
 
 class EasySettingViewController: FormViewController {
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let model = EasySettingViewModel.shared
-    
     var classLengthPickerOpen = false
     var startTimePickerOpen = false
     var endTimePickerOpen = false
     var intervalPickerOpen = false
     var breakPickerOpen = false
     var breakTimePickerOpen = false
-    
     var classLength: Int = 90//min.
     var intervalLength: Int = 15//min.
     var breakLength: Int = 60//min.
@@ -36,7 +33,6 @@ class EasySettingViewController: FormViewController {
     var timetable: Timetables?
     var courseTimes: [CourseTimes]?
     var numberOfClasses: Int?
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
@@ -44,7 +40,6 @@ class EasySettingViewController: FormViewController {
         model.setTimeIsSet(timetable: timetable!)
         performSegue(withIdentifier: "saveToTableEdit", sender: self)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +111,6 @@ class EasySettingViewController: FormViewController {
     
     // MARK: - Navigation
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        
         if(segue.identifier == "saveToTableEdit") {
             let controller: TableEditViewController = segue.destination as! TableEditViewController
             controller.courseTimes = model.fetchCourseTimes(timetable: timetable!)

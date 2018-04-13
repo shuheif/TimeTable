@@ -15,11 +15,9 @@ class EventStore: EKEventStore {
         let instance = EventStore()
         return instance
     }()
-    
     var calendarAuthorization: Bool = false
     
     func checkAuthorizationStatus() {
-        
         let status = EKEventStore.authorizationStatus(for: .event)
         switch(status) {
         case EKAuthorizationStatus.notDetermined:
@@ -33,9 +31,7 @@ class EventStore: EKEventStore {
         }
     }
     
-    
     func requestAccessToCalendar () {
-        
         requestAccess(to: .event, completion: {
             granted, error in
             if granted {
@@ -51,9 +47,7 @@ class EventStore: EKEventStore {
         })
     }
     
-    
     func saveClass (title: String, location: String, date: Date, startHours: Int, startMinutes: Int, endHours: Int, endMinutes: Int, gregorianCalendar: Calendar) -> String {
-        
         let event = EKEvent(eventStore: self)
         event.title = title
         event.location = location
@@ -65,7 +59,6 @@ class EventStore: EKEventStore {
         return event.eventIdentifier
     }
     
-    
     /**
      fetchEventsFromCalendar
      Eventsエンティティに該当するEKEventを配列で返す
@@ -75,7 +68,6 @@ class EventStore: EKEventStore {
      - returns: [EKEvents?]
      */
     func fetchEventsFromCalendar (eventsObjects: [AnyObject]) -> [EKEvent?] {
-        
         var calendarEventsArray: [EKEvent?] = []
         for eventsObject in eventsObjects {
             calendarEventsArray.append(event(withIdentifier: (eventsObject as! Events).eventIdentifier))
@@ -83,12 +75,9 @@ class EventStore: EKEventStore {
         return calendarEventsArray
     }
     
-    
     func fetchEvent (eventsObject: Events) -> EKEvent? {
-        
         return event(withIdentifier: eventsObject.eventIdentifier)
     }
-    
     
     /**
      deleteEvent
@@ -98,7 +87,6 @@ class EventStore: EKEventStore {
      - parameter event: EKEvent
      */
     func deleteEvent (event: EKEvent?) {
-
         if event != nil {
             do {
                 try self.remove(event!, span: .thisEvent)
@@ -110,10 +98,7 @@ class EventStore: EKEventStore {
         }
     }
     
-    
-    
     func deleteEventWith(key: Events) {
-        
         deleteEvent(event: fetchEvent(eventsObject: key))
     }
     
@@ -125,7 +110,6 @@ class EventStore: EKEventStore {
      - parameter eventsArray: [EKEvent?]
      */
     func deleteAllEvents (eventsArray: [EKEvent?]) {
-        
         print("deleteAllEvents")
         for event in eventsArray {
             if event != nil {
@@ -134,9 +118,7 @@ class EventStore: EKEventStore {
         }
     }
     
-    
     func saveEvent (event: EKEvent) {
-        
         do {
             try self.save(event, span: EKSpan.futureEvents)
             print("saveEvent")

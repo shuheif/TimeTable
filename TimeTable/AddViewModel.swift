@@ -18,10 +18,8 @@ class AddViewModel {
         return instance
     }()
     
-    
     // Saves a new Timetables
     func saveNewTimetable(timetableName: String, numberOfDays: Int, numberOfClasses: Int, frc: NSFetchedResultsController<Timetables>) {
-        
         let fetchedArray: NSArray = frc.fetchedObjects! as NSArray
         if fetchedArray.count > 1 {
             for i in 0 ... fetchedArray.count - 1 {
@@ -32,7 +30,6 @@ class AddViewModel {
         } else {
             print("no objects")
         }
-        
         let newTimetables = NSEntityDescription.insertNewObject(forEntityName: "Timetables", into: defaultStack.managedObjectContext)
         newTimetables.setValue(timetableName, forKey: "timetableName")
         newTimetables.setValue(numberOfDays, forKey: "numberOfDays")
@@ -40,6 +37,5 @@ class AddViewModel {
         newTimetables.setValue(0, forKey: "archiveOrder")
         newTimetables.setValue(UUID().uuidString, forKey: "uniqueIdentifier")
         defaultStack.saveContext()
-        
     }
 }

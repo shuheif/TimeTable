@@ -18,9 +18,7 @@ class TimeTableViewModel {
         return instance
     }()
     
-    
     func fetchTimetableWith(uuid: String?) -> Timetables? {
-        
         print("fetchTimetableWith UUID")
         if uuid == nil {
             return nil
@@ -50,9 +48,7 @@ class TimeTableViewModel {
         }
     }
     
-    
     func fetchTimetableWith(timetableName: String?) -> Timetables? {
-        
         if timetableName == nil {
             print("timetableName is nil./TimeTableViewModel fetchTimetableWith timetable")
             return nil
@@ -61,7 +57,6 @@ class TimeTableViewModel {
             print("timetableName is empty./TimeTableViewModel fetchTimetableWith timetable")
             return nil
         }
-
         let fetchRequest: NSFetchRequest<Timetables>
         if #available(iOS 10.0, *) {
             fetchRequest = Timetables.fetchRequest()
@@ -86,7 +81,6 @@ class TimeTableViewModel {
     
     
     func fetchClasses(timetable: Timetables?) -> [Classes] {
-        
         print("fetchClasses/TimeTableViewModel")
         if timetable == nil {
             return []
@@ -113,9 +107,7 @@ class TimeTableViewModel {
         }
     }
     
-    
     func fetchCourseTimes(timetable: Timetables?) -> [CourseTimes] {
-        
         print("fetchCourseTimes/TimeTableViewModel")
         if timetable == nil {
             return []
@@ -143,20 +135,15 @@ class TimeTableViewModel {
         }
     }
     
-    
     func startTime(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let startTime: Date = courseTimes[(period - 1) * 2].time as Date
         return startTime
     }
     
-    
     func endTime(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let endTime: Date = courseTimes[(period - 1) * 2 + 1].time as Date
         return endTime
     }
-    
     
     /**
      weekDays
@@ -166,7 +153,6 @@ class TimeTableViewModel {
      - returns: Int
      */
     func weekDays(now: Date) -> Int {
-        
         let calender = Calendar(identifier: Calendar.Identifier.gregorian)
         let dateComponents = (calender as NSCalendar).components(.weekday, from: now)//as NSDateComponents
         //dateComponents.weekday: Int = 1が日曜　７が土曜

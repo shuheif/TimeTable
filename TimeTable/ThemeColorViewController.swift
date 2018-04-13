@@ -9,7 +9,6 @@
 import UIKit
 
 class ThemeColorViewController: UITableViewController {
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var selectedColor: Int?
     
@@ -29,25 +28,17 @@ class ThemeColorViewController: UITableViewController {
         selectedColor = appDelegate.userDefaults.integer(forKey: "themaColor")
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         tableView.selectRow(at: IndexPath(row: selectedColor!, section: 0), animated: true, scrollPosition: .none)
     }
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return appDelegate.themeColors.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ThemeColorCell", for: indexPath) as! ThemeColorCell
-        // Configure the cell...
         //makeCell →checkLabelの順番
         cell.makeCell(color: indexPath.row)
         if(cell.isSelected) {

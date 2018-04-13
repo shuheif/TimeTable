@@ -11,11 +11,8 @@ import StoreKit
 import SVProgressHUD
 
 class PremiumViewController: UITableViewController {
-
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     @IBOutlet weak var headerCell: UITableViewCell!
-    
     @IBOutlet weak var upgradeCell: UITableViewCell!
     
     @IBAction func cancelPushed(_ sender: UIBarButtonItem) {
@@ -67,20 +64,8 @@ class PremiumViewController: UITableViewController {
         
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     // MARK: - InAppPurchase
-    
     func startPurchasing() {
         //アプリ内課金が使えるかどうかチェック
         if !SKPaymentQueue.canMakePayments() {
@@ -106,7 +91,6 @@ class PremiumViewController: UITableViewController {
     }
     
     // MARK: - Alert
-    
     func showPurchasedAlert() {
         let message = NSLocalizedString("Already", comment: "")
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -170,6 +154,7 @@ class PremiumViewController: UITableViewController {
         NotificationCenter.default.removeObserver(self)
     }
 }
+
 
 extension PremiumViewController: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {

@@ -16,14 +16,12 @@ class SettingViewModel {
         let instance = SettingViewModel()
         return instance
     }()
-    
     let userDefaults = UserDefaults.standard
     let defaultStack = CoreDataStack.shared
     let eventStore = EventStore.shared
     
     // Delete all Datas
     func deleteAllData() {
-        
         let managedObjectContext = CoreDataStack.shared.managedObjectContext
         deleteAllTimetables(managedObjectContext: managedObjectContext)
         deleteAllClasses(managedObjectContext: managedObjectContext)
@@ -31,9 +29,7 @@ class SettingViewModel {
         deleteAllEvents(managedObjectContext: managedObjectContext)
     }
     
-    
     func deleteAllTimetables(managedObjectContext: NSManagedObjectContext) {
-        
         let fetchRequest: NSFetchRequest<Timetables>
         if #available(iOS 10.0, *) {
             fetchRequest = Timetables.fetchRequest()
@@ -52,9 +48,7 @@ class SettingViewModel {
         }
     }
     
-    
     func deleteAllClasses(managedObjectContext: NSManagedObjectContext) {
-        
         let fetchRequest: NSFetchRequest<Classes>
         if #available(iOS 10.0, *) {
             fetchRequest = Classes.fetchRequest()
@@ -73,9 +67,7 @@ class SettingViewModel {
         }
     }
     
-    
     func deleteAllCourseTimes(managedObjectContext: NSManagedObjectContext) {
-        
         let fetchRequest: NSFetchRequest<CourseTimes>
         if #available(iOS 10.0, *) {
             fetchRequest = CourseTimes.fetchRequest()
@@ -93,9 +85,7 @@ class SettingViewModel {
         }
     }
     
-    
     func deleteAllEvents(managedObjectContext: NSManagedObjectContext) {
-        
         let fetchRequest: NSFetchRequest<Events>
         if #available(iOS 10.0, *) {
         fetchRequest = Events.fetchRequest()

@@ -18,13 +18,11 @@ class TableEditViewController: UITableViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let defaultStack = CoreDataStack.shared
     let model = TableEditViewModel.shared
+    let titleForHeader: [String?] = [NSLocalizedString("EditScheduleTitle", comment: "時間割名編集"), NSLocalizedString("SetClassHours", comment: "授業時間設定"), nil]
 
     var timetable: Timetables?
     var courseTimes: [CourseTimes]?
-    let titleForHeader: [String?] = [NSLocalizedString("EditScheduleTitle", comment: "時間割名編集"), NSLocalizedString("SetClassHours", comment: "授業時間設定"), nil]
-    
     var dateFormatter = DateFormatter()
-    
     var tableName: String?
     var numberOfClasses: Int?
     var timeIsSet = false
@@ -33,10 +31,8 @@ class TableEditViewController: UITableViewController {
     var selectedPeriod: Int?
     
     @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
-        
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         let tableNameCell: TableNameCell =  tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableNameCell
-        
         if tableNameCell.tableNameField.text!.isEmpty {
             tableNameCell.tableNameField.shake()
         } else {
@@ -45,27 +41,20 @@ class TableEditViewController: UITableViewController {
         }
     }
     
-    
     @IBAction func cancelToTableEdit (_ segue: UIStoryboardSegue) {
     }
     
-    
     @IBAction func saveToTableEdit (_ segue: UIStoryboardSegue) {
-        
         //From EasyVC, EachTimeVC
         timeIsSet = timetable!.timeIsSet
         tableView.reloadData()
     }
     
-    
     @IBAction func saveToTEFromCS (_ segue: UIStoryboardSegue) {
-        
         //From CalendarSettingVC
     }
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         dateFormatter.calendar = appDelegate.gregorianCalendar
         dateFormatter.timeStyle = DateFormatter.Style.short
@@ -76,9 +65,7 @@ class TableEditViewController: UITableViewController {
         courseTimes = model.fetchCourseTimes(timetable: timetable!)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         syncOn = timetable!.syncOn
         tableView.reloadData()
@@ -86,19 +73,10 @@ class TableEditViewController: UITableViewController {
         GADMasterViewController.shared.setupAd(rootViewController: self)
     }
     
-    
     @objc func cloudDataDidDownload(notification: Notification) {
-        
         defaultStack.sync(completion: nil)
         tableView.reloadData()
     }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
@@ -196,7 +174,6 @@ class TableEditViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == nil) {
             return

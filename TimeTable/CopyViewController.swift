@@ -9,10 +9,8 @@
 import UIKit
 
 class CopyViewController: WeekViewController {
-    
     var destinationIndexPath: IndexPath?
     var copyIndexPath: IndexPath?
-    
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {

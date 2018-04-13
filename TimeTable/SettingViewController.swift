@@ -13,7 +13,6 @@ import SVProgressHUD
 class SettingViewController: UITableViewController {
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     @IBOutlet weak var themeCell: UITableViewCell!
     @IBOutlet weak var premiumCell: UITableViewCell!
     @IBOutlet weak var homepageCell: UITableViewCell!
@@ -38,11 +37,6 @@ class SettingViewController: UITableViewController {
             upgradeCell.selectionStyle = .default
         }
         versionNameCell.detailTextLabel!.text = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

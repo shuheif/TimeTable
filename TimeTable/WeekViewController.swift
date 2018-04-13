@@ -10,49 +10,39 @@ import UIKit
 import CoreData
 
 class WeekViewController: UICollectionViewController {
-
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var dateFormatter = DateFormatter()
-    
     let header: CGFloat = 20//headerの高さ
     var sider: CGFloat = 20//siderの幅
-    
     var frameWidth: CGFloat?//frameの幅
     var frameHeight: CGFloat?//frameの高さ
     var cellWidth: CGFloat?//セルの幅
     var cellHeight: CGFloat?//セルの高さ
-    
     var intDays: Int?//曜日数
     var intClasses: Int?//時限数
     var floatDays: CGFloat?
     var floatClasses: CGFloat?
-    
     var timetable: Timetables?//WeekViewClass初期化時に必要
     var classes: [Classes]?//同上
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.toolbar.isHidden = true
-        
         let usualNib = UINib(nibName: "UsualCell", bundle: nil)
         let titleNib = UINib(nibName: "TitleCell", bundle: nil)
         collectionView?.register(usualNib, forCellWithReuseIdentifier: "UsualCell")
         collectionView?.register(titleNib, forCellWithReuseIdentifier: "TitleCell")
-        
         if timetable != nil {
             intDays = timetable!.numberOfDays.intValue + 5// 換算 曜日数
             intClasses = timetable!.numberOfClasses.intValue // 時限数
             floatDays = CGFloat(intDays!)
             floatClasses = CGFloat(intClasses!)
         }
-        
         self.navigationItem.leftItemsSupplementBackButton = true
         dateFormatter.calendar = appDelegate.gregorianCalendar
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
         print("viewWillTransition")
         guard let flowLayout = collectionView?.collectionViewLayout  else {
             print("flowLayout return")

@@ -18,32 +18,24 @@ class TableEditViewModel {
         return instance
     }()
     
-    
     func saveTimetables(timetable: Timetables, timetableName: String, showTime: Bool) {
-        
         print("saveTimetables")
         timetable.setValue(timetableName, forKey: "timetableName")
         timetable.setValue(showTime, forKey: "showTime")
         defaultStack.saveContext()
     }
     
-    
     func startTime(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let startTime: Date = courseTimes[(period - 1) * 2].time as Date
         return startTime
     }
     
-    
     func endTime(period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let endTime: Date = courseTimes[(period - 1) * 2 + 1].time as Date
         return endTime
     }
     
-    
     func fetchCourseTimes(timetable: Timetables) -> [CourseTimes] {
-        
         print("fetchCourseTimes/TableEditViewModel")
         let fetchRequest: NSFetchRequest<CourseTimes>
         if #available(iOS 10.0, *) {

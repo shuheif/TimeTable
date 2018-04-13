@@ -22,7 +22,6 @@ class MenuViewModel {
     let defaultStack = CoreDataStack.shared
     let eventStore = EventStore.shared// TODO remove
     
-    
     // Saves seleced Timetables to UserDefaults
     func saveSelectedRow(indexPath: IndexPath, frc: NSFetchedResultsController<Timetables>) {
         
@@ -34,7 +33,6 @@ class MenuViewModel {
             print("defaults saved")
         }
     }
-    
     
     // Sets archiveOrders when a row is moved
     func setArchiveOrder(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath, frc: NSFetchedResultsController<Timetables>) {
@@ -57,10 +55,8 @@ class MenuViewModel {
         defaultStack.saveContext()
     }
     
-    
     // Deletes a Timetables
     func deleteTimetables(targetIndexPath: IndexPath, frc: NSFetchedResultsController<Timetables>) {
-        
         // 残りのarchiveOrderを設定
         let numObject = frc.fetchedObjects!.count
         if targetIndexPath.row < numObject - 1 {
@@ -68,7 +64,6 @@ class MenuViewModel {
                 frc.object(at: IndexPath(row: i, section: 0)).setValue(i-1, forKey: "archiveOrder")
             }
         }
-        
         //Timetablesに関連付けられたClassesをすべて削除
         let targetTimetable = frc.object(at: targetIndexPath)
         let fetchRequest: NSFetchRequest<Classes>
@@ -114,7 +109,6 @@ class MenuViewModel {
             
             defaultStack.managedObjectContext.delete(relatedClass)
         }
-        
         //Timetablesに関連付けられたCourseTimesをすべて削除
         let courseTimesFetchRequest: NSFetchRequest<CourseTimes>
         if #available(iOS 10.0, *) {
@@ -139,11 +133,9 @@ class MenuViewModel {
             print("delete relatedClassesObject")
             defaultStack.managedObjectContext.delete(courseTime)
         }
-        
         //Timetables削除
         defaultStack.managedObjectContext.delete(targetTimetable)
         defaultStack.saveContext()
-        
         // Resets UserDefaults
         userDefaults.removeObject(forKey: "selectedUUID")
     }
@@ -151,7 +143,6 @@ class MenuViewModel {
     
     // Copies Timetables
     func copyTimetables(targetIndexPath: IndexPath, frc: NSFetchedResultsController<Timetables>) {
-        
         print("MenuVC copyTimetables")
         // reorder Archive order
         let fetchedArray: NSArray = frc.fetchedObjects! as NSArray
@@ -179,7 +170,6 @@ class MenuViewModel {
         newTimetable.setValue(0, forKey: "archiveOrder")
         print("create new Timetable")
         defaultStack.saveContext()
-        
         // Fetch related Classes
         let fetchRequest: NSFetchRequest<Classes>
         if #available(iOS 10.0, *) {
@@ -201,7 +191,6 @@ class MenuViewModel {
             print(error.localizedDescription)
         }
         for aClass in classes {
-            
             let newClasses = NSEntityDescription.insertNewObject(forEntityName: "Classes", into: defaultStack.managedObjectContext)
             newClasses.setValue(newTimetable, forKey: "timetables")
             newClasses.setValue(aClass.lessonName, forKey: "lessonName")
@@ -214,7 +203,6 @@ class MenuViewModel {
         }
         print("saved new classes")
         defaultStack.saveContext()
-        
         // Copy CourseTimes
         let courseTimesFetchRequest: NSFetchRequest<CourseTimes>
         if #available(iOS 10.0, *) {
@@ -235,9 +223,7 @@ class MenuViewModel {
             let nserror = error as NSError
             print("Unresolved error \(nserror), \(nserror.userInfo)")
         }
-        
         for courseTime in courseTimes {
-            
             let newCourseTime: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "CourseTimes", into: defaultStack.managedObjectContext)
             newCourseTime.setValue(newTimetable, forKey: "timetables")
             newCourseTime.setValue(courseTime.time, forKey: "time")
@@ -247,7 +233,6 @@ class MenuViewModel {
         print("saved new courseTimes")
         defaultStack.saveContext()
     }
-    
     
     func tagUUID(timetable: Timetables) {
         

@@ -14,13 +14,11 @@ class TimeTableViewController: WeekViewController {
     
     let model = TimeTableViewModel.shared
     let defaultStack = CoreDataStack.shared
-    
     var weekDays: Int?
     var selectedIndexPath: IndexPath?
     var showTime = false
     var timeIsSet = false
     var courseTimes: [CourseTimes] = []
-    
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     @IBAction func goEditButton(_ sender: UIBarButtonItem) {
@@ -49,7 +47,6 @@ class TimeTableViewController: WeekViewController {
     
     override func viewDidLoad() {
         print("TimeTableVC ViewDidLoad")
-        
         super.viewDidLoad()
         
         classes = model.fetchClasses(timetable: timetable)
@@ -68,11 +65,6 @@ class TimeTableViewController: WeekViewController {
         } else {
             editButton.isEnabled = true
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,7 +85,6 @@ class TimeTableViewController: WeekViewController {
     }
     
     // MARK: UICollectionView
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         collectionView.deselectItem(at: indexPath, animated: true)
@@ -132,7 +123,6 @@ class TimeTableViewController: WeekViewController {
     }
     
     // MARK: - Navigation
-    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goDetail" {
             //To DetailViewController
@@ -149,7 +139,6 @@ class TimeTableViewController: WeekViewController {
     }
     
     // MARK: - Utility
-    
     func configureTimeTableView() {
         if timetable != nil {
             self.title = timetable!.timetableName

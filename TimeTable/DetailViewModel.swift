@@ -21,13 +21,11 @@ class DetailViewModel {
     }()
     
     func saveAClass(aClass: Classes?, timetable: Timetables, lessonName: String?, teacherName: String?, roomName: String?, memo: String?, color: Int, indexPath: IndexPath) -> Classes {
-        
         var aClassEntitiy: NSManagedObject? = aClass
         if aClassEntitiy == nil {
             //Create new Classes Entity
             aClassEntitiy = NSEntityDescription.insertNewObject(forEntityName: "Classes", into: defaultStack.managedObjectContext)
         }
-        
         aClassEntitiy!.setValue(timetable, forKey: "timetables")
         aClassEntitiy!.setValue(lessonName, forKey: "lessonName")
         aClassEntitiy!.setValue(teacherName, forKey: "teacherName")
@@ -35,12 +33,10 @@ class DetailViewModel {
         aClassEntitiy!.setValue(memo, forKey: "memo")
         aClassEntitiy!.setValue(color, forKey: "color")
         aClassEntitiy!.setValue(indexPath.row, forKey: "indexPath")
-        
         print("saveAClass")
         defaultStack.saveContext()
         return aClassEntitiy! as! Classes
     }
-    
     
     /**
      saveEventDuringTerm
@@ -50,7 +46,6 @@ class DetailViewModel {
      - parameter endDate:   NSDate
      */
     func saveEventDuringTerm(startDate: Date, endDate: Date, aClass: Classes, timetable: Timetables, indexPath: IndexPath, courseTimes: [CourseTimes], title: String, location: String) {
-        
         print("saveEventDuringTerm")
         let numberOfDays = timetable.numberOfDays.intValue + 5
         let period: Int =  indexPath.row / (numberOfDays + 1)
@@ -61,15 +56,12 @@ class DetailViewModel {
         let startMinutes: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.minute, from: startTime)
         let endHours: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.hour, from: endTime)
         let endMinutes: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.minute, from: endTime)
-        
         let baseWeekday: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.weekday, from: startDate)
         var addingDay: Int = classWeekday - baseWeekday
         if(addingDay < 0) {
             addingDay = addingDay + 7
         }
         var classDate = (appDelegate.gregorianCalendar as NSCalendar).date(byAdding: .day, value: addingDay, to: startDate, options: [])!
-    
-    
         while (isBetweenRange(startDate: startDate, endDate: endDate, date: classDate)) {
             let identifier = eventStore.saveClass(title: title, location: location, date: classDate, startHours: startHours, startMinutes: startMinutes, endHours: endHours, endMinutes: endMinutes, gregorianCalendar: appDelegate.gregorianCalendar)
             let newEventsEntitiy = NSEntityDescription.insertNewObject(forEntityName: "Events", into: defaultStack.managedObjectContext)
@@ -80,7 +72,6 @@ class DetailViewModel {
             classDate = (appDelegate.gregorianCalendar as NSCalendar).date(byAdding: .day, value: 7, to: classDate, options: [])!
         }
     }
-    
     
     /**
      isBetweenRange
@@ -93,7 +84,6 @@ class DetailViewModel {
      - returns: Bool
      */
     func isBetweenRange (startDate: Date, endDate: Date, date: Date) -> Bool {
-        
         if isEarlierOnDayUnit(comparedDate: date, baseDate: startDate) {
             return false
         } else if isEarlierOnDayUnit(comparedDate: endDate, baseDate: date) {
@@ -102,7 +92,6 @@ class DetailViewModel {
             return true
         }
     }
-    
     
     /**
      isEarlierOnDayUnit
@@ -114,7 +103,6 @@ class DetailViewModel {
      - returns: Bool
      */
     func isEarlierOnDayUnit (comparedDate: Date, baseDate: Date) -> Bool {
-        
         var result = false
         if (appDelegate.gregorianCalendar as NSCalendar).compare(comparedDate, to: baseDate, toUnitGranularity: .day) == .orderedAscending {
             result = true
@@ -122,9 +110,7 @@ class DetailViewModel {
         return result
     }
     
-    
     func editEvents(aClass: Classes) {
-        
         print("editEvents")
         let eventsObjects = associatedEvents(aClass: aClass)
         let eventsArray = eventStore.fetchEventsFromCalendar(eventsObjects: eventsObjects)
@@ -137,7 +123,6 @@ class DetailViewModel {
         }
     }
     
-    
     /**
      associatedEvents
      ClassObjectに関連付けられたEventsエンティティを返す。
@@ -147,7 +132,6 @@ class DetailViewModel {
      - returns: [AnyObject]
      */
     func associatedEvents (aClass: Classes) -> [Events] {
-        
         let eventsFetchRequest: NSFetchRequest<Events>
         if #available(iOS 10.0, *) {
             eventsFetchRequest = Events.fetchRequest()
@@ -167,13 +151,11 @@ class DetailViewModel {
     }
     
     // MARK: - EventStore
-    
     /**
      deleteAssociatedEvents
      ClassesObjectに関連付けられたカレンダーのイベントと、Eventsエンティティをすべて削除する。
      */
     func deleteAssociatedEvents(aClass: Classes?) {
-        
         if aClass != nil {
             let eventsObjects = associatedEvents(aClass: aClass!)
             let eventsArray = eventStore.fetchEventsFromCalendar(eventsObjects: eventsObjects)
@@ -186,7 +168,6 @@ class DetailViewModel {
         print("deleteAssociatedEvents")
     }
     
-    
     func deleteClasses(aClass: Classes?) {
         
         if aClass != nil {
@@ -195,9 +176,7 @@ class DetailViewModel {
         }
     }
     
-    
     func classAt(indexPath: IndexPath, classes: [Classes], timetable: Timetables) -> Classes? {
-        
         for aClass in classes {
             if aClass.indexPath.intValue == indexPath.row {
                 return aClass
@@ -205,5 +184,4 @@ class DetailViewModel {
         }
         return nil
     }
-
 }

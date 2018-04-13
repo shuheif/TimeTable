@@ -20,16 +20,13 @@ class CalendarSettingViewModel {
         return instance
     }()
     
-    
     func calendarAuthorized() -> Bool {
         
         eventStore.checkAuthorizationStatus()
         return eventStore.calendarAuthorization
     }
     
-    
     func isDateValid(startDate: Date, endDate: Date) -> Bool {
-    
         if (startDate != (startDate as NSDate).earlierDate(endDate)) {
             return false
         } else {
@@ -37,9 +34,7 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     func isTimeValid(endTime: Date) -> Bool {
-        
         let endOfDay = (appDelegate.gregorianCalendar as NSCalendar).date(era: 1, year: 1970, month: 1, day: 2, hour: 0, minute: 0, second: 0, nanosecond: 0)!
         if((endTime as NSDate).earlierDate(endOfDay) == endOfDay) {
                 return false
@@ -48,10 +43,8 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     func updateCalendarSync (timetable: Timetables, startDate: Date, endDate: Date, courseTimes: [CourseTimes]) {
         let classes = fetchClasses(timetable: timetable)
-        
         let oldStartDate = timetable.startDate
         let oldEndDate = timetable.endDate
         print("startDate = \(startDate)")
@@ -81,7 +74,6 @@ class CalendarSettingViewModel {
         print("updateCalendarSync")
     }
     
-    
     /**
      isEarlierOnDayUnit
      comparedDateがbaseDateより早かったらture
@@ -92,7 +84,6 @@ class CalendarSettingViewModel {
      - returns: Bool
      */
     func isEarlierOnDayUnit (comparedDate: Date, baseDate: Date) -> Bool {
-        
         var result = false
         if (appDelegate.gregorianCalendar as NSCalendar).compare(comparedDate, to: baseDate, toUnitGranularity: .day) == .orderedAscending {
             result = true
@@ -100,9 +91,7 @@ class CalendarSettingViewModel {
         return result
     }
     
-    
     // MARK - EventStore & Events Entity
-    
     /**
      saveEventsDuringTerm
      startDateからendDateの期間、ClassesObjectsをカレンダー・Eventsエンティティに保存する
@@ -111,13 +100,10 @@ class CalendarSettingViewModel {
      - parameter endDate:   NSDate
      */
     func saveEventsDuringTerm (startDate: Date, endDate: Date, timetable: Timetables, courseTimes: [CourseTimes]) {
-        
         print("saveEventsDuringTerm")
-        
         let classes = fetchClasses(timetable: timetable)
         let numberOfDays = timetable.numberOfDays.intValue + 5
         for aClass in classes {
-            
             let indexPath = IndexPath(row: aClass.indexPath.intValue, section: 0)
             let period: Int = indexPath.row / (numberOfDays + 1)
             let classWeekday: Int = indexPath.row % (numberOfDays + 1) + 1
@@ -127,10 +113,8 @@ class CalendarSettingViewModel {
             let startMinutes: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.minute, from: startTime)
             let endHours: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.hour, from: endTime)
             let endMinutes: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.minute, from: endTime)
-            
             var classDate = firstClassDate(baseDate: startDate, weekday: classWeekday)
             while (isBetweenRange(startDate: startDate, endDate: endDate, date: classDate)) {
-                
                 let title = aClass.lessonName
                 print("title = \(title), date = \(classDate)")
                 let location = aClass.roomName
@@ -145,7 +129,6 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     /**
      firstClassDate
      学期開始日baseDateから最初の授業日を返す
@@ -157,7 +140,6 @@ class CalendarSettingViewModel {
      - returns: NSDate
      */
     func firstClassDate (baseDate: Date, weekday: Int) -> Date {
-        
         let baseWeekday: Int = (appDelegate.gregorianCalendar as NSCalendar).component(.weekday, from: baseDate)
         var addingDay: Int = weekday - baseWeekday
         if(addingDay < 0) {
@@ -165,7 +147,6 @@ class CalendarSettingViewModel {
         }
         return (appDelegate.gregorianCalendar as NSCalendar).date(byAdding: .day, value: addingDay, to: baseDate, options: [])!
     }
-    
     
     /**
      startTimeAtPeriod
@@ -177,11 +158,9 @@ class CalendarSettingViewModel {
      - return: NSDate
      */
     func startTimeAtPeriod (period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let startTime: Date = courseTimes[(period - 1) * 2].time as Date
         return startTime
     }
-    
     
     /**
      endTimeAtPeriod
@@ -193,7 +172,6 @@ class CalendarSettingViewModel {
      - return: NSDate
      */
     func endTimeAtPeriod (period: Int, courseTimes: [CourseTimes]) -> Date {
-        
         let endTime: Date = courseTimes[(period - 1) * 2 + 1].time as Date
         return endTime
     }
@@ -206,7 +184,6 @@ class CalendarSettingViewModel {
      - parameter endDate:   NSDate
      */
     func deleteEventsDuringTerm (startDate: Date, endDate: Date, classes: [Classes]) {
-        
         print("deleteEventsDuringTerm")
         for aClass in classes {
             let events = associatedEvents(aClass: aClass)
@@ -226,7 +203,6 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     /**
      isBetweenRange
      dateがstartDateとendDateの範囲内にあるか、日付までの計算で値を返す
@@ -238,7 +214,6 @@ class CalendarSettingViewModel {
      - returns: Bool
      */
     func isBetweenRange (startDate: Date, endDate: Date, date: Date) -> Bool {
-        
         if isEarlierOnDayUnit(comparedDate: date, baseDate: startDate) {
             return false
         } else if isEarlierOnDayUnit(comparedDate: endDate, baseDate: date) {
@@ -248,14 +223,12 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     /**
      deleteAllEvents
      ClassesObjectsを元に、関連付けられたEventStoreのEvent、Eventsエンティティをすべて削除する
      
      */
     func deleteAllEvents (timetable: Timetables) {
-        
         print("deleteAllEvents")
         let classes = fetchClasses(timetable: timetable)
         for aClass in classes {
@@ -270,15 +243,12 @@ class CalendarSettingViewModel {
         }
     }
     
-    
     func saveDates(startDate: Date, endDate: Date, timetable: NSManagedObject) {
-        
         print("saveDates")
         timetable.setValue(startDate, forKey: "startDate")
         timetable.setValue(endDate, forKey: "endDate")
         defaultStack.saveContext()
     }
-    
     
     func deleteDates(timetable: Timetables) {
         
@@ -287,9 +257,7 @@ class CalendarSettingViewModel {
         defaultStack.saveContext()
     }
     
-    
     func associatedEvents (aClass: Classes) -> [Events] {
-        
         let eventsFetchRequest: NSFetchRequest<Events>
         if #available(iOS 10.0, *) {
             eventsFetchRequest = Events.fetchRequest()
@@ -308,9 +276,7 @@ class CalendarSettingViewModel {
         return eventsObjects
     }
     
-    
     func fetchClasses (timetable: Timetables) -> [Classes] {
-        
         print("fetchClasses/CalendarSettingViewModel")
         let fetchRequest: NSFetchRequest<Classes>
         if #available(iOS 10.0, *) {
@@ -331,5 +297,4 @@ class CalendarSettingViewModel {
         }
         return classes
     }
-    
 }

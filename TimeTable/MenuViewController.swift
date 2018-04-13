@@ -16,6 +16,7 @@ class MenuViewController: UITableViewController {
 
     let defaultStack = CoreDataStack.shared
     let model = MenuViewModel.shared
+    var selectedTimetables: String?
     
     @IBAction func plusButtonPushed(_ sender: UIBarButtonItem) {
         if premiumValidated() {
@@ -29,8 +30,6 @@ class MenuViewController: UITableViewController {
     
     @IBAction func cancelToMenu (_ segue: UIStoryboardSegue) {
     }
-    
-    var selectedTimetables: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +138,6 @@ class MenuViewController: UITableViewController {
         }
         
         let copyButton = UITableViewRowAction(style: .normal, title: "Copy", handler: copyClosure)
-        
         return [deleteButton, copyButton]
     }
     
@@ -170,7 +168,6 @@ class MenuViewController: UITableViewController {
     
     
     // MARK: - Fetched results controller
-    
     lazy var fetchedResultsController: NSFetchedResultsController<Timetables> = {
         let fetchRequest: NSFetchRequest<Timetables> = Timetables.fetchRequest()
         // Set the batch size to a suitable number.
@@ -191,8 +188,6 @@ class MenuViewController: UITableViewController {
         do {
             try aFetchedResultsController.performFetch()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             print("Unresolved error \(nserror), \(nserror.userInfo)")
         }
@@ -200,8 +195,7 @@ class MenuViewController: UITableViewController {
     }()
     
     // MARK: - Alert View
-    
-    func showPremiumAlert() {
+        func showPremiumAlert() {
         let title = NSLocalizedString("TimeTablePro", comment: "プレミアム版")
         let message = NSLocalizedString("PremiumAd", comment: "")
         SCLAlertView().showInfo(title, subTitle: message, closeButtonTitle: "OK")
@@ -246,7 +240,6 @@ extension MenuViewController: NSFetchedResultsControllerDelegate {
         case .update:
             self.configureCell(cell: tableView.cellForRow(at: indexPath!)!, atIndexPath: indexPath!)
         case .move:
-            //tableView.moveRow(at: indexPath!, to: newIndexPath!)
             tableView.deleteRows(at: [indexPath!], with: .fade)
             tableView.insertRows(at: [indexPath!], with: .fade)
         }

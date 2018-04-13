@@ -14,11 +14,11 @@ class AddViewController: FormViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let model = AddViewModel.shared
+    let numClasses: [Int] = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     var fetchedResultsController: NSFetchedResultsController<Timetables>?
     var daySelected: Int = 0
     var classesSelected: Int = 5
     var scheduleTitle: String = ""
-    let numClasses: [Int] = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
         if scheduleTitle.isEmpty {
@@ -60,11 +60,6 @@ class AddViewController: FormViewController {
                 }
         
         animateScroll = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func showAlert() {

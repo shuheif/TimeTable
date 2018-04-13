@@ -11,15 +11,11 @@ import UIKit
 class DetailColorViewController: UICollectionViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     let gridSpace: CGFloat = 1//隙間の幅
-    //var framewidth: CGFloat?//frameの幅
-    //var frameheight: CGFloat?//frameの高さ
-    var cellwidth: CGFloat = 62.99//通常セルの幅
-    var cellheight: CGFloat = 103.8//通常セルの高さ
     let defaultFloatDays: CGFloat = 5
     let defaultFloatClasses: CGFloat = 5
-    
+    var cellwidth: CGFloat = 62.99//通常セルの幅
+    var cellheight: CGFloat = 103.8//通常セルの高さ
     var selectedIndexPath: Int?
     
     @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
@@ -28,16 +24,6 @@ class DetailColorViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*let navigationBarHeight: CGFloat = self.navigationController!.navigationBar.frame.height
-        framewidth = collectionView!.frame.width
-        frameheight = collectionView!.frame.height - navigationBarHeight
-        cellwidth = (framewidth! - (defaultFloatDays * gridSpace)) / defaultFloatDays - 0.01
-        cellheight = ((frameheight! - (defaultFloatClasses * gridSpace)) / defaultFloatClasses)*/
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK: - UICollectionView

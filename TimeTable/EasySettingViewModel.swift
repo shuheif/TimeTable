@@ -20,14 +20,12 @@ class EasySettingViewModel {
     }()
     
     func saveCourseTimes(numberOfClasses: Int, startTime: Date, breakIndex: Int, classLength: Int, breakLength: Int, intervalLength: Int, courseTimes: [CourseTimes], timetable: Timetables) {
-        
         if !courseTimes.isEmpty {
             print("既存のcourseTimesObjectsを削除")
             for courseTime in courseTimes {
                 defaultStack.managedObjectContext.delete(courseTime)
             }
         }
-        
         var insertTime: Date?
         for i in 0 ..< numberOfClasses * 2 {
             if(i == 0) {
@@ -52,16 +50,12 @@ class EasySettingViewModel {
         defaultStack.saveContext()
     }
     
-    
     func setTimeIsSet(timetable: Timetables) {
-        
         timetable.setValue(true, forKey: "timeIsSet")
         defaultStack.saveContext()
     }
     
-    
     func fetchCourseTimes(timetable: Timetables?) -> [CourseTimes] {
-        
         var courseTimes: [CourseTimes] = []
         if timetable == nil {
             return courseTimes
@@ -85,6 +79,5 @@ class EasySettingViewModel {
             }
             return courseTimes
         }
-        
     }
 }

@@ -13,7 +13,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let model = DetailViewModel.shared
-    
+    let days = [NSLocalizedString("DMon", comment: "月曜"), NSLocalizedString("DTue", comment: "火曜"), NSLocalizedString("DWed", comment: "水曜"), NSLocalizedString("DThu", comment: "木曜"), NSLocalizedString("DFri", comment: "金曜"), NSLocalizedString("DSat", comment: "土曜"), NSLocalizedString("DSun", comment: "日曜")]
     var timetable: Timetables?
     var classes: [Classes]?//CopyViewへの引き継ぎ
     var aClass: Classes?
@@ -22,9 +22,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     var day: String?
     var time: Int?
     var selectedColor: Int = 0
-    
-    let days = [NSLocalizedString("DMon", comment: "月曜"), NSLocalizedString("DTue", comment: "火曜"), NSLocalizedString("DWed", comment: "水曜"), NSLocalizedString("DThu", comment: "木曜"), NSLocalizedString("DFri", comment: "金曜"), NSLocalizedString("DSat", comment: "土曜"), NSLocalizedString("DSun", comment: "日曜")]
-
     @IBOutlet weak var lessonNameField: UITextField!
     @IBOutlet weak var numberCell: UITableViewCell!
     @IBOutlet weak var teacherNameField: UITextField!
@@ -33,7 +30,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var memoView: UITextView!
     @IBOutlet weak var trashButton: UIBarButtonItem!
     @IBOutlet weak var copyButton: UIBarButtonItem!
-    
     
     @IBAction func backToDetail(_ segue: UIStoryboardSegue) {
         colorSelectCell.makeCell(color: selectedColor)
@@ -82,7 +78,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         aClass = model.classAt(indexPath: selectedIndexPath!, classes: classes!, timetable: timetable!)
-        
         //曜日/時限数セル
         let numberOfDays = timetable!.numberOfDays.intValue + 5
         let numberFormatter = NumberFormatter()
@@ -99,15 +94,12 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
             memoView.text = aClass!.memo
             selectedColor = aClass!.color.intValue
         }
-        
         //色選択セル
         colorSelectCell.makeCell(color: selectedColor)
       
         //キーボード表示の通知
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        //navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,11 +123,6 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         super.viewDidDisappear(animated)
         let center = NotificationCenter.default
         center.removeObserver(self, name: NSNotification.Name(rawValue: "keyboardWillShow:"), object: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Keyboard

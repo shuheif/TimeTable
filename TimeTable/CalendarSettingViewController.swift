@@ -16,24 +16,18 @@ class CalendarSettingViewController: UITableViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let defaultStack = CoreDataStack.shared
     let model = CalendarSettingViewModel.shared
-    
+    let dateComponents = DateComponents()
     var startDate = Date()
     var endDate = Date(timeIntervalSinceNow: 60*60*24*120)//現在から120日後
-    
     var dateFormatter = DateFormatter()
-    let dateComponents = DateComponents()
-    
     var timetable: Timetables?
     var courseTimes: [CourseTimes]?
-    
-    
     @IBOutlet weak var syncSwitch: UISwitch!
     @IBOutlet weak var startDateCell: UITableViewCell!
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDateCell: UITableViewCell!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
     
     @IBAction func startDatePickerChanged (_ sender: UIDatePicker) {
         startDate = sender.date
@@ -46,24 +40,20 @@ class CalendarSettingViewController: UITableViewController {
     }
     
     @IBAction func saveButtonPushed (_ sender: UIBarButtonItem) {
-        
         //カレンダーへのアクセス権再確認
         if (!model.calendarAuthorized()) {
             showSettingAlert()
             return
         }
-        
         //日付の有効性判定
         if !model.isDateValid(startDate: startDate, endDate: endDate) {
             showDateAlert()
             return
         }
-        
         if !model.isTimeValid(endTime: courseTimes!.last!.time as Date) {
             showTimeAlert()
             return
         }
-        
         let isSyncOn = timetable!.syncOn
         self.timetable!.setValue(self.syncSwitch.isOn, forKey: "syncOn")
         self.defaultStack.saveContext()
@@ -125,8 +115,8 @@ class CalendarSettingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startDatePicker.calendar = appDelegate.gregorianCalendar as Calendar!
-        endDatePicker.calendar = appDelegate.gregorianCalendar as Calendar!
+        startDatePicker.calendar = appDelegate.gregorianCalendar as Calendar
+        endDatePicker.calendar = appDelegate.gregorianCalendar as Calendar
         dateFormatter.dateStyle = DateFormatter.Style.short
         
         if timetable?.value(forKey: "startDate") != nil {
@@ -135,7 +125,6 @@ class CalendarSettingViewController: UITableViewController {
         if timetable?.value(forKey: "endDate") != nil {
             endDate = timetable!.endDate
         }
-        
         //Picker初期化
         startDatePicker.date = startDate
         endDatePicker.date = endDate
