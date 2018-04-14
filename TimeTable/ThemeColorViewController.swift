@@ -12,17 +12,6 @@ class ThemeColorViewController: UITableViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var selectedColor: Int?
     
-    @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
-        appDelegate.userDefaults.set(selectedColor!, forKey: "themaColor")
-        let success = appDelegate.userDefaults.synchronize()
-        if success {
-            print("defaults保存")
-        } else {
-            print("defaults 保存失敗")
-        }
-        navigationController?.setColor()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedColor = appDelegate.userDefaults.integer(forKey: "themaColor")
@@ -51,7 +40,7 @@ class ThemeColorViewController: UITableViewController {
         let selectedCell = tableView.cellForRow(at: indexPath) as! ThemeColorCell
         selectedCell.makeCell(color: indexPath.row)
         selectedCell.checkLabel.isHidden = false
-        selectedColor = indexPath.row
+        saveThemeColor(selectedColor: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -64,5 +53,11 @@ class ThemeColorViewController: UITableViewController {
                 deselectedCell.checkLabel.textColor = UIColor.white
             }
         }
+    }
+    
+    func saveThemeColor(selectedColor: Int) {
+        appDelegate.userDefaults.set(selectedColor, forKey: "themaColor")
+        appDelegate.userDefaults.synchronize()
+        navigationController?.setColor()
     }
 }
