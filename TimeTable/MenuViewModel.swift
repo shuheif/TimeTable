@@ -69,7 +69,7 @@ class MenuViewModel {
             self.deleteCourses(timetable: targetTimetable)
         }
         DispatchQueue.global().async {
-            self.deleteCourses(timetable: targetTimetable)
+            self.deleteCourseTimes(timetable: targetTimetable)
         }
         //Timetables削除
         defaultStack.managedObjectContext.delete(targetTimetable)
