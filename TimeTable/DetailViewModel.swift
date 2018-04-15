@@ -45,7 +45,7 @@ class DetailViewModel {
      - parameter startDate: NSDate
      - parameter endDate:   NSDate
      */
-    func saveEventDuringTerm(startDate: Date, endDate: Date, aClass: Classes, timetable: Timetables, indexPath: IndexPath, courseTimes: [CourseTimes], title: String, location: String) {
+    func saveEventDuringTerm(startDate: Date, endDate: Date, aClass: Classes, timetable: Timetables, indexPath: IndexPath, courseTimes: [CourseTimes], title: String, location: String, notes: String) {
         print("saveEventDuringTerm")
         let numberOfDays = timetable.numberOfDays.intValue + 5
         let period: Int =  indexPath.row / (numberOfDays + 1)
@@ -63,7 +63,7 @@ class DetailViewModel {
         }
         var classDate = (appDelegate.gregorianCalendar as NSCalendar).date(byAdding: .day, value: addingDay, to: startDate, options: [])!
         while (isBetweenRange(startDate: startDate, endDate: endDate, date: classDate)) {
-            let identifier = eventStore.saveClass(title: title, location: location, date: classDate, startHours: startHours, startMinutes: startMinutes, endHours: endHours, endMinutes: endMinutes, gregorianCalendar: appDelegate.gregorianCalendar)
+            let identifier = eventStore.saveClass(title: title, location: location, notes: notes, date: classDate, startHours: startHours, startMinutes: startMinutes, endHours: endHours, endMinutes: endMinutes, gregorianCalendar: appDelegate.gregorianCalendar)
             let newEventsEntitiy = NSEntityDescription.insertNewObject(forEntityName: "Events", into: defaultStack.managedObjectContext)
             newEventsEntitiy.setValue(aClass, forKey: "classes")
             newEventsEntitiy.setValue(identifier, forKey: "eventIdentifier")
@@ -118,6 +118,7 @@ class DetailViewModel {
             if event != nil {
                 event!.title = aClass.lessonName
                 event!.location = aClass.roomName
+                event!.notes = aClass.memo
                 eventStore.saveEvent(event: event!)
             }
         }

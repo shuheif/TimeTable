@@ -118,7 +118,8 @@ class CalendarSettingViewModel {
                 let title = aClass.lessonName
                 print("title = \(title), date = \(classDate)")
                 let location = aClass.roomName
-                let identifier = eventStore.saveClass(title: title, location: location, date: classDate, startHours: startHours, startMinutes: startMinutes, endHours: endHours, endMinutes: endMinutes, gregorianCalendar: appDelegate.gregorianCalendar)
+                let notes = aClass.memo
+                let identifier = eventStore.saveClass(title: title, location: location, notes: notes, date: classDate, startHours: startHours, startMinutes: startMinutes, endHours: endHours, endMinutes: endMinutes, gregorianCalendar: appDelegate.gregorianCalendar)
                 let newEventsEntitiy = NSEntityDescription.insertNewObject(forEntityName: "Events", into: defaultStack.managedObjectContext)
                 newEventsEntitiy.setValue(aClass, forKey: "classes")
                 newEventsEntitiy.setValue(identifier, forKey: "eventIdentifier")

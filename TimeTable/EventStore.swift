@@ -47,11 +47,11 @@ class EventStore: EKEventStore {
         })
     }
     
-    func saveClass (title: String, location: String, date: Date, startHours: Int, startMinutes: Int, endHours: Int, endMinutes: Int, gregorianCalendar: Calendar) -> String {
+    func saveClass (title: String, location: String, notes: String, date: Date, startHours: Int, startMinutes: Int, endHours: Int, endMinutes: Int, gregorianCalendar: Calendar) -> String {
         let event = EKEvent(eventStore: self)
         event.title = title
         event.location = location
-        event.notes = "Saved by TimeTable"
+        event.notes = notes
         event.startDate = (gregorianCalendar as NSCalendar).date(bySettingHour: startHours, minute: startMinutes, second: 00, of: date, options: [])!
         event.endDate = (gregorianCalendar as NSCalendar).date(bySettingHour: endHours, minute: endMinutes, second: 00, of: date, options: [])!
         event.calendar = self.defaultCalendarForNewEvents

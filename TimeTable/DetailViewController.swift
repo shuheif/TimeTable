@@ -56,8 +56,9 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
                 if startDate != nil && endDate != nil {
                     let courseTitle = lessonNameField.text!
                     let roomName = roomNameField.text!
+                    let notes = memoView.text!
                     DispatchQueue.global().async {
-                        self.model.saveEventDuringTerm(startDate: startDate!, endDate: endDate!, aClass: self.aClass!, timetable: self.timetable!, indexPath: self.selectedIndexPath!, courseTimes: self.courseTimes!, title: courseTitle, location: roomName)
+                        self.model.saveEventDuringTerm(startDate: startDate!, endDate: endDate!, aClass: self.aClass!, timetable: self.timetable!, indexPath: self.selectedIndexPath!, courseTimes: self.courseTimes!, title: courseTitle, location: roomName, notes: notes)
                     }
                 }
             } else {
