@@ -64,15 +64,29 @@ class MenuViewModel {
                 frc.object(at: IndexPath(row: i, section: 0)).setValue(i-1, forKey: "archiveOrder")
             }
         }
-        //Timetablesに関連付けられたClassesをすべて削除
         let targetTimetable = frc.object(at: targetIndexPath)
+        DispatchQueue.global().async {
+            self.deleteCourses(timetable: targetTimetable)
+        }
+        DispatchQueue.global().async {
+            self.deleteCourses(timetable: targetTimetable)
+        }
+        //Timetables削除
+        defaultStack.managedObjectContext.delete(targetTimetable)
+        defaultStack.saveContext()
+        // Resets UserDefaults
+        userDefaults.removeObject(forKey: "selectedUUID")
+    }
+    
+    func deleteCourses(timetable: Timetables) {
+        //Timetablesに関連付けられたClassesをすべて削除
         let fetchRequest: NSFetchRequest<Classes>
         if #available(iOS 10.0, *) {
             fetchRequest = Classes.fetchRequest()
         } else {
             fetchRequest = NSFetchRequest(entityName: "Classes")
         }
-        let predicate = NSPredicate(format: "timetables = %@", targetTimetable)
+        let predicate = NSPredicate(format: "timetables = %@", timetable)
         fetchRequest.predicate = predicate
         let classesSort = NSSortDescriptor(key: "indexPath", ascending: true)
         fetchRequest.sortDescriptors = [classesSort]
@@ -106,9 +120,11 @@ class MenuViewModel {
                 eventStore.deleteEvent(event: event)
                 defaultStack.managedObjectContext.delete(eventsObject)
             }
-            
             defaultStack.managedObjectContext.delete(relatedClass)
         }
+    }
+    
+    func deleteCourseTimes(timetable: Timetables) {
         //Timetablesに関連付けられたCourseTimesをすべて削除
         let courseTimesFetchRequest: NSFetchRequest<CourseTimes>
         if #available(iOS 10.0, *) {
@@ -116,7 +132,7 @@ class MenuViewModel {
         } else {
             courseTimesFetchRequest = NSFetchRequest(entityName: "CourseTimes")
         }
-        let courseTimesPredicate = NSPredicate(format: "timetables = %@", targetTimetable)
+        let courseTimesPredicate = NSPredicate(format: "timetables = %@", timetable)
         courseTimesFetchRequest.predicate = courseTimesPredicate
         let indexDescriptor = NSSortDescriptor(key: "index", ascending: true)
         courseTimesFetchRequest.sortDescriptors = [indexDescriptor]
@@ -133,13 +149,7 @@ class MenuViewModel {
             print("delete relatedClassesObject")
             defaultStack.managedObjectContext.delete(courseTime)
         }
-        //Timetables削除
-        defaultStack.managedObjectContext.delete(targetTimetable)
-        defaultStack.saveContext()
-        // Resets UserDefaults
-        userDefaults.removeObject(forKey: "selectedUUID")
     }
-    
     
     // Copies Timetables
     func copyTimetables(targetIndexPath: IndexPath, frc: NSFetchedResultsController<Timetables>) {
