@@ -31,8 +31,10 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var trashButton: UIBarButtonItem!
     @IBOutlet weak var copyButton: UIBarButtonItem!
     
-    
     @IBAction func doneToDetailFromCopy (_ segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func unwindCopyToDetail (_ segue: UIStoryboardSegue) {
     }
     
     @IBAction func unwindDetailColorToDetail (_ segue: UIStoryboardSegue) {
@@ -52,11 +54,17 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
                 let startDate: Date? = timetable!.startDate as Date
                 let endDate: Date? = timetable!.endDate as Date
                 if startDate != nil && endDate != nil {
-                    model.saveEventDuringTerm(startDate: startDate!, endDate: endDate!, aClass: aClass!, timetable: timetable!, indexPath: selectedIndexPath!, courseTimes: courseTimes!, title: lessonNameField.text!, location: roomNameField.text!)
+                    let courseTitle = lessonNameField.text!
+                    let roomName = roomNameField.text!
+                    DispatchQueue.global().async {
+                        self.model.saveEventDuringTerm(startDate: startDate!, endDate: endDate!, aClass: self.aClass!, timetable: self.timetable!, indexPath: self.selectedIndexPath!, courseTimes: self.courseTimes!, title: courseTitle, location: roomName)
+                    }
                 }
             } else {
                 //授業名・教室名の変更だったら
-                model.editEvents(aClass: aClass!)
+                DispatchQueue.global().async {
+                    self.model.editEvents(aClass: self.aClass!)
+                }
             }
         }
         performSegue(withIdentifier: "saveToTimeTable", sender: self)

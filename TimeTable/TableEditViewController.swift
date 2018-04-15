@@ -189,6 +189,7 @@ class TableEditViewController: UITableViewController {
                 let controller = segue.destination as! EasySettingViewController
                 controller.timetable = timetable!
                 controller.courseTimes = courseTimes!
+
             case "toEachTime":
                 //To EachTimeVC
                 let controller = segue.destination as! EachTimeViewController

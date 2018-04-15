@@ -691,7 +691,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pib-0f-qZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="C4a-a9-RNr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4386" y="650"/>
+            <point key="canvasLocation" x="4385" y="1354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyv-S8-evE">
@@ -707,7 +707,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrA-mT-SEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4385" y="-99"/>
+            <point key="canvasLocation" x="3670" y="650"/>
         </scene>
         <!--引用元選択-->
         <scene sceneID="QGT-B4-2Av">
@@ -732,7 +732,7 @@
                     <navigationItem key="navigationItem" title="引用元選択" id="lg4-QR-yhD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9zk-sb-TPf">
                             <connections>
-                                <segue destination="M62-9g-UkL" kind="unwind" unwindAction="cancelToDetail:" id="Ddy-re-6h2"/>
+                                <segue destination="M62-9g-UkL" kind="unwind" unwindAction="unwindCopyToDetail:" id="FYM-Fx-1G1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Pa0-Iu-5DH">
@@ -749,7 +749,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZz-Jd-Tib" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="M62-9g-UkL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5094" y="-99"/>
+            <point key="canvasLocation" x="4385" y="650"/>
         </scene>
         <!--授業時間設定-->
         <scene sceneID="tbS-gq-qEB">
@@ -915,7 +915,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T51-I1-Lci" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0JA-6s-V6a" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3672" y="2060"/>
+            <point key="canvasLocation" x="3670" y="2111"/>
         </scene>
         <!--講義情報-->
         <scene sceneID="gRh-PS-bRp">
@@ -1140,9 +1140,7 @@
                         <barButtonItem title="Copy" id="xmn-cF-xqt">
                             <connections>
                                 <action selector="copyButtonPushed:" destination="Pjc-Fm-tSu" id="5mj-nq-jtn"/>
-                                <segue destination="Ydw-cG-op3" kind="popoverPresentation" identifier="goCopy" popoverAnchorBarButtonItem="xmn-cF-xqt" id="VYA-KI-pQf">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="Ydw-cG-op3" kind="presentation" identifier="goCopy" id="VYA-KI-pQf"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -1168,7 +1166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cz-aC-6RV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6ic-dh-rZC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3672" y="650"/>
+            <point key="canvasLocation" x="2908" y="650"/>
         </scene>
         <!--時間割情報-->
         <scene sceneID="uGh-WX-YhR">
@@ -1508,7 +1506,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKA-EC-dOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gAy-m4-Po6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="2107"/>
+            <point key="canvasLocation" x="2908" y="2111"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7mH-hI-m90">
