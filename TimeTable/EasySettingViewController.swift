@@ -33,7 +33,6 @@ class EasySettingViewController: FormViewController {
     var timetable: Timetables?
     var courseTimes: [CourseTimes]?
     var numberOfClasses: Int?
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func saveButtonPushed(_ sender: UIBarButtonItem) {
         model.saveCourseTimes(numberOfClasses: numberOfClasses!, startTime: startTime!, breakIndex: breakIndex, classLength: classLength, breakLength: breakLength, intervalLength: intervalLength, courseTimes: courseTimes!, timetable: timetable!)
@@ -44,7 +43,6 @@ class EasySettingViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = NSLocalizedString("EasySettingVCTitle", comment: "授業時間設定")
-        self.navigationItem.leftBarButtonItem = saveButton
         
         numberOfClasses = timetable!.numberOfClasses.intValue
         baseDate = (appDelegate.gregorianCalendar as NSCalendar).date(era: 1, year: 1970, month: 1, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0)

@@ -186,7 +186,7 @@ class TableEditViewController: UITableViewController {
                 controller.courseTimes = courseTimes
             case "toTimeSetting":
                 //To EasySettingVC
-                let controller = (segue.destination as! UINavigationController).topViewController as! EasySettingViewController
+                let controller = segue.destination as! EasySettingViewController
                 controller.timetable = timetable!
                 controller.courseTimes = courseTimes!
             case "toEachTime":

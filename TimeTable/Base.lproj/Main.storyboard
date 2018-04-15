@@ -772,14 +772,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="saveButton" destination="zt3-il-bOb" id="S6t-e2-qjp"/>
                         <segue destination="0il-rK-5Fz" kind="unwind" identifier="saveToTableEdit" unwindAction="saveToTableEdit:" id="fmF-1Y-5uz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eO-0X-nR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0il-rK-5Fz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4385" y="1354"/>
+            <point key="canvasLocation" x="3671" y="1354"/>
         </scene>
         <!--個別授業時間設定-->
         <scene sceneID="ab5-5w-vdZ">
@@ -1308,29 +1307,13 @@
                         <segue destination="YBo-89-g3h" kind="show" identifier="toCalendarSetting" id="r0i-cU-aPU"/>
                         <segue destination="DOg-7I-T5V" kind="unwind" identifier="cancelToMenu" unwindAction="cancelToMenu:" id="iHW-yR-JBk"/>
                         <segue destination="EQa-Su-zeV" kind="show" identifier="toEachTime" id="DAt-Fd-oef"/>
-                        <segue destination="GkP-P2-ha8" kind="show" identifier="toTimeSetting" id="GAG-CN-iWQ"/>
+                        <segue destination="480-81-nYc" kind="show" identifier="toTimeSetting" id="JpS-E8-9Ww"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uip-Pw-NqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DOg-7I-T5V" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2908" y="1355"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="e7C-SA-Pcl">
-            <objects>
-                <navigationController id="GkP-P2-ha8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LGu-7x-uIB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="480-81-nYc" kind="relationship" relationship="rootViewController" id="7rh-gi-JGh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tVA-jj-Mjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3670" y="1354"/>
         </scene>
         <!--カレンダー同期-->
         <scene sceneID="aux-zV-wjJ">
