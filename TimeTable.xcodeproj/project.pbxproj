@@ -1,0 +1,957 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		710CC95A1B7AE8D90015DD3E /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710CC9591B7AE8D90015DD3E /* EventKit.framework */; };
+		712796D91CE8143B0067D4A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 712796D81CE8143B0067D4A1 /* Settings.bundle */; };
+		71333E861E7B518B00AF998A /* CalendarSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71333E851E7B518B00AF998A /* CalendarSettingViewModel.swift */; };
+		71333E881E7B589500AF998A /* EachTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71333E871E7B589500AF998A /* EachTimeViewModel.swift */; };
+		713372B21C9F04870077CA9D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713372B11C9F04870077CA9D /* UIColorExtensions.swift */; };
+		713372B61C9F06810077CA9D /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713372B51C9F06810077CA9D /* CustomColor.swift */; };
+		713372BE1C9F12330077CA9D /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713372BD1C9F12330077CA9D /* EventStore.swift */; };
+		71357F661B7C7441006A16FB /* EasySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71357F651B7C7441006A16FB /* EasySettingViewController.swift */; };
+		713964AA1E1A614500053FF9 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713964A91E1A614500053FF9 /* UIViewExtension.swift */; };
+		713BD2141EF348C400F210BD /* Ver3toVer4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 713BD2131EF348C400F210BD /* Ver3toVer4.xcmappingmodel */; };
+		714107551AC43A3300B53F30 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714107541AC43A3300B53F30 /* Classes.swift */; };
+		714107571AC43A3300B53F30 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714107561AC43A3300B53F30 /* Timetable.swift */; };
+		714536531AC4412900328DA9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714536521AC4412900328DA9 /* SettingViewController.swift */; };
+		71495ED11BA5A8C200880B8D /* CourseTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71495ED01BA5A8C200880B8D /* CourseTimes.swift */; };
+		714ED3431E1A35B400939CB2 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714ED3421E1A35B400939CB2 /* PremiumViewController.swift */; };
+		7155145B1CB8B1DF0048ABF1 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7155145A1CB8B1DF0048ABF1 /* Events.swift */; };
+		7163A86A1E7A01D800767B8C /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7163A8691E7A01D800767B8C /* MenuViewModel.swift */; };
+		7163A86C1E7A0AC000767B8C /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7163A86B1E7A0AC000767B8C /* AddViewModel.swift */; };
+		7163A86E1E7A0C9100767B8C /* TimeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7163A86D1E7A0C9100767B8C /* TimeTableViewModel.swift */; };
+		7167E9301BABCBEA00C4584E /* CopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7167E92F1BABCBEA00C4584E /* CopyViewController.swift */; };
+		7169E0391BA5A21600923775 /* Ver1toVer2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7169E0381BA5A21600923775 /* Ver1toVer2.xcmappingmodel */; };
+		716A39CE1AB2CA0000CC34F7 /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A39CD1AB2CA0000CC34F7 /* TimeTableViewController.swift */; };
+		716A3F6E1B0735B7007E4347 /* ColorSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A3F6D1B0735B7007E4347 /* ColorSelectCell.swift */; };
+		716A3F701B073BD8007E4347 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A3F6F1B073BD8007E4347 /* ColorCell.swift */; };
+		7172B815200AE9E200C60EEF /* GADMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172B814200AE9E200C60EEF /* GADMasterViewController.swift */; };
+		717349A81E09154000E4F145 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717349A71E09154000E4F145 /* IntExtension.swift */; };
+		71754304208058A000A00B8A /* DetailColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754303208058A000A00B8A /* DetailColorViewModel.swift */; };
+		7175C1281AC532A500F36CEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7175C1271AC532A500F36CEC /* DetailViewController.swift */; };
+		717E4A4F1E0C0FFD003C19A1 /* StoreKitAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E4A4E1E0C0FFD003C19A1 /* StoreKitAccessor.swift */; };
+		71835A331E61448200112449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71835A321E61448200112449 /* GoogleService-Info.plist */; };
+		719E94851B27D99C00452693 /* ThemaColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719E94841B27D99C00452693 /* ThemaColorCell.swift */; };
+		71A2E69A1AAF050F00ED8F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E6991AAF050F00ED8F8D /* AppDelegate.swift */; };
+		71A2E69D1AAF050F00ED8F8D /* TimeTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E69B1AAF050F00ED8F8D /* TimeTable.xcdatamodeld */; };
+		71A2E6A21AAF050F00ED8F8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71A2E6A01AAF050F00ED8F8D /* Main.storyboard */; };
+		71A2E6A41AAF050F00ED8F8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A2E6A31AAF050F00ED8F8D /* Images.xcassets */; };
+		71A2E6A71AAF050F00ED8F8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A2E6A51AAF050F00ED8F8D /* LaunchScreen.xib */; };
+		71A2E6B31AAF050F00ED8F8D /* TimeTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E6B21AAF050F00ED8F8D /* TimeTableTests.swift */; };
+		71A2E6BD1AAF0A9A00ED8F8D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E6BC1AAF0A9A00ED8F8D /* MenuViewController.swift */; };
+		71A2E6BF1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E6BE1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift */; };
+		71A2E6C51AAF146B00ED8F8D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A2E6C41AAF146B00ED8F8D /* AddViewController.swift */; };
+		71A724061B82FB9600556E9C /* TableNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A724051B82FB9600556E9C /* TableNameCell.swift */; };
+		71B0C8291E1BDBA600A77683 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B0C8281E1BDBA600A77683 /* CoreDataStack.swift */; };
+		71B662E21AD27DDA000A6854 /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B662E11AD27DDA000A6854 /* ThemeColorViewController.swift */; };
+		71BC86181E7B1C7C003973CB /* TableEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC86171E7B1C7C003973CB /* TableEditViewModel.swift */; };
+		71BC861A1E7B1EAC003973CB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC86191E7B1EAC003973CB /* DetailViewModel.swift */; };
+		71BC861C1E7B24F5003973CB /* EasySettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BC861B1E7B24F5003973CB /* EasySettingViewModel.swift */; };
+		71C7EE431BAA9CD800A13ED3 /* EachTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C7EE421BAA9CD700A13ED3 /* EachTimeViewController.swift */; };
+		71D3CAE91AB3F813003F1E61 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3CAE81AB3F813003F1E61 /* TitleCell.swift */; };
+		71D3CAEB1AB3FA66003F1E61 /* UsualCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3CAEA1AB3FA66003F1E61 /* UsualCell.swift */; };
+		71D78F341AC959D300BC7EC0 /* DetailColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D78F331AC959D300BC7EC0 /* DetailColorViewController.swift */; };
+		71D983971BAC2F0D00950CA0 /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D983961BAC2F0D00950CA0 /* WeekViewController.swift */; };
+		71D9839B1BAC3D6E00950CA0 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D9839A1BAC3D6E00950CA0 /* TitleCell.xib */; };
+		71D9839D1BAC3E7E00950CA0 /* UsualCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D9839C1BAC3E7E00950CA0 /* UsualCell.xib */; };
+		71DAC6CD1AD6251700499ECC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71DAC6CF1AD6251700499ECC /* Localizable.strings */; };
+		71E5AD8A1B4A8483007C0D6A /* TableEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5AD891B4A8483007C0D6A /* TableEditViewController.swift */; };
+		71F041C91EEF850300A56925 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F041C81EEF850300A56925 /* SettingViewModel.swift */; };
+		71F25C751B8AB1AB0003789C /* CalendarSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F25C741B8AB1AB0003789C /* CalendarSettingViewController.swift */; };
+		BE75CB377CFD6CCF3BF47BA7 /* Pods_TimeTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B93DD6FBE930959662E76D /* Pods_TimeTable.framework */; };
+		F406ED2A7101AFEDED22798F /* Pods_TimeTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7474F42D5405E7D4D285B570 /* Pods_TimeTableTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71A2E6AD1AAF050F00ED8F8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71A2E68C1AAF050F00ED8F8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71A2E6931AAF050F00ED8F8D;
+			remoteInfo = TimeTable;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		350B3CC7ED7A2412368426FF /* Pods-TimeTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable.release.xcconfig"; sourceTree = "<group>"; };
+		359DCD86FD941605C009D107 /* Pods-TimeTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTableTests/Pods-TimeTableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4695B3B429855EB18D61D468 /* Pods-TimeTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable.debug.xcconfig"; sourceTree = "<group>"; };
+		710CC9591B7AE8D90015DD3E /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		712796D81CE8143B0067D4A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		71333E851E7B518B00AF998A /* CalendarSettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSettingViewModel.swift; sourceTree = "<group>"; };
+		71333E871E7B589500AF998A /* EachTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EachTimeViewModel.swift; sourceTree = "<group>"; };
+		713372B11C9F04870077CA9D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		713372B51C9F06810077CA9D /* CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		713372BD1C9F12330077CA9D /* EventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		7134C2591E837F6B00D41D47 /* TimeTableVer4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableVer4.xcdatamodel; sourceTree = "<group>"; };
+		71357F651B7C7441006A16FB /* EasySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasySettingViewController.swift; sourceTree = "<group>"; };
+		713964A91E1A614500053FF9 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		713BD2131EF348C400F210BD /* Ver3toVer4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Ver3toVer4.xcmappingmodel; sourceTree = "<group>"; };
+		714107541AC43A3300B53F30 /* Classes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
+		714107561AC43A3300B53F30 /* Timetable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		714536521AC4412900328DA9 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		71495ED01BA5A8C200880B8D /* CourseTimes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTimes.swift; sourceTree = "<group>"; };
+		714A49DB1CC5C3CD000BE904 /* TimeTable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TimeTable.entitlements; sourceTree = "<group>"; };
+		714ED3421E1A35B400939CB2 /* PremiumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
+		7155145A1CB8B1DF0048ABF1 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		7163A8691E7A01D800767B8C /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		7163A86B1E7A0AC000767B8C /* AddViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		7163A86D1E7A0C9100767B8C /* TimeTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewModel.swift; sourceTree = "<group>"; };
+		7167E92F1BABCBEA00C4584E /* CopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyViewController.swift; sourceTree = "<group>"; };
+		7169E0381BA5A21600923775 /* Ver1toVer2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Ver1toVer2.xcmappingmodel; sourceTree = "<group>"; };
+		716A39CD1AB2CA0000CC34F7 /* TimeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		716A3F6D1B0735B7007E4347 /* ColorSelectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectCell.swift; sourceTree = "<group>"; };
+		716A3F6F1B073BD8007E4347 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		716C055E1B8F44ED00710CCA /* TimeTableVer2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableVer2.xcdatamodel; sourceTree = "<group>"; };
+		7172B814200AE9E200C60EEF /* GADMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADMasterViewController.swift; sourceTree = "<group>"; };
+		717349A71E09154000E4F145 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		71754303208058A000A00B8A /* DetailColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailColorViewModel.swift; sourceTree = "<group>"; };
+		7175C1271AC532A500F36CEC /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		717DF9251CA62E36001CC15A /* TimeTableVer3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableVer3.xcdatamodel; sourceTree = "<group>"; };
+		717E4A4E1E0C0FFD003C19A1 /* StoreKitAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitAccessor.swift; sourceTree = "<group>"; };
+		7183200F1CDA375D001A77D7 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		71835A321E61448200112449 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		718CEC541ACD78360045AD9B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		719E94841B27D99C00452693 /* ThemaColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemaColorCell.swift; sourceTree = "<group>"; };
+		71A2E6941AAF050F00ED8F8D /* TimeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A2E6981AAF050F00ED8F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71A2E6991AAF050F00ED8F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		71A2E69C1AAF050F00ED8F8D /* TimeTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTable.xcdatamodel; sourceTree = "<group>"; };
+		71A2E6A11AAF050F00ED8F8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		71A2E6A31AAF050F00ED8F8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		71A2E6A61AAF050F00ED8F8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		71A2E6AC1AAF050F00ED8F8D /* TimeTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A2E6B11AAF050F00ED8F8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71A2E6B21AAF050F00ED8F8D /* TimeTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableTests.swift; sourceTree = "<group>"; };
+		71A2E6BC1AAF0A9A00ED8F8D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		71A2E6BE1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		71A2E6C41AAF146B00ED8F8D /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		71A724051B82FB9600556E9C /* TableNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNameCell.swift; sourceTree = "<group>"; };
+		71B0C8281E1BDBA600A77683 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		71B662E11AD27DDA000A6854 /* ThemeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
+		71BC86171E7B1C7C003973CB /* TableEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEditViewModel.swift; sourceTree = "<group>"; };
+		71BC86191E7B1EAC003973CB /* DetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		71BC861B1E7B24F5003973CB /* EasySettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasySettingViewModel.swift; sourceTree = "<group>"; };
+		71C1B4AD1E33D44A00FC4047 /* TimeTable copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TimeTable copy-Info.plist"; path = "/Users/Shuhei/Desktop/ClassScheduler/TimeTable copy-Info.plist"; sourceTree = "<absolute>"; };
+		71C7EE421BAA9CD700A13ED3 /* EachTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EachTimeViewController.swift; sourceTree = "<group>"; };
+		71D3CAE81AB3F813003F1E61 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		71D3CAEA1AB3FA66003F1E61 /* UsualCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsualCell.swift; sourceTree = "<group>"; };
+		71D78F331AC959D300BC7EC0 /* DetailColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailColorViewController.swift; sourceTree = "<group>"; };
+		71D983961BAC2F0D00950CA0 /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		71D9839A1BAC3D6E00950CA0 /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		71D9839C1BAC3E7E00950CA0 /* UsualCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsualCell.xib; sourceTree = "<group>"; };
+		71DAC6CE1AD6251700499ECC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71DAC6D01AD6254400499ECC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		71E5AD891B4A8483007C0D6A /* TableEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEditViewController.swift; sourceTree = "<group>"; };
+		71F041C81EEF850300A56925 /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		71F25C741B8AB1AB0003789C /* CalendarSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSettingViewController.swift; sourceTree = "<group>"; };
+		71FF70691EF38D5F003D15B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		71FF706A1EF38D6F003D15B2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		7474F42D5405E7D4D285B570 /* Pods_TimeTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92819A27245498135166DE84 /* Pods-TimeTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeTableTests/Pods-TimeTableTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1B93DD6FBE930959662E76D /* Pods_TimeTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71A2E6911AAF050F00ED8F8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710CC95A1B7AE8D90015DD3E /* EventKit.framework in Frameworks */,
+				BE75CB377CFD6CCF3BF47BA7 /* Pods_TimeTable.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71A2E6A91AAF050F00ED8F8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F406ED2A7101AFEDED22798F /* Pods_TimeTableTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5318BE93BE4C81CBCD4511E5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4695B3B429855EB18D61D468 /* Pods-TimeTable.debug.xcconfig */,
+				350B3CC7ED7A2412368426FF /* Pods-TimeTable.release.xcconfig */,
+				359DCD86FD941605C009D107 /* Pods-TimeTableTests.debug.xcconfig */,
+				92819A27245498135166DE84 /* Pods-TimeTableTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		71008DC91AC6DECA009C4297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7163A8691E7A01D800767B8C /* MenuViewModel.swift */,
+				7163A86B1E7A0AC000767B8C /* AddViewModel.swift */,
+				7163A86D1E7A0C9100767B8C /* TimeTableViewModel.swift */,
+				71BC86171E7B1C7C003973CB /* TableEditViewModel.swift */,
+				71BC86191E7B1EAC003973CB /* DetailViewModel.swift */,
+				71754303208058A000A00B8A /* DetailColorViewModel.swift */,
+				71BC861B1E7B24F5003973CB /* EasySettingViewModel.swift */,
+				71333E851E7B518B00AF998A /* CalendarSettingViewModel.swift */,
+				71333E871E7B589500AF998A /* EachTimeViewModel.swift */,
+				71F041C81EEF850300A56925 /* SettingViewModel.swift */,
+				713372BD1C9F12330077CA9D /* EventStore.swift */,
+				71B0C8281E1BDBA600A77683 /* CoreDataStack.swift */,
+				71A2E69B1AAF050F00ED8F8D /* TimeTable.xcdatamodeld */,
+				7169E0381BA5A21600923775 /* Ver1toVer2.xcmappingmodel */,
+				713BD2131EF348C400F210BD /* Ver3toVer4.xcmappingmodel */,
+				714107561AC43A3300B53F30 /* Timetable.swift */,
+				714107541AC43A3300B53F30 /* Classes.swift */,
+				71495ED01BA5A8C200880B8D /* CourseTimes.swift */,
+				7155145A1CB8B1DF0048ABF1 /* Events.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		71008DCA1AC6DEF6009C4297 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				71A2E6BC1AAF0A9A00ED8F8D /* MenuViewController.swift */,
+				71A2E6C41AAF146B00ED8F8D /* AddViewController.swift */,
+				716A39CD1AB2CA0000CC34F7 /* TimeTableViewController.swift */,
+				71E5AD891B4A8483007C0D6A /* TableEditViewController.swift */,
+				7175C1271AC532A500F36CEC /* DetailViewController.swift */,
+				71D78F331AC959D300BC7EC0 /* DetailColorViewController.swift */,
+				714536521AC4412900328DA9 /* SettingViewController.swift */,
+				71B662E11AD27DDA000A6854 /* ThemeColorViewController.swift */,
+				71357F651B7C7441006A16FB /* EasySettingViewController.swift */,
+				71F25C741B8AB1AB0003789C /* CalendarSettingViewController.swift */,
+				71C7EE421BAA9CD700A13ED3 /* EachTimeViewController.swift */,
+				7167E92F1BABCBEA00C4584E /* CopyViewController.swift */,
+				71D983961BAC2F0D00950CA0 /* WeekViewController.swift */,
+				714ED3421E1A35B400939CB2 /* PremiumViewController.swift */,
+				7172B814200AE9E200C60EEF /* GADMasterViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		71008DCC1AC6DF08009C4297 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71A2E6A01AAF050F00ED8F8D /* Main.storyboard */,
+				71DAC6CF1AD6251700499ECC /* Localizable.strings */,
+				71D3CAEA1AB3FA66003F1E61 /* UsualCell.swift */,
+				71D3CAE81AB3F813003F1E61 /* TitleCell.swift */,
+				716A3F6D1B0735B7007E4347 /* ColorSelectCell.swift */,
+				716A3F6F1B073BD8007E4347 /* ColorCell.swift */,
+				719E94841B27D99C00452693 /* ThemaColorCell.swift */,
+				71A724051B82FB9600556E9C /* TableNameCell.swift */,
+				71D9839A1BAC3D6E00950CA0 /* TitleCell.xib */,
+				71D9839C1BAC3E7E00950CA0 /* UsualCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		71A2E68B1AAF050F00ED8F8D = {
+			isa = PBXGroup;
+			children = (
+				7183200F1CDA375D001A77D7 /* Bridging-Header.h */,
+				710CC9591B7AE8D90015DD3E /* EventKit.framework */,
+				71A2E6961AAF050F00ED8F8D /* TimeTable */,
+				71A2E6AF1AAF050F00ED8F8D /* TimeTableTests */,
+				71A2E6951AAF050F00ED8F8D /* Products */,
+				5318BE93BE4C81CBCD4511E5 /* Pods */,
+				897ECC1F7D2FCDF43E47E51F /* Frameworks */,
+				71C1B4AD1E33D44A00FC4047 /* TimeTable copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		71A2E6951AAF050F00ED8F8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71A2E6941AAF050F00ED8F8D /* TimeTable.app */,
+				71A2E6AC1AAF050F00ED8F8D /* TimeTableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71A2E6961AAF050F00ED8F8D /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				714A49DB1CC5C3CD000BE904 /* TimeTable.entitlements */,
+				71A2E6991AAF050F00ED8F8D /* AppDelegate.swift */,
+				71008DCC1AC6DF08009C4297 /* View */,
+				71008DCA1AC6DEF6009C4297 /* Controller */,
+				71008DC91AC6DECA009C4297 /* Model */,
+				71A2E6A31AAF050F00ED8F8D /* Images.xcassets */,
+				71A2E6A51AAF050F00ED8F8D /* LaunchScreen.xib */,
+				71A2E6971AAF050F00ED8F8D /* Supporting Files */,
+			);
+			path = TimeTable;
+			sourceTree = "<group>";
+		};
+		71A2E6971AAF050F00ED8F8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71835A321E61448200112449 /* GoogleService-Info.plist */,
+				713372B51C9F06810077CA9D /* CustomColor.swift */,
+				71A2E6BE1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift */,
+				713372B11C9F04870077CA9D /* UIColorExtensions.swift */,
+				71A2E6981AAF050F00ED8F8D /* Info.plist */,
+				712796D81CE8143B0067D4A1 /* Settings.bundle */,
+				717349A71E09154000E4F145 /* IntExtension.swift */,
+				717E4A4E1E0C0FFD003C19A1 /* StoreKitAccessor.swift */,
+				713964A91E1A614500053FF9 /* UIViewExtension.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71A2E6AF1AAF050F00ED8F8D /* TimeTableTests */ = {
+			isa = PBXGroup;
+			children = (
+				71A2E6B21AAF050F00ED8F8D /* TimeTableTests.swift */,
+				71A2E6B01AAF050F00ED8F8D /* Supporting Files */,
+			);
+			path = TimeTableTests;
+			sourceTree = "<group>";
+		};
+		71A2E6B01AAF050F00ED8F8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71A2E6B11AAF050F00ED8F8D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		897ECC1F7D2FCDF43E47E51F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1B93DD6FBE930959662E76D /* Pods_TimeTable.framework */,
+				7474F42D5405E7D4D285B570 /* Pods_TimeTableTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71A2E6931AAF050F00ED8F8D /* TimeTable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71A2E6B61AAF050F00ED8F8D /* Build configuration list for PBXNativeTarget "TimeTable" */;
+			buildPhases = (
+				A6FFF128D2C16D422EF7F47C /* [CP] Check Pods Manifest.lock */,
+				71A2E6901AAF050F00ED8F8D /* Sources */,
+				71A2E6911AAF050F00ED8F8D /* Frameworks */,
+				71A2E6921AAF050F00ED8F8D /* Resources */,
+				791CDF415167FEAD29248D6E /* [CP] Embed Pods Frameworks */,
+				6AF3DDC833A795FD05E584E8 /* [CP] Copy Pods Resources */,
+				711CC1EE2087ACDD00B07241 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeTable;
+			productName = TimeTable;
+			productReference = 71A2E6941AAF050F00ED8F8D /* TimeTable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71A2E6AB1AAF050F00ED8F8D /* TimeTableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71A2E6B91AAF050F00ED8F8D /* Build configuration list for PBXNativeTarget "TimeTableTests" */;
+			buildPhases = (
+				8481B717CA73A9A7EDFB9A0B /* [CP] Check Pods Manifest.lock */,
+				71A2E6A81AAF050F00ED8F8D /* Sources */,
+				71A2E6A91AAF050F00ED8F8D /* Frameworks */,
+				71A2E6AA1AAF050F00ED8F8D /* Resources */,
+				7652D49E125E53126FD5E712 /* [CP] Embed Pods Frameworks */,
+				18A7E93A3401D793EF6A5CA2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71A2E6AE1AAF050F00ED8F8D /* PBXTargetDependency */,
+			);
+			name = TimeTableTests;
+			productName = TimeTableTests;
+			productReference = 71A2E6AC1AAF050F00ED8F8D /* TimeTableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71A2E68C1AAF050F00ED8F8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Shuhei Fujita";
+				TargetAttributes = {
+					71A2E6931AAF050F00ED8F8D = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 5K4X8S8YSN;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					71A2E6AB1AAF050F00ED8F8D = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 5K4X8S8YSN;
+						LastSwiftMigration = 0920;
+						TestTargetID = 71A2E6931AAF050F00ED8F8D;
+					};
+				};
+			};
+			buildConfigurationList = 71A2E68F1AAF050F00ED8F8D /* Build configuration list for PBXProject "TimeTable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = 71A2E68B1AAF050F00ED8F8D;
+			productRefGroup = 71A2E6951AAF050F00ED8F8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71A2E6931AAF050F00ED8F8D /* TimeTable */,
+				71A2E6AB1AAF050F00ED8F8D /* TimeTableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71A2E6921AAF050F00ED8F8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D9839D1BAC3E7E00950CA0 /* UsualCell.xib in Resources */,
+				71DAC6CD1AD6251700499ECC /* Localizable.strings in Resources */,
+				71835A331E61448200112449 /* GoogleService-Info.plist in Resources */,
+				71D9839B1BAC3D6E00950CA0 /* TitleCell.xib in Resources */,
+				71A2E6A21AAF050F00ED8F8D /* Main.storyboard in Resources */,
+				71A2E6A71AAF050F00ED8F8D /* LaunchScreen.xib in Resources */,
+				71A2E6A41AAF050F00ED8F8D /* Images.xcassets in Resources */,
+				712796D91CE8143B0067D4A1 /* Settings.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71A2E6AA1AAF050F00ED8F8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18A7E93A3401D793EF6A5CA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTableTests/Pods-TimeTableTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6AF3DDC833A795FD05E584E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		711CC1EE2087ACDD00B07241 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
+		};
+		7652D49E125E53126FD5E712 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTableTests/Pods-TimeTableTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		791CDF415167FEAD29248D6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/Ensembles/Ensembles.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ensembles.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8481B717CA73A9A7EDFB9A0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeTableTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6FFF128D2C16D422EF7F47C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeTable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71A2E6901AAF050F00ED8F8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7163A86C1E7A0AC000767B8C /* AddViewModel.swift in Sources */,
+				71D983971BAC2F0D00950CA0 /* WeekViewController.swift in Sources */,
+				7167E9301BABCBEA00C4584E /* CopyViewController.swift in Sources */,
+				71A2E6BD1AAF0A9A00ED8F8D /* MenuViewController.swift in Sources */,
+				71B662E21AD27DDA000A6854 /* ThemeColorViewController.swift in Sources */,
+				713372BE1C9F12330077CA9D /* EventStore.swift in Sources */,
+				717E4A4F1E0C0FFD003C19A1 /* StoreKitAccessor.swift in Sources */,
+				71B0C8291E1BDBA600A77683 /* CoreDataStack.swift in Sources */,
+				7163A86E1E7A0C9100767B8C /* TimeTableViewModel.swift in Sources */,
+				71754304208058A000A00B8A /* DetailColorViewModel.swift in Sources */,
+				71BC86181E7B1C7C003973CB /* TableEditViewModel.swift in Sources */,
+				71A2E6BF1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift in Sources */,
+				71357F661B7C7441006A16FB /* EasySettingViewController.swift in Sources */,
+				713372B61C9F06810077CA9D /* CustomColor.swift in Sources */,
+				71BC861C1E7B24F5003973CB /* EasySettingViewModel.swift in Sources */,
+				714536531AC4412900328DA9 /* SettingViewController.swift in Sources */,
+				71D3CAE91AB3F813003F1E61 /* TitleCell.swift in Sources */,
+				71D78F341AC959D300BC7EC0 /* DetailColorViewController.swift in Sources */,
+				7155145B1CB8B1DF0048ABF1 /* Events.swift in Sources */,
+				71333E861E7B518B00AF998A /* CalendarSettingViewModel.swift in Sources */,
+				71F041C91EEF850300A56925 /* SettingViewModel.swift in Sources */,
+				7169E0391BA5A21600923775 /* Ver1toVer2.xcmappingmodel in Sources */,
+				71A724061B82FB9600556E9C /* TableNameCell.swift in Sources */,
+				71F25C751B8AB1AB0003789C /* CalendarSettingViewController.swift in Sources */,
+				714ED3431E1A35B400939CB2 /* PremiumViewController.swift in Sources */,
+				716A3F701B073BD8007E4347 /* ColorCell.swift in Sources */,
+				71A2E69A1AAF050F00ED8F8D /* AppDelegate.swift in Sources */,
+				71E5AD8A1B4A8483007C0D6A /* TableEditViewController.swift in Sources */,
+				7172B815200AE9E200C60EEF /* GADMasterViewController.swift in Sources */,
+				7163A86A1E7A01D800767B8C /* MenuViewModel.swift in Sources */,
+				71495ED11BA5A8C200880B8D /* CourseTimes.swift in Sources */,
+				71D3CAEB1AB3FA66003F1E61 /* UsualCell.swift in Sources */,
+				717349A81E09154000E4F145 /* IntExtension.swift in Sources */,
+				713BD2141EF348C400F210BD /* Ver3toVer4.xcmappingmodel in Sources */,
+				71BC861A1E7B1EAC003973CB /* DetailViewModel.swift in Sources */,
+				714107551AC43A3300B53F30 /* Classes.swift in Sources */,
+				71C7EE431BAA9CD800A13ED3 /* EachTimeViewController.swift in Sources */,
+				713372B21C9F04870077CA9D /* UIColorExtensions.swift in Sources */,
+				71333E881E7B589500AF998A /* EachTimeViewModel.swift in Sources */,
+				71A2E69D1AAF050F00ED8F8D /* TimeTable.xcdatamodeld in Sources */,
+				714107571AC43A3300B53F30 /* Timetable.swift in Sources */,
+				713964AA1E1A614500053FF9 /* UIViewExtension.swift in Sources */,
+				716A39CE1AB2CA0000CC34F7 /* TimeTableViewController.swift in Sources */,
+				716A3F6E1B0735B7007E4347 /* ColorSelectCell.swift in Sources */,
+				71A2E6C51AAF146B00ED8F8D /* AddViewController.swift in Sources */,
+				7175C1281AC532A500F36CEC /* DetailViewController.swift in Sources */,
+				719E94851B27D99C00452693 /* ThemaColorCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71A2E6A81AAF050F00ED8F8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71A2E6B31AAF050F00ED8F8D /* TimeTableTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71A2E6AE1AAF050F00ED8F8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71A2E6931AAF050F00ED8F8D /* TimeTable */;
+			targetProxy = 71A2E6AD1AAF050F00ED8F8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		71A2E6A01AAF050F00ED8F8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71A2E6A11AAF050F00ED8F8D /* Base */,
+				71FF70691EF38D5F003D15B2 /* en */,
+				71FF706A1EF38D6F003D15B2 /* ja */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		71A2E6A51AAF050F00ED8F8D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71A2E6A61AAF050F00ED8F8D /* Base */,
+				718CEC541ACD78360045AD9B /* ja */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		71DAC6CF1AD6251700499ECC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71DAC6CE1AD6251700499ECC /* en */,
+				71DAC6D01AD6254400499ECC /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71A2E6B41AAF050F00ED8F8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71A2E6B51AAF050F00ED8F8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71A2E6B71AAF050F00ED8F8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4695B3B429855EB18D61D468 /* Pods-TimeTable.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeTable/TimeTable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5K4X8S8YSN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphonesimulator/SVProgressHUD",
+				);
+				INFOPLIST_FILE = TimeTable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a60b98ed-8e28-4ce3-a931-3db8f93e6797";
+				PROVISIONING_PROFILE_SPECIFIER = TimeTableDevelopment;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		71A2E6B81AAF050F00ED8F8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 350B3CC7ED7A2412368426FF /* Pods-TimeTable.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeTable/TimeTable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 5K4X8S8YSN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Build/Products/Debug-iphonesimulator/SVProgressHUD",
+				);
+				INFOPLIST_FILE = TimeTable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c4459f32-58e4-49fd-94e1-157ff96702af";
+				PROVISIONING_PROFILE_SPECIFIER = TimeTableDistribution;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		71A2E6BA1AAF050F00ED8F8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 359DCD86FD941605C009D107 /* Pods-TimeTableTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5K4X8S8YSN;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TimeTableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTable.app/TimeTable";
+			};
+			name = Debug;
+		};
+		71A2E6BB1AAF050F00ED8F8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92819A27245498135166DE84 /* Pods-TimeTableTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5K4X8S8YSN;
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = TimeTableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTable.app/TimeTable";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71A2E68F1AAF050F00ED8F8D /* Build configuration list for PBXProject "TimeTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A2E6B41AAF050F00ED8F8D /* Debug */,
+				71A2E6B51AAF050F00ED8F8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71A2E6B61AAF050F00ED8F8D /* Build configuration list for PBXNativeTarget "TimeTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A2E6B71AAF050F00ED8F8D /* Debug */,
+				71A2E6B81AAF050F00ED8F8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71A2E6B91AAF050F00ED8F8D /* Build configuration list for PBXNativeTarget "TimeTableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A2E6BA1AAF050F00ED8F8D /* Debug */,
+				71A2E6BB1AAF050F00ED8F8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		71A2E69B1AAF050F00ED8F8D /* TimeTable.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7134C2591E837F6B00D41D47 /* TimeTableVer4.xcdatamodel */,
+				717DF9251CA62E36001CC15A /* TimeTableVer3.xcdatamodel */,
+				716C055E1B8F44ED00710CCA /* TimeTableVer2.xcdatamodel */,
+				71A2E69C1AAF050F00ED8F8D /* TimeTable.xcdatamodel */,
+			);
+			currentVersion = 7134C2591E837F6B00D41D47 /* TimeTableVer4.xcdatamodel */;
+			path = TimeTable.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 71A2E68C1AAF050F00ED8F8D /* Project object */;
+}
