@@ -15,7 +15,6 @@ class DetailColorViewController: UICollectionViewController {
     let gridSpace: CGFloat = 1//隙間の幅
     let defaultFloatDays: CGFloat = 5
     let defaultFloatClasses: CGFloat = 5
-    var classEntity: Classes?
     var selectedColor: Int = 0
     var cellwidth: CGFloat = 62.99//通常セルの幅
     var cellheight: CGFloat = 103.8//通常セルの高さ
