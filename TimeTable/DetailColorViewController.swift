@@ -11,7 +11,6 @@ import UIKit
 class DetailColorViewController: UICollectionViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let model = DetailColorViewModel.shared
     let gridSpace: CGFloat = 1//隙間の幅
     let defaultFloatDays: CGFloat = 5
     let defaultFloatClasses: CGFloat = 5
@@ -19,12 +18,9 @@ class DetailColorViewController: UICollectionViewController {
     var cellwidth: CGFloat = 62.99//通常セルの幅
     var cellheight: CGFloat = 103.8//通常セルの高さ
     
-    @IBAction func doneButtonPushed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "UnwindDetailColorToDetail", sender: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.delegate = self
     }
     
     //MARK: - UICollectionView
@@ -46,14 +42,15 @@ class DetailColorViewController: UICollectionViewController {
         selectedColor = indexPath.row
         collectionView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "UnwindDetailColorToDetail":
-            let controller = segue.destination as! DetailViewController
+}
+
+
+extension DetailColorViewController: UINavigationControllerDelegate {
+    // 遷移する直前の処理
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let controller = viewController as? DetailViewController {
             controller.selectedColor = selectedColor
-        default:
-            break
+            controller.colorSelectCell.makeCell(color: selectedColor)
         }
     }
 }

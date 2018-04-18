@@ -33,7 +33,6 @@
 		716A3F701B073BD8007E4347 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A3F6F1B073BD8007E4347 /* ColorCell.swift */; };
 		7172B815200AE9E200C60EEF /* GADMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172B814200AE9E200C60EEF /* GADMasterViewController.swift */; };
 		717349A81E09154000E4F145 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717349A71E09154000E4F145 /* IntExtension.swift */; };
-		71754304208058A000A00B8A /* DetailColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71754303208058A000A00B8A /* DetailColorViewModel.swift */; };
 		7175C1281AC532A500F36CEC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7175C1271AC532A500F36CEC /* DetailViewController.swift */; };
 		717E4A4F1E0C0FFD003C19A1 /* StoreKitAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E4A4E1E0C0FFD003C19A1 /* StoreKitAccessor.swift */; };
 		71835A331E61448200112449 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71835A321E61448200112449 /* GoogleService-Info.plist */; };
@@ -111,7 +110,6 @@
 		716C055E1B8F44ED00710CCA /* TimeTableVer2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableVer2.xcdatamodel; sourceTree = "<group>"; };
 		7172B814200AE9E200C60EEF /* GADMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GADMasterViewController.swift; sourceTree = "<group>"; };
 		717349A71E09154000E4F145 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
-		71754303208058A000A00B8A /* DetailColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailColorViewModel.swift; sourceTree = "<group>"; };
 		7175C1271AC532A500F36CEC /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		717DF9251CA62E36001CC15A /* TimeTableVer3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeTableVer3.xcdatamodel; sourceTree = "<group>"; };
 		717E4A4E1E0C0FFD003C19A1 /* StoreKitAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitAccessor.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				7163A86D1E7A0C9100767B8C /* TimeTableViewModel.swift */,
 				71BC86171E7B1C7C003973CB /* TableEditViewModel.swift */,
 				71BC86191E7B1EAC003973CB /* DetailViewModel.swift */,
-				71754303208058A000A00B8A /* DetailColorViewModel.swift */,
 				71BC861B1E7B24F5003973CB /* EasySettingViewModel.swift */,
 				71333E851E7B518B00AF998A /* CalendarSettingViewModel.swift */,
 				71333E871E7B589500AF998A /* EachTimeViewModel.swift */,
@@ -605,7 +602,6 @@
 				717E4A4F1E0C0FFD003C19A1 /* StoreKitAccessor.swift in Sources */,
 				71B0C8291E1BDBA600A77683 /* CoreDataStack.swift in Sources */,
 				7163A86E1E7A0C9100767B8C /* TimeTableViewModel.swift in Sources */,
-				71754304208058A000A00B8A /* DetailColorViewModel.swift in Sources */,
 				71BC86181E7B1C7C003973CB /* TableEditViewModel.swift in Sources */,
 				71A2E6BF1AAF11D700ED8F8D /* UINavigationControllerExtensions.swift in Sources */,
 				71357F661B7C7441006A16FB /* EasySettingViewController.swift in Sources */,
