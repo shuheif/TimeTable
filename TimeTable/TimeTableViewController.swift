@@ -36,6 +36,9 @@ class TimeTableViewController: WeekViewController {
         collectionView!.reloadData()
     }
     
+    @IBAction func unwindDetailToTimeTable (_ segue: UIStoryboardSegue) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         classes = model.fetchClasses(timetable: timetable)
@@ -121,7 +124,7 @@ class TimeTableViewController: WeekViewController {
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goDetail":
-            let detailView = segue.destination as! DetailViewController
+            let detailView = (segue.destination as! UINavigationController).topViewController as! DetailViewController
             detailView.timetable = timetable
             detailView.selectedIndexPath = selectedIndexPath!
             detailView.classes = classes
