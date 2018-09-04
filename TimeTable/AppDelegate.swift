@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     let days: [String] = [NSLocalizedString("MF", comment: "月-金"), NSLocalizedString("MSat", comment: "月-土"), NSLocalizedString("MSun", comment: "月-日")]//これはそのままエンティティに格納されるので、アップデートでも変更不可。
     let numOfClasses: [Int] = [4, 5, 6, 7, 8, 9, 10, 11, 12]
     let detailColors = ["Purple", "Pink", "Rose", "Capucine", "Orange", "Yellow", "LightGreen", "EmeraldGreen", "CadetBlue", "LightBlue", "Blue", "Navy", "Black"]
-    let themeColors: [String] = ["Jade", "PeterRiver", "SkyBlue", "Amethyst", "Sakura", "Alizarin",  "Orange", "SunFlower", "Asbestos"]
+    let themeColors: [String] = ["Green", "Blue", "Dark Blue", "Purple", "Pink", "Red",  "Orange", "Yellow", "Gray"]
     let dayName = [NSLocalizedString("Mon", comment: "月曜"), NSLocalizedString("Tue", comment: "火曜"), NSLocalizedString("Wed", comment: "水曜"), NSLocalizedString("Thu", comment: "木曜"), NSLocalizedString("Fri", comment: "金曜"), NSLocalizedString("Sat", comment: "土曜"), NSLocalizedString("Sun", comment: "日曜")]
 
 
