@@ -30,7 +30,7 @@
 "6jw-YK-QWM.headerTitle" = "Support";
 
 /* Class = "UINavigationItem"; title = "時間割情報"; ObjectID = "8Eg-Ze-Mpj"; */
-"8Eg-Ze-Mpj.title" = "Informations";
+"8Eg-Ze-Mpj.title" = "Schedule Detail";
 
 /* Class = "UINavigationItem"; title = "TimeTable Pro"; ObjectID = "9pK-vj-Err"; */
 "9pK-vj-Err.title" = "TimeTable Pro";
@@ -72,7 +72,7 @@
 "M4s-E0-KFn.text" = "8:45";
 
 /* Class = "UINavigationItem"; title = "講義情報"; ObjectID = "MbL-W3-Med"; */
-"MbL-W3-Med.title" = "Course Informations";
+"MbL-W3-Med.title" = "Course Detail";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "NGH-0h-sIZ"; */
 "NGH-0h-sIZ.text" = "Label";
@@ -141,7 +141,7 @@
 "hKU-WL-Al9.text" = "First Period";
 
 /* Class = "UINavigationItem"; title = "授業時間設定"; ObjectID = "heD-PX-o3I"; */
-"heD-PX-o3I.title" = "Set Class Hours";
+"heD-PX-o3I.title" = "Class Hours";
 
 /* Class = "UINavigationItem"; title = "設定"; ObjectID = "hq1-j4-QCg"; */
 "hq1-j4-QCg.title" = "Settings";
@@ -195,7 +195,7 @@
 "tcb-F7-cdS.title" = "Menu";
 
 /* Class = "UITableViewSection"; headerTitle = "講義情報"; ObjectID = "vLx-Uz-Ads"; */
-"vLx-Uz-Ads.headerTitle" = "Course Informations";
+"vLx-Uz-Ads.headerTitle" = "Course Detail";
 
 /* Class = "UITableViewSection"; headerTitle = "アプリの情報"; ObjectID = "vnV-c5-9PO"; */
 "vnV-c5-9PO.headerTitle" = "software information";

@@ -758,7 +758,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="授業時間設定" id="heD-PX-o3I">
+                    <navigationItem key="navigationItem" title="授業時間設定" leftItemsSupplementBackButton="YES" id="heD-PX-o3I">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zt3-il-bOb">
                             <connections>
                                 <action selector="saveButtonPushed:" destination="480-81-nYc" id="AbE-Xb-fZf"/>
@@ -1599,15 +1599,11 @@
         <!--Navigation Controller-->
         <scene sceneID="oVo-mS-e59">
             <objects>
-                <navigationController toolbarHidden="NO" id="XCl-6V-16m" sceneMemberID="viewController">
+                <navigationController id="XCl-6V-16m" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I1M-ba-3YQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="lVK-ON-8YH">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="C3Y-eH-VaF" kind="relationship" relationship="rootViewController" id="xdC-4S-RQ2"/>
                     </connections>

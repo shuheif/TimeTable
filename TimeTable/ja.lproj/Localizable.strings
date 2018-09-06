@@ -44,7 +44,6 @@
 "period" = "限";
 
 //TimeSetting
-"EasySettingVCTitle" = "授業時間設定";
 "NoLunchbreak" = "なし";
 "min" = "分";
 "ClassHours" = "授業時間設定";

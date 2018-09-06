@@ -44,7 +44,6 @@
 "period" = "";//also used in Detail View
 
 //EasyTimeSetting
-"EasySettingVCTitle" = "Class Hours";
 "NoLunchbreak" = "No Break";
 "min" = " minutes";
 "ClassHours" = "Class Hours";
