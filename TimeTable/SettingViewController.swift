@@ -46,7 +46,7 @@ class SettingViewController: UITableViewController {
                 //HomePage
                 let url = URL(string: "http://timetable.strikingly.com")!
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     // Fallback on earlier versions
                     UIApplication.shared.openURL(url)
@@ -55,7 +55,7 @@ class SettingViewController: UITableViewController {
                 //Facebook
                 let url = URL(string: "https://www.facebook.com/classscheduler")!
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     // Fallback on earlier versions
                     UIApplication.shared.openURL(url)
@@ -109,10 +109,15 @@ class SettingViewController: UITableViewController {
     func openAppStore() {
         let url: URL = URL(string: "https://itunes.apple.com/jp/app/timetable-shinpurude-shiiyasui/id981480777?mt=8")!
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
             // Fallback on earlier versions
             UIApplication.shared.openURL(url)
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

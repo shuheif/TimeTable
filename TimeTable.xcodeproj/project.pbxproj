@@ -387,7 +387,7 @@
 					71A2E6931AAF050F00ED8F8D = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 5K4X8S8YSN;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.iCloud = {
@@ -398,7 +398,7 @@
 					71A2E6AB1AAF050F00ED8F8D = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 5K4X8S8YSN;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						TestTargetID = 71A2E6931AAF050F00ED8F8D;
 					};
 				};
@@ -779,8 +779,7 @@
 				PROVISIONING_PROFILE = "6d3a78ab-e6ee-4319-9756-ff49869f8df7";
 				PROVISIONING_PROFILE_SPECIFIER = TimeTableDevelopment;
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -810,8 +809,7 @@
 				PROVISIONING_PROFILE = "b7e980c0-c8f8-44b7-aa3c-af5739c86484";
 				PROVISIONING_PROFILE_SPECIFIER = TimeTableDistribution;
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -832,8 +830,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTable.app/TimeTable";
 			};
 			name = Debug;
@@ -849,8 +846,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeTable.app/TimeTable";
 			};
 			name = Release;

@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     let dayName = [NSLocalizedString("Mon", comment: "月曜"), NSLocalizedString("Tue", comment: "火曜"), NSLocalizedString("Wed", comment: "水曜"), NSLocalizedString("Thu", comment: "木曜"), NSLocalizedString("Fri", comment: "金曜"), NSLocalizedString("Sat", comment: "土曜"), NSLocalizedString("Sun", comment: "日曜")]
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Use verbose logging for sync
         CDESetCurrentLoggingLevel(CDELoggingLevel.verbose.rawValue)
         // Override point for customization after application launch

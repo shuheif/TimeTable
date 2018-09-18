@@ -93,7 +93,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         }
         //キーボード表示の通知
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,7 +157,7 @@ class DetailViewController: UITableViewController, UITextViewDelegate {
         } else {
             return
         }
-        tableView.scrollToRow(at: textIndexPath!, at: UITableViewScrollPosition.top, animated: true)
+        tableView.scrollToRow(at: textIndexPath!, at: UITableView.ScrollPosition.top, animated: true)
     }
     
     // MARK: - TableView

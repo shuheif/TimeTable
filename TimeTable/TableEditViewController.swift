@@ -110,7 +110,7 @@ class TableEditViewController: UITableViewController {
                 case 0: cell = tableView.dequeueReusableCell(withIdentifier: "toTimeSettingCell", for: indexPath)
                 case 1: cell = tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath)
                     let timeSwitch: UISwitch = UISwitch()
-                    timeSwitch.addTarget(self, action: #selector(timeSwitchChanged), for: UIControlEvents.valueChanged)
+                    timeSwitch.addTarget(self, action: #selector(timeSwitchChanged), for: UIControl.Event.valueChanged)
                     cell?.accessoryView = timeSwitch
                     if(timeIsSet) {
                         timeSwitch.isEnabled = true

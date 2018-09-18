@@ -183,21 +183,26 @@ class CalendarSettingViewController: UITableViewController {
     func showSettingAlert () {
         let alert = UIAlertController(title: NSLocalizedString("NeedPermission", comment: "This function needs permission to access your calendar data in order to work."),
             message: NSLocalizedString("SettingPrivacy", comment: "Please change status in Setting>Privacy>Calendar"),
-            preferredStyle: UIAlertControllerStyle.alert)
+            preferredStyle: UIAlertController.Style.alert)
         
-        let settingAction = UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler:
+        let settingAction = UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler:
             {(action: UIAlertAction!) -> Void in
-                let url = URL(string: UIApplicationOpenSettingsURLString)
+                let url = URL(string: UIApplication.openSettingsURLString)
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     // Fallback on earlier versions
                     UIApplication.shared.openURL(url!)
                 }
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         alert.addAction(cancelAction)
         alert.addAction(settingAction)
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
