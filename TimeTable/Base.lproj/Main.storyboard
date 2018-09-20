@@ -1233,6 +1233,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="480-81-nYc" kind="show" identifier="toTimeSetting" id="nJA-zj-Ur5"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="switchCell" textLabel="pYx-Qf-acc" rowHeight="50" style="IBUITableViewCellStyleDefault" id="Jls-Oj-3kk">
                                 <rect key="frame" x="0.0" y="155.5" width="375" height="50"/>
@@ -1298,6 +1301,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YBo-89-g3h" kind="show" identifier="toCalendarSetting" id="Fla-Ru-ciG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -1315,10 +1321,8 @@
                     </navigationItem>
                     <connections>
                         <segue destination="DOg-7I-T5V" kind="unwind" identifier="saveToTableFromEdit" unwindAction="saveToTableFromEdit:" id="q7c-b3-USX"/>
-                        <segue destination="YBo-89-g3h" kind="show" identifier="toCalendarSetting" id="r0i-cU-aPU"/>
                         <segue destination="DOg-7I-T5V" kind="unwind" identifier="cancelToMenu" unwindAction="cancelToMenu:" id="iHW-yR-JBk"/>
                         <segue destination="EQa-Su-zeV" kind="show" identifier="toEachTime" id="DAt-Fd-oef"/>
-                        <segue destination="480-81-nYc" kind="show" identifier="toTimeSetting" id="JpS-E8-9Ww"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uip-Pw-NqV" userLabel="First Responder" sceneMemberID="firstResponder"/>

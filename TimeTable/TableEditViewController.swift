@@ -136,22 +136,11 @@ class TableEditViewController: UITableViewController {
     }
     
     override func tableView (_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if (indexPath.section == 1) {
-            if (indexPath.row == 0) {
-                //toTimeSetting
-                performSegue(withIdentifier: "toTimeSetting", sender: self)
-            } else if (indexPath.row >= 2) {
+            if (indexPath.row >= 2) {
                 //ToEachTimeView
                 selectedPeriod = indexPath.row - 1
                 performSegue(withIdentifier: "toEachTime", sender: self)
-            }
-        } else if (indexPath.section == 2 && indexPath.row == 0) {
-            //toCalendarSettingView
-            if(timeIsSet) {
-                performSegue(withIdentifier: "toCalendarSetting", sender: self)
-            } else {
-                showTimeSettingAlert()
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -174,6 +163,20 @@ class TableEditViewController: UITableViewController {
     }
     
     // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case "toCalendarSetting":
+            if timeIsSet {
+                return true
+            } else {
+                showTimeSettingAlert()
+                return false
+            }
+        default:
+            return true
+        }
+    }
+    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == nil) {
             return
