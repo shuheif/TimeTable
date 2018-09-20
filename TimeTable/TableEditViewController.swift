@@ -41,9 +41,6 @@ class TableEditViewController: UITableViewController {
         }
     }
     
-    @IBAction func cancelToTableEdit (_ segue: UIStoryboardSegue) {
-    }
-    
     @IBAction func saveToTableEdit (_ segue: UIStoryboardSegue) {
         //From EasyVC, EachTimeVC
         timeIsSet = timetable!.timeIsSet
