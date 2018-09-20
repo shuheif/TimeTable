@@ -1583,7 +1583,7 @@
                     <navigationItem key="navigationItem" title="Menu" id="tcb-F7-cdS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xpZ-aY-G1m">
                             <connections>
-                                <action selector="plusButtonPushed:" destination="C3Y-eH-VaF" id="3Q3-M9-3tN"/>
+                                <segue destination="iiU-LA-k7I" kind="presentation" identifier="goAdd" modalPresentationStyle="formSheet" id="M0e-ub-He2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1591,7 +1591,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="9zv-Lp-1b3" kind="showDetail" identifier="goTimeTable" id="dEU-76-bFv"/>
-                        <segue destination="iiU-LA-k7I" kind="presentation" identifier="goAdd" modalPresentationStyle="formSheet" id="y09-TZ-PV5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFS-4r-GHO" userLabel="First Responder" sceneMemberID="firstResponder"/>

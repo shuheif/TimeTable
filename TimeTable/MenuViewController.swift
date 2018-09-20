@@ -18,12 +18,6 @@ class MenuViewController: UITableViewController {
     let model = MenuViewModel.shared
     var selectedTimetables: String?
     
-    @IBAction func plusButtonPushed(_ sender: UIBarButtonItem) {
-        if premiumValidated() {
-            performSegue(withIdentifier: "goAdd", sender: self)
-        }
-    }
-    
     @IBAction func addCompleted (_ segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
@@ -142,6 +136,15 @@ class MenuViewController: UITableViewController {
     
     
     // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case "goAdd":
+            return premiumValidated()
+        default:
+            return true
+        }
+    }
+    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goTimeTable":
