@@ -112,16 +112,8 @@ class TableEditViewController: UITableViewController {
                     let timeSwitch: UISwitch = UISwitch()
                     timeSwitch.addTarget(self, action: #selector(timeSwitchChanged), for: UIControl.Event.valueChanged)
                     cell?.accessoryView = timeSwitch
-                    if(timeIsSet) {
-                        timeSwitch.isEnabled = true
-                    } else {
-                        timeSwitch.isEnabled = false
-                    }
-                    if(showTime) {
-                        timeSwitch.isOn = true
-                    } else {
-                        timeSwitch.isOn = false
-                    }
+                    timeSwitch.isEnabled = timeIsSet
+                    timeSwitch.isOn = showTime
                 default: cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
                     configureTimeCell(indexPath: indexPath, cell: cell!)
                 }
@@ -155,11 +147,7 @@ class TableEditViewController: UITableViewController {
     }
     
     @objc func timeSwitchChanged(_ sender: UISwitch) {
-        if(sender.isOn) {
-            showTime = true
-        } else {
-            showTime = false
-        }
+        showTime = sender.isOn
     }
     
     // MARK: - Navigation
@@ -178,10 +166,7 @@ class TableEditViewController: UITableViewController {
     }
     
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == nil) {
-            return
-        }
-        switch segue.identifier! {
+        switch segue.identifier {
             case "toCalendarSetting":
                 //To CalendarSettingViewController
                 let controller = segue.destination as! CalendarSettingViewController
@@ -192,7 +177,6 @@ class TableEditViewController: UITableViewController {
                 let controller = segue.destination as! EasySettingViewController
                 controller.timetable = timetable!
                 controller.courseTimes = courseTimes!
-
             case "toEachTime":
                 //To EachTimeVC
                 let controller = segue.destination as! EachTimeViewController
