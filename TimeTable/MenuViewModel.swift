@@ -80,12 +80,7 @@ class MenuViewModel {
     
     func deleteCourses(timetable: Timetables) {
         //Timetablesに関連付けられたClassesをすべて削除
-        let fetchRequest: NSFetchRequest<Classes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Classes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Classes")
-        }
+        let fetchRequest: NSFetchRequest<Classes> = Classes.fetchRequest()
         let predicate = NSPredicate(format: "timetables = %@", timetable)
         fetchRequest.predicate = predicate
         let classesSort = NSSortDescriptor(key: "indexPath", ascending: true)
@@ -99,12 +94,7 @@ class MenuViewModel {
         }
         for relatedClass in relatedClasses {
             // Associated Events
-            let eventsFetchRequest: NSFetchRequest<Events>
-            if #available(iOS 10.0, *) {
-                eventsFetchRequest = Events.fetchRequest()
-            } else {
-                eventsFetchRequest = NSFetchRequest(entityName: "Events")
-            }
+            let eventsFetchRequest: NSFetchRequest<Events> = Events.fetchRequest()
             let eventsPredicate = NSPredicate(format: "classes = %@", relatedClass)
             eventsFetchRequest.predicate = eventsPredicate
             var events: [Events] = []
@@ -126,12 +116,7 @@ class MenuViewModel {
     
     func deleteCourseTimes(timetable: Timetables) {
         //Timetablesに関連付けられたCourseTimesをすべて削除
-        let courseTimesFetchRequest: NSFetchRequest<CourseTimes>
-        if #available(iOS 10.0, *) {
-            courseTimesFetchRequest = CourseTimes.fetchRequest()
-        } else {
-            courseTimesFetchRequest = NSFetchRequest(entityName: "CourseTimes")
-        }
+        let courseTimesFetchRequest: NSFetchRequest<CourseTimes> = CourseTimes.fetchRequest()
         let courseTimesPredicate = NSPredicate(format: "timetables = %@", timetable)
         courseTimesFetchRequest.predicate = courseTimesPredicate
         let indexDescriptor = NSSortDescriptor(key: "index", ascending: true)
@@ -181,12 +166,7 @@ class MenuViewModel {
         print("create new Timetable")
         defaultStack.saveContext()
         // Fetch related Classes
-        let fetchRequest: NSFetchRequest<Classes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Classes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Classes")
-        }
+        let fetchRequest: NSFetchRequest<Classes> = Classes.fetchRequest()
         let predicate = NSPredicate(format: "timetables = %@", baseTimetable)
         fetchRequest.predicate = predicate
         let classesSort = NSSortDescriptor(key: "indexPath", ascending: true)
@@ -214,12 +194,7 @@ class MenuViewModel {
         print("saved new classes")
         defaultStack.saveContext()
         // Copy CourseTimes
-        let courseTimesFetchRequest: NSFetchRequest<CourseTimes>
-        if #available(iOS 10.0, *) {
-            courseTimesFetchRequest = CourseTimes.fetchRequest()
-        } else {
-            courseTimesFetchRequest = NSFetchRequest(entityName: "CourseTimes")
-        }
+        let courseTimesFetchRequest: NSFetchRequest<CourseTimes> = CourseTimes.fetchRequest()
         let courseTimePredicate = NSPredicate(format: "timetables = %@", baseTimetable)
         courseTimesFetchRequest.predicate = courseTimePredicate
         let indexDescriptor = NSSortDescriptor(key: "index", ascending: true)
@@ -245,7 +220,6 @@ class MenuViewModel {
     }
     
     func tagUUID(timetable: Timetables) {
-        
         if timetable.uniqueIdentifier.isEmpty {
             timetable.uniqueIdentifier = NSUUID().uuidString
             defaultStack.saveContext()

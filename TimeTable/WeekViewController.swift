@@ -61,16 +61,16 @@ class WeekViewController: UICollectionViewController {
     }
     
     override func collectionView (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if ((indexPath as NSIndexPath).row <= intDays!) || ((indexPath as NSIndexPath).row % (intDays! + 1) == 0){
+        if indexPath.row <= intDays! || indexPath.row % (intDays! + 1) == 0 {
             let titleCell: TitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as! TitleCell
-            if((indexPath as NSIndexPath).row == 0) {
+            if indexPath.row == 0 {
                 titleCell.clearTitleCell()
-            } else if ((indexPath as NSIndexPath).row <= intDays!){
+            } else if indexPath.row <= intDays! {
                 //header
-                configureHeaderCell(titleCell: titleCell, rowPath: (indexPath as NSIndexPath).row)
-            } else if((indexPath as NSIndexPath).row % (intDays! + 1) == 0) {
+                configureHeaderCell(titleCell: titleCell, rowPath: indexPath.row)
+            } else if indexPath.row % (intDays! + 1) == 0 {
                 //sider
-                configureSideCell(titleCell: titleCell, period: (indexPath as NSIndexPath).row / (intDays! + 1))
+                configureSideCell(titleCell: titleCell, period: indexPath.row / (intDays! + 1))
             }
             return titleCell
         } else {
@@ -90,7 +90,7 @@ class WeekViewController: UICollectionViewController {
     
     func configureUsualCell (indexPath: IndexPath, usualCell: UsualCell) {
         let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
-        if(aClass != nil) {
+        if aClass != nil {
             usualCell.makeCell(classes: aClass!)
         } else {
             usualCell.clearUsualCell()
@@ -102,7 +102,7 @@ class WeekViewController: UICollectionViewController {
     */
     func classesAtIndexPath (classes: [Classes], indexPath: IndexPath) -> Classes? {
         for aClass in classes {
-            if aClass.indexPath == NSNumber(value: Int32(indexPath.row)) {
+            if aClass.indexPath == NSNumber(value: indexPath.row) {
                 return aClass
             }
         }
@@ -121,11 +121,11 @@ extension WeekViewController: UICollectionViewDelegateFlowLayout {
         var height: CGFloat = ((frameHeight! - header) / floatClasses!)
         var width: CGFloat = (frameWidth! - sider) / floatDays! - 0.01
         
-        if (indexPath as NSIndexPath).row <= intDays! {
+        if indexPath.row <= intDays! {
             //１行目
             height = header
         }
-        if (indexPath as NSIndexPath).row % (intDays! + 1) == 0 {
+        if indexPath.row % (intDays! + 1) == 0 {
             //１列目
             width = sider
         }

@@ -133,12 +133,7 @@ class DetailViewModel {
      - returns: [AnyObject]
      */
     func associatedEvents (aClass: Classes) -> [Events] {
-        let eventsFetchRequest: NSFetchRequest<Events>
-        if #available(iOS 10.0, *) {
-            eventsFetchRequest = Events.fetchRequest()
-        } else {
-            eventsFetchRequest = NSFetchRequest(entityName: "Events")
-        }
+        let eventsFetchRequest: NSFetchRequest<Events> = Events.fetchRequest()
         let eventsPredicate = NSPredicate(format: "classes = %@", aClass)
         eventsFetchRequest.predicate = eventsPredicate
         var events: [Events] = []

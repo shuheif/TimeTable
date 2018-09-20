@@ -188,12 +188,8 @@ class CalendarSettingViewController: UITableViewController {
         let settingAction = UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler:
             {(action: UIAlertAction!) -> Void in
                 let url = URL(string: UIApplication.openSettingsURLString)
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-                } else {
-                    // Fallback on earlier versions
-                    UIApplication.shared.openURL(url!)
-                }
+                UIApplication.shared.open(url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+                
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         alert.addAction(cancelAction)

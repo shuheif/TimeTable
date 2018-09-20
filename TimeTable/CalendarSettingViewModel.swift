@@ -21,7 +21,6 @@ class CalendarSettingViewModel {
     }()
     
     func calendarAuthorized() -> Bool {
-        
         eventStore.checkAuthorizationStatus()
         return eventStore.calendarAuthorization
     }
@@ -37,7 +36,7 @@ class CalendarSettingViewModel {
     func isTimeValid(endTime: Date) -> Bool {
         let endOfDay = (appDelegate.gregorianCalendar as NSCalendar).date(era: 1, year: 1970, month: 1, day: 2, hour: 0, minute: 0, second: 0, nanosecond: 0)!
         if((endTime as NSDate).earlierDate(endOfDay) == endOfDay) {
-                return false
+            return false
         } else {
             return true
         }
@@ -279,12 +278,7 @@ class CalendarSettingViewModel {
     
     func fetchClasses (timetable: Timetables) -> [Classes] {
         print("fetchClasses/CalendarSettingViewModel")
-        let fetchRequest: NSFetchRequest<Classes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Classes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Classes")
-        }
+        let fetchRequest: NSFetchRequest<Classes> = Classes.fetchRequest()
         let predicate = NSPredicate(format: "timetables = %@", timetable)
         fetchRequest.predicate = predicate
         let classesSort = NSSortDescriptor(key: "indexPath", ascending: true)

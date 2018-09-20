@@ -37,12 +37,7 @@ class TableEditViewModel {
     
     func fetchCourseTimes(timetable: Timetables) -> [CourseTimes] {
         print("fetchCourseTimes/TableEditViewModel")
-        let fetchRequest: NSFetchRequest<CourseTimes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = CourseTimes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "CourseTimes")
-        }
+        let fetchRequest: NSFetchRequest<CourseTimes> = CourseTimes.fetchRequest()
         let predicate = NSPredicate(format: "timetables = %@", timetable)
         fetchRequest.predicate = predicate
         let indexDescriptor = NSSortDescriptor(key: "index", ascending: true)

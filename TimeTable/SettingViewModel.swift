@@ -30,12 +30,7 @@ class SettingViewModel {
     }
     
     func deleteAllTimetables(managedObjectContext: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<Timetables>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Timetables.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Timetables")
-        }
+        let fetchRequest: NSFetchRequest<Timetables> = Timetables.fetchRequest()
         do {
             let timetableObjects = try managedObjectContext.fetch(fetchRequest)
             for object in timetableObjects {
@@ -49,12 +44,7 @@ class SettingViewModel {
     }
     
     func deleteAllClasses(managedObjectContext: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<Classes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Classes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Classes")
-        }
+        let fetchRequest: NSFetchRequest<Classes> = Classes.fetchRequest()
         do {
             let classesObjects = try managedObjectContext.fetch(fetchRequest)
             for object in classesObjects {
@@ -68,12 +58,7 @@ class SettingViewModel {
     }
     
     func deleteAllCourseTimes(managedObjectContext: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<CourseTimes>
-        if #available(iOS 10.0, *) {
-            fetchRequest = CourseTimes.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "CourseTimes")
-        }
+        let fetchRequest: NSFetchRequest<CourseTimes> = CourseTimes.fetchRequest()
         do {
             let courseTimesObjects = try managedObjectContext.fetch(fetchRequest)
             for object in courseTimesObjects {
@@ -86,12 +71,7 @@ class SettingViewModel {
     }
     
     func deleteAllEvents(managedObjectContext: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<Events>
-        if #available(iOS 10.0, *) {
-        fetchRequest = Events.fetchRequest()
-        } else {
-        fetchRequest = NSFetchRequest(entityName: "Events")
-        }
+        let fetchRequest: NSFetchRequest<Events> = Events.fetchRequest()
         do {
             let eventsObjects = try managedObjectContext.fetch(fetchRequest)
             for object in eventsObjects {

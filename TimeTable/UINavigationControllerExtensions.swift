@@ -23,7 +23,6 @@ extension UINavigationController {
     
     
     func setColor() {
-        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let color = UIColor.themeColor(num: appDelegate.userDefaults.integer(forKey: "themaColor"))
         navigationBar.barTintColor = color

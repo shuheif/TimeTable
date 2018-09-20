@@ -37,7 +37,7 @@ class CopyViewController: WeekViewController {
         } else if (indexPath == copyIndexPath) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UsualCell", for: indexPath) as! UsualCell
             let ClassesObject: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
-            if(ClassesObject != nil) {
+            if (ClassesObject != nil) {
                 cell.cellSelected(color: ClassesObject!.color.intValue)
             }
             return cell
@@ -51,14 +51,14 @@ class CopyViewController: WeekViewController {
         if (copyIndexPath != nil) {
             let beforeCell = collectionView.cellForItem(at: copyIndexPath!) as! UsualCell
             let beforeClasses: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
-            if(beforeClasses != nil) {
+            if (beforeClasses != nil) {
                 beforeCell.makeCell(classes: beforeClasses!)
             }
         }
         copyIndexPath = indexPath
         let afterCell = collectionView.cellForItem(at: indexPath) as! UsualCell
         let afterClasses: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
-        if(afterClasses != nil) {
+        if (afterClasses != nil) {
             afterCell.cellSelected(color: Int(truncating: afterClasses!.color))
         }
         doneButton.isEnabled = true
@@ -66,7 +66,7 @@ class CopyViewController: WeekViewController {
     
     override func configureUsualCell (indexPath: IndexPath, usualCell: UsualCell) {
         let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: indexPath)
-        if(aClass != nil) {
+        if (aClass != nil) {
             usualCell.makeCell(classes: aClass!)
             usualCell.isUserInteractionEnabled = true
         } else {
@@ -81,7 +81,7 @@ class CopyViewController: WeekViewController {
         case "doneToDetailFromCopy":
             let controller = segue.destination as! DetailViewController
             let aClass: Classes? = classesAtIndexPath(classes: classes!, indexPath: copyIndexPath!)
-            if(aClass != nil) {
+            if (aClass != nil) {
                 controller.lessonNameField.text = aClass!.lessonName
                 controller.teacherNameField.text = aClass!.teacherName
                 controller.roomNameField.text = aClass!.roomName

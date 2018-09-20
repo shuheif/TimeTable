@@ -26,12 +26,7 @@ class TimeTableViewModel {
             return nil
         }
         print(uuid!)
-        let fetchRequest: NSFetchRequest<Timetables>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Timetables.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Timetables")
-        }
+        let fetchRequest: NSFetchRequest<Timetables> = Timetables.fetchRequest()
         let predicate = NSPredicate(format: "uniqueIdentifier = %@", uuid!)
         fetchRequest.predicate = predicate
         do {
@@ -57,12 +52,7 @@ class TimeTableViewModel {
             print("timetableName is empty./TimeTableViewModel fetchTimetableWith timetable")
             return nil
         }
-        let fetchRequest: NSFetchRequest<Timetables>
-        if #available(iOS 10.0, *) {
-            fetchRequest = Timetables.fetchRequest()
-        } else {
-            fetchRequest = NSFetchRequest(entityName: "Timetables")
-        }
+        let fetchRequest: NSFetchRequest<Timetables> = Timetables.fetchRequest()
         let predicate = NSPredicate(format: "timetableName = %@", timetableName!)
         fetchRequest.predicate = predicate
         do {
@@ -85,12 +75,7 @@ class TimeTableViewModel {
         if timetable == nil {
             return []
         } else {
-            let fetchRequest: NSFetchRequest<Classes>
-            if #available(iOS 10.0, *) {
-                fetchRequest = Classes.fetchRequest()
-            } else {
-                fetchRequest = NSFetchRequest(entityName: "Classes")
-            }
+            let fetchRequest: NSFetchRequest<Classes> = Classes.fetchRequest()
             let predicate = NSPredicate(format: "timetables = %@", timetable!)
             fetchRequest.predicate = predicate
             let classesSort = NSSortDescriptor(key: "indexPath", ascending: true)
@@ -112,12 +97,7 @@ class TimeTableViewModel {
         if timetable == nil {
             return []
         } else {
-            let fetchRequest: NSFetchRequest<CourseTimes>
-            if #available(iOS 10.0, *) {
-                fetchRequest = CourseTimes.fetchRequest()
-            } else {
-                fetchRequest = NSFetchRequest(entityName: "CourseTimes")
-            }
+            let fetchRequest: NSFetchRequest<CourseTimes> = CourseTimes.fetchRequest()
             let predicate = NSPredicate(format: "timetables = %@", timetable!)
             fetchRequest.predicate = predicate
             let indexDescriptor = NSSortDescriptor(key: "index", ascending: true)
