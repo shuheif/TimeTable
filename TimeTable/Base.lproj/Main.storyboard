@@ -48,7 +48,9 @@
                     <navigationItem key="navigationItem" id="SBL-rO-Gjf">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="GM6-iH-pyW">
                             <connections>
-                                <action selector="goEditButton:" destination="544-mn-EuD" id="kGB-fV-ICC"/>
+                                <segue destination="R8C-wN-jnd" kind="popoverPresentation" identifier="goEdit" popoverAnchorBarButtonItem="GM6-iH-pyW" id="5GX-ES-N6z">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -56,9 +58,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButton" destination="GM6-iH-pyW" id="9jV-kg-gTf"/>
-                        <segue destination="R8C-wN-jnd" kind="popoverPresentation" identifier="goEdit" popoverAnchorBarButtonItem="GM6-iH-pyW" id="eUS-ob-MpI">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                        </segue>
                         <segue destination="ctA-3O-Pug" kind="presentation" identifier="goDetail" modalPresentationStyle="formSheet" id="fLM-U5-dqY"/>
                     </connections>
                 </collectionViewController>

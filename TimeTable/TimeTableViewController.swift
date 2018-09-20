@@ -21,12 +21,6 @@ class TimeTableViewController: WeekViewController {
     var courseTimes: [CourseTimes] = []
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    @IBAction func goEditButton(_ sender: UIBarButtonItem) {
-        if timetable != nil {
-            performSegue(withIdentifier: "goEdit", sender: self)
-        }
-    }
-    
     @IBAction func saveToTimeTable (_ segue: UIStoryboardSegue) {
         updateUI()
     }
@@ -52,11 +46,7 @@ class TimeTableViewController: WeekViewController {
         collectionView?.emptyDataSetSource = self
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         
-        if timetable == nil {
-            editButton.isEnabled = false
-        } else {
-            editButton.isEnabled = true
-        }
+        editButton.isEnabled = (timetable != nil)
     }
     
     func updateUI() {
@@ -121,6 +111,15 @@ class TimeTableViewController: WeekViewController {
     }
     
     // MARK: - Navigation
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case "goEdit":
+            return (timetable != nil)
+        default:
+            return true
+        }
+    }
+    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "goDetail":
