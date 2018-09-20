@@ -31,41 +31,27 @@ class SettingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if appDelegate.alreadyPurchased {
-            upgradeCell.selectionStyle = .none
-        } else {
-            upgradeCell.selectionStyle = .default
-        }
+        upgradeCell.selectionStyle = appDelegate.alreadyPurchased ? .none : .default
         versionNameCell.detailTextLabel!.text = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             //サポートセクション
-            if indexPath.row == 0 {
-                //HomePage
-                let url = URL(string: "http://timetable.strikingly.com")!
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-                } else {
-                    // Fallback on earlier versions
-                    UIApplication.shared.openURL(url)
-                }
-            } else if indexPath.row == 1 {
-                //Facebook
-                let url = URL(string: "https://www.facebook.com/classscheduler")!
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-                } else {
-                    // Fallback on earlier versions
-                    UIApplication.shared.openURL(url)
-                }
-            } else if indexPath.row == 2 {
-                //AppStore
+            var url: URL?
+            switch indexPath.row {
+            case 0:
+                url = URL(string: "http://timetable.strikingly.com")!
+            case 1:
+                url = URL(string: "https://www.facebook.com/classscheduler")!
+            default:
+                //case 2
                 openAppStore()
             }
+            if url != nil {
+                UIApplication.shared.open(url!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            }
         } else if indexPath.section == 4 {
-            print("reset")
             //Alert
             let title = NSLocalizedString("deletingAll", comment: "")
             let message = NSLocalizedString("deletingAllMessage", comment: "")
@@ -73,7 +59,6 @@ class SettingViewController: UITableViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             let deleteAction = UIAlertAction(title: "Delete", style: .default, handler: { void in
-            
                 SVProgressHUD.setDefaultMaskType(.black)
                 SVProgressHUD.setMinimumDismissTimeInterval(1)
                 SVProgressHUD.show(withStatus: "Deleting")
@@ -83,7 +68,6 @@ class SettingViewController: UITableViewController {
                         SVProgressHUD.showSuccess(withStatus: "Deleted")
                         //Done alert
                         let doneMessage = NSLocalizedString("takingTimeMessage", comment: "")
-                        
                         let doneAlert = UIAlertController(title: nil, message: doneMessage, preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         doneAlert.addAction(okAction)
@@ -97,7 +81,6 @@ class SettingViewController: UITableViewController {
             
             //Done alert
             let doneMessage = NSLocalizedString("takingTimeMessage", comment: "")
-            
             let doneAlert = UIAlertController(title: nil, message: doneMessage, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             doneAlert.addAction(okAction)
@@ -105,19 +88,28 @@ class SettingViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    func openAppStore() {
-        let url: URL = URL(string: "https://itunes.apple.com/jp/app/timetable-shinpurude-shiiyasui/id981480777?mt=8")!
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        } else {
-            // Fallback on earlier versions
-            UIApplication.shared.openURL(url)
-        }
-    }
 }
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}
+
+
+extension SettingViewController: SKStoreProductViewControllerDelegate {
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        viewController.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func openAppStore() {
+        let storeProductViewController = SKStoreProductViewController()
+        storeProductViewController.delegate = self
+        let parameters = [SKStoreProductParameterITunesItemIdentifier: "981480777"]
+        storeProductViewController.loadProduct(withParameters: parameters, completionBlock: { (status, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+            }
+        })
+        self.present(storeProductViewController, animated: true, completion: nil)
+    }
 }
