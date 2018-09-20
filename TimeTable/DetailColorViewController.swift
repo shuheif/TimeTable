@@ -32,9 +32,7 @@ class DetailColorViewController: UICollectionViewController {
         let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as! ColorCell
         colorCell.makeCell(color: indexPath.row)
         colorCell.colorLabel.text = appDelegate.detailColors[indexPath.row]
-        if (indexPath.row == selectedColor) {
-            colorCell.checkView.isHidden = false
-        }
+        colorCell.checkView.isHidden = (indexPath.row != selectedColor)
         return colorCell
     }
     
