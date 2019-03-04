@@ -468,7 +468,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Ensembles/Ensembles.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -501,7 +501,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeTable/Pods-TimeTable-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8481B717CA73A9A7EDFB9A0B /* [CP] Check Pods Manifest.lock */ = {
@@ -792,7 +792,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TimeTable/TimeTable.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 5K4X8S8YSN;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -807,7 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.SFcreate.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b7e980c0-c8f8-44b7-aa3c-af5739c86484";
-				PROVISIONING_PROFILE_SPECIFIER = TimeTableDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = TimeTableDevelopment;
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
