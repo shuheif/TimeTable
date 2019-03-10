@@ -3,7 +3,7 @@
 "MSat" = "月-土";
 "MSun" = "月-日";
 //MenuView
-"MenuLabel" = "右上の+ボタンを押して\n時間割を作成してください";
+"MenuLabel" = "+ボタンを押して時間割を作成して下さい";
 "DeleteTableAlertTitle" = "時間割削除";
 "DeleteTableAlertMessage" = "一度削除すると戻せません";
 "CopyOf" = "%@のコピー";
@@ -24,7 +24,7 @@
 "Fri" = "金";
 "Sat" = "土";
 "Sun" = "日";
-"TimeTableEmpty" = "新しい時間割を作成してください。";
+"TimeTableEmpty" = "時間割を選択してください";
 
 //Detail View
 "DMon" = "月曜日";

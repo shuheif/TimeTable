@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import SCLAlertView//Premium Versionの宣伝のみに使用
-import DZNEmptyDataSet
 import NotificationBannerSwift
 
 class MenuViewController: UITableViewController {
@@ -27,10 +26,18 @@ class MenuViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.emptyDataSetSource = self
-        
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         navigationController?.toolbar.isHidden = false
+        self.tableView.backgroundView = setupEmptyBackgroundView()
+    }
+    
+    private func setupEmptyBackgroundView() -> UILabel {
+        let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        emptyLabel.text = NSLocalizedString("MenuLabel", comment: "右上の+ボタンを押して\n時間割を作成してください")
+        emptyLabel.textColor = UIColor.gray
+        emptyLabel.sizeToFit()
+        emptyLabel.textAlignment = .center
+        return emptyLabel
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +60,9 @@ class MenuViewController: UITableViewController {
     // MARK: - Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
+        let numberOfRows = sectionInfo.numberOfObjects
+        tableView.backgroundView?.isHidden = numberOfRows == 0 ? false : true
+        return numberOfRows
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -252,14 +261,5 @@ extension MenuViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
-    }
-}
-
-
-extension MenuViewController: DZNEmptyDataSetSource {
-    
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = NSLocalizedString("MenuLabel", comment: "右上の+ボタンを押して\n時間割を作成してください")
-        return NSAttributedString(string: text)
     }
 }

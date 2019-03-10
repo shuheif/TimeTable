@@ -10,6 +10,5 @@
 //#define Bridging_Header_h
 
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 //#endif /* Bridging_Header_h */

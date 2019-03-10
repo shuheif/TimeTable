@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import DZNEmptyDataSet
 
 class TimeTableViewController: WeekViewController {
     
@@ -43,10 +42,19 @@ class TimeTableViewController: WeekViewController {
         dateFormatter.dateFormat = "H:mm"
         weekDays = model.weekDays(now: Date())
         
-        collectionView?.emptyDataSetSource = self
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         
         editButton.isEnabled = (timetable != nil)
+        self.collectionView.backgroundView = setupEmptyDataLabel()
+    }
+    
+    private func setupEmptyDataLabel() -> UILabel {
+        let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        emptyLabel.text = NSLocalizedString("TimeTableEmpty", comment: "Select a schedule to show")
+        emptyLabel.textColor = UIColor.gray
+        emptyLabel.sizeToFit()
+        emptyLabel.textAlignment = .center
+        return emptyLabel
     }
     
     func updateUI() {
@@ -137,30 +145,16 @@ class TimeTableViewController: WeekViewController {
     }
     
     // MARK: - Utility
-    func configureTimeTableView() {
-        if timetable != nil {
-            self.title = timetable!.timetableName
-            showTime = timetable!.showTime
-            timeIsSet = timetable!.timeIsSet
-            //cell
-            if(showTime && !courseTimes.isEmpty) {
-                sider = 37
-            } else {
-                sider = 20
-            }
+    private func configureTimeTableView() {
+        if (timetable == nil) { return }
+        self.title = timetable!.timetableName
+        showTime = timetable!.showTime
+        timeIsSet = timetable!.timeIsSet
+        //cell
+        if(showTime && !courseTimes.isEmpty) {
+            sider = 37
+        } else {
+            sider = 20
         }
-    }
-}
-
-
-extension TimeTableViewController: DZNEmptyDataSetSource {
-    
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = NSLocalizedString("TimeTableEmpty", comment: "")
-        return NSAttributedString(string: text)
-    }
-    
-    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
-        return UIColor.white
     }
 }

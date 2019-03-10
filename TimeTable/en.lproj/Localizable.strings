@@ -4,7 +4,7 @@
 "MSun" = "Mon-Sun";
 
 //MenuView
-"MenuLabel" = "Push + button above \n to create new schedule.";
+"MenuLabel" = "Tap + button and add a new schedule";
 "DeleteTableAlertTitle" = "Delete semester";
 "DeleteTableAlertMessage" = "The chedule will not be restored.";
 "CopyOf" = "%@ alias";
@@ -25,7 +25,7 @@
 "Fri" = "F";
 "Sat" = "St";
 "Sun" = "Sn";
-"TimeTableEmpty" = "Create a new schedule.";
+"TimeTableEmpty" = "Select a schedule to show";
 
 //DetailView
 "DMon" = "Mon";
