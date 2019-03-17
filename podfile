@@ -14,6 +14,7 @@ pod 'Fabric', '~> 1.7.6'
 pod 'Crashlytics', '~> 3.10.1'
 pod 'Ensembles', '~> 1.0'
 pod 'NotificationBannerSwift'
+pod 'RealmSwift'
 end
 
 target 'TimeTableTests' do

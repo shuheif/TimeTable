@@ -95,6 +95,11 @@ PODS:
     - MarqueeLabel/Swift (~> 3.2.0)
     - SnapKit (~> 4.2.0)
   - Protobuf (3.7.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - SCLAlertView (0.8)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
@@ -108,6 +113,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Performance
   - NotificationBannerSwift
+  - RealmSwift
   - SCLAlertView
   - SVProgressHUD
 
@@ -133,6 +139,8 @@ SPEC REPOS:
     - nanopb
     - NotificationBannerSwift
     - Protobuf
+    - Realm
+    - RealmSwift
     - SCLAlertView
     - SnapKit
     - SVProgressHUD
@@ -158,10 +166,12 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8112de1a22d0d88cf1d6c40919f76a20cab4a065
+PODFILE CHECKSUM: 990101f1c48dddbbfdc4e350cd7cdc9b6b39f064
 
 COCOAPODS: 1.6.1
